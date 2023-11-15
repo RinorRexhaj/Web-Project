@@ -2,93 +2,155 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
-nav,
-main,
-footer {
-  width: 75%;
-  margin-left: 140px;
-  /* border: 2px solid red; */
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.bgPhoto {
-  background: url(bahamas.jpeg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+
+.banner {
+  width: 100%;
+  height: 600px;
+  background: url("./img/bg3.jpg") no-repeat bottom center/cover;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
 }
+
+header {
+  width: 100%;
+  height: 150px;
+  max-width: 1100px;
+  padding: 40px;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* fillimi navbarit */
 nav {
-  margin: 0 140px;
-  padding-top: 35px;
+  max-width: 700px;
   display: flex;
+  gap: 30px;
   align-items: center;
-  justify-content: space-between;
 }
+
 .company__name {
-  color: rgb(36, 169, 252);
+  color: rgb(242, 242, 242);
+  font-size: 22px;
   cursor: pointer;
 }
+
 .travel {
   color: rgb(96, 236, 120);
 }
-.pages {
-  width: 800px;
-  display: flex;
-  justify-content: space-around;
-}
+
 .links {
   text-decoration: none;
   color: white;
   padding: 10px 25px;
+  border-radius: 25px;
+  transition: all 0.2s;
+  font-weight: 600;
 }
+
 .links:hover {
   background-color: white;
-  border-radius: 25px;
-  transition: all 0.15s;
   color: #00a6ff;
 }
 
 /* fundi navbarit */
 
 /* fillimi main-it */
+
+main {
+  width: 100%;
+  max-width: 1000px;
+  justify-content: start;
+  /* border: 1px solid black; */
+}
+
 .search__holiday {
   width: 100%;
-  margin-top: 75px;
   display: flex;
   flex-direction: column;
   color: white;
-  float: left;
-  height: 600px;
+  height: 500px;
   /* border: 1px solid red; */
 }
+
 .search__holiday > h1 {
-  font-size: 100px;
+  font-size: 90px;
 }
+
 .search__holiday > h2 {
-  font-size: 33px;
+  font-size: 30px;
 }
+
 .search__holiday--inputs {
-  width: 40%;
+  width: 50%;
   margin-top: 25px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.search__holiday--inputs > input {
-  background-color: rgba(0, 150, 174, 0.5);
+
+.search,
+.date {
+  background-color: rgba(0, 109, 126, 0.5);
   /* background-color: #47b7cb; */
   border-radius: 3px;
   border: none;
   padding: 15px;
+  color: white;
 }
+
+.search > input::placeholder {
+  color: white;
+}
+
+.search > input:focus {
+  outline: none;
+}
+
+.date {
+  display: flex;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+.date > input::placeholder {
+  display: none;
+}
+
+.search__holiday--inputs > div > input {
+  background-color: transparent;
+  border-radius: 3px;
+  border: none;
+  padding: 15px;
+  color: white;
+}
+
 .search__holiday--inputs > input::placeholder {
   color: white;
 }
+
 .only__for--btnColor {
   background: white;
   border-radius: 3px;
   text-align: center;
 }
+
 .search__holiday--button {
   border: none;
   padding: 15px;
