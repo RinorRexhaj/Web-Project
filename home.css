@@ -1,0 +1,144 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+nav,
+main,
+footer {
+  width: 75%;
+  margin-left: 140px;
+  /* border: 2px solid red; */
+}
+.bgPhoto {
+  background: url(bahamas.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+/* fillimi navbarit */
+nav {
+  margin: 0 140px;
+  padding-top: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.company__name {
+  color: rgb(36, 169, 252);
+  cursor: pointer;
+}
+.travel {
+  color: rgb(96, 236, 120);
+}
+.pages {
+  width: 800px;
+  display: flex;
+  justify-content: space-around;
+}
+.links {
+  text-decoration: none;
+  color: white;
+  padding: 10px 25px;
+}
+.links:hover {
+  background-color: white;
+  border-radius: 25px;
+  transition: all 0.15s;
+  color: #00a6ff;
+}
+
+/* fundi navbarit */
+
+/* fillimi main-it */
+.search__holiday {
+  width: 100%;
+  margin-top: 75px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  float: left;
+  height: 600px;
+  /* border: 1px solid red; */
+}
+.search__holiday > h1 {
+  font-size: 100px;
+}
+.search__holiday > h2 {
+  font-size: 33px;
+}
+.search__holiday--inputs {
+  width: 40%;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.search__holiday--inputs > input {
+  background-color: rgba(0, 150, 174, 0.5);
+  /* background-color: #47b7cb; */
+  border-radius: 3px;
+  border: none;
+  padding: 15px;
+}
+.search__holiday--inputs > input::placeholder {
+  color: white;
+}
+.only__for--btnColor {
+  background: white;
+  border-radius: 3px;
+  text-align: center;
+}
+.search__holiday--button {
+  border: none;
+  padding: 15px;
+  font-weight: 700;
+  background: linear-gradient(to right, #00ff88, #00a6ff, #00a6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+.bora__bora {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  font-size: 35px;
+  width: 100%;
+  /* border: 1px solid red; */
+  gap: 10px;
+}
+
+.search__borabora {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
+.bora__bora > hr {
+  height: 1.5px;
+  border: none;
+  background-color: white;
+}
+.travel__planning {
+  /* border: 1px solid red; */
+}
+.travel__planning--labels > * {
+  cursor: pointer;
+  padding: 7px 25px;
+  border: 1px solid grey;
+  background: white;
+}
+.travel__planning--labels > *:hover {
+  color: #00a6ff;
+  border: 1px solid #00a6ff;
+}
+.travel__planning--informations {
+  display: flex;
+}
+.travel__planning--informations > input,
+label {
+  display: block;
+}
+.travel__planning--icons > i {
+  color: #00a6ff;
+}
