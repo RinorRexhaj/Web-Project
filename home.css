@@ -14,7 +14,7 @@ body {
 
 .banner {
   width: 100%;
-  height: 600px;
+  height: 900px;
   background: url("./img/bg3.jpg") no-repeat bottom center/cover;
   display: flex;
   flex-direction: column;
@@ -66,14 +66,15 @@ nav {
 }
 
 /* fundi navbarit */
+/* -------------------------------------------- */
 
-/* fillimi main-it */
+/* search holiday section */
 
 main {
   width: 100%;
   max-width: 1000px;
   justify-content: start;
-  /* border: 1px solid black; */
+  /* border: 1px solid red; */
 }
 
 .search__holiday {
@@ -123,8 +124,8 @@ main {
   display: flex;
 }
 
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
+input[type="text"]::-webkit-inner-spin-button,
+input[type="text"]::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;
 }
@@ -160,6 +161,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   -webkit-text-fill-color: transparent;
   cursor: pointer;
 }
+
 .bora__bora {
   display: flex;
   flex-direction: column;
@@ -176,31 +178,241 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   align-items: center;
   font-size: 20px;
 }
+
 .bora__bora > hr {
   height: 1.5px;
   border: none;
   background-color: white;
 }
+/* end of search holiday section */
+
+/* ------------------------------------------- */
+
+/* travel planning section */
 .travel__planning {
+  position: absolute;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: -100px;
   /* border: 1px solid red; */
+  background: white;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
 }
+
+.travel__planning > * {
+  /* border: 1px solid red; */
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+}
+
+.travel__planning--labels {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+
 .travel__planning--labels > * {
   cursor: pointer;
-  padding: 7px 25px;
+  padding: 10px 25px;
   border: 1px solid grey;
   background: white;
+  width: 150px;
 }
+
 .travel__planning--labels > *:hover {
   color: #00a6ff;
   border: 1px solid #00a6ff;
 }
+
 .travel__planning--informations {
   display: flex;
+  justify-content: space-between;
 }
+
+.where__to {
+  position: relative;
+  display: inline-block;
+}
+
+.where__to > input {
+  width: 225px;
+}
+
+.where__to i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translate(-50%);
+}
+
+.where__to > input::placeholder {
+  padding-left: 30px;
+}
+
 .travel__planning--informations > input,
 label {
   display: block;
 }
-.travel__planning--icons > i {
+
+.travel__planning--informations > button {
+  border: none;
+  padding: 10px 35px;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  background: linear-gradient(to right, #20bf55, #01baef);
+}
+
+.travel__planning--icons {
+  margin: 50px 0;
+  color: #00a6ff;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.dots__icon {
+  display: flex;
+  gap: 15px;
+  font-size: 8px;
+}
+
+.informations__input {
+  padding: 5px 0 5px 10px;
+}
+
+.dicover__destinations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.dicover__destinations > a {
+  text-decoration: none;
   color: #00a6ff;
 }
+
+.travel__planning--links {
+  display: flex;
+  justify-content: space-evenly;
+  transition: all 1.5s;
+}
+
+.travel__planning--links > * {
+  text-decoration: none;
+  color: black;
+}
+
+.travel__planning--links > *:hover {
+  border-bottom: 1.4px solid black;
+}
+
+.travel__planning--images {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 10px;
+}
+
+.travel__planning--images > * {
+  height: 300px;
+  display: block;
+}
+
+.newYork {
+  width: 59%;
+}
+.sydney {
+  width: 39%;
+}
+.paris {
+  width: 39%;
+}
+.tokyo {
+  width: 59%;
+}
+.oslo {
+  width: 99%;
+}
+
+.image__container {
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 59%;
+  height: 300px;
+  color: white;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Adjust the overlay color and transparency */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  gap: 10px;
+}
+
+.image__container:hover .overlay {
+  opacity: 1;
+}
+
+.overlay__newYork > hr {
+  height: 1px;
+  background: white;
+  width: 20%;
+}
+.city__search {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  /* border: 1px solid red; */
+  margin-top: 40px;
+}
+
+.city__search > div {
+  display: flex;
+  align-items: center;
+}
+
+.see__deals {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  gap: 15px;
+}
+
+.overlay__sydney {
+  width: 39%;
+}
+.overlay__paris {
+  width: 39%;
+}
+.overlay__tokyo {
+  width: 59%;
+}
+.overlay__oslo {
+  width: 99%;
+}
+/*end of travel planning section */
+/* ---------------------------------------- */
