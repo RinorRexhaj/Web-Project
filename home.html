@@ -25,7 +25,7 @@
       <header>
         <div class="company__name">
           <h2>Dunhill</h2>
-          <span class="travel"><b>Travel</b></span>
+          <span class="travel_title"><b>Travel</b></span>
           <b>Deals</b>
         </div>
         <nav>
@@ -39,18 +39,32 @@
       <main>
         <!-- search holiday -->
         <div class="search__holiday">
-          <h1>Explore</h1>
-          <h2>The World</h2>
+          <div class="search__holidays">
+            <h1>Explore</h1>
+            <h2>The World</h2>
+          </div>
           <div class="search__holiday--inputs">
             <div class="search">
-              <i class="fa-solid fa-earth-americas"></i>
+              <i class="fa-solid fa-earth-americas fa-xl"></i>
               <input type="search" placeholder="Your Destination or Hotel" />
             </div>
             <div class="date">
-              <label for="d1">Check In</label>
-              <input type="date" name="d1" />
-              <label for="d2">Check Out</label>
-              <input type="date" name="d2" />
+              <i class="fa-solid fa-calendar fa-xl"></i>
+              <input
+                type="text"
+                name="d1"
+                placeholder="Check In"
+                onfocus="(this.type='date')"
+                onblur="(this.type='text')"
+              />
+              -
+              <input
+                type="text"
+                name="d2"
+                placeholder="Check Out"
+                onfocus="(this.type='date')"
+                onblur="(this.type='text')"
+              />
             </div>
             <div class="only__for--btnColor">
               <button class="search__holiday--button">
@@ -62,230 +76,234 @@
             <p>Bora Bora</p>
             <div class="search__borabora">
               <p>MATIRA BEACH</p>
-              <p>GET THERE <i class="fas fa-thin fa-angle-right"></i></p>
+              <button>
+                GET THERE <i class="fas fa-thin fa-angle-right"></i>
+              </button>
             </div>
             <hr />
           </div>
         </div>
 
         <!-- travel planning -->
-        <div class="travel__planning">
-          <div class="travel__planning--labels">
-            <button>HOLIDAY</button>
-            <button>HOTELS ONLY</button>
-            <button>FLYDRIVE</button>
-            <button>CAR HIRE</button>
-            <button>CRUISE</button>
-            <button>TOURS</button>
-          </div>
-          <div class="travel__planning--informations">
-            <div class="where__to">
-              <label for="whereTo">Where to? </label>
-              <i class="fas fa-globe"></i>
-              <input
-                type="text"
-                name="whereTo"
-                placeholder="New York,USA"
-                class="informations__input"
-              />
+        <div class="travel">
+          <div class="travel__planning">
+            <div class="travel__planning--labels">
+              <button class="selected">HOLIDAY</button>
+              <button>HOTELS ONLY</button>
+              <button>FLYDRIVE</button>
+              <button>CAR HIRE</button>
+              <button>CRUISE</button>
+              <button>TOURS</button>
             </div>
-            <div>
-              <label for="FlyingFrom">Flying from </label>
-              <input
-                type="text"
-                name="FlyingFrom"
-                placeholder="London"
-                class="informations__input"
-              />
+            <div class="travel__planning--informations">
+              <div class="where__to">
+                <label for="whereTo">Where to? </label>
+                <i class="fas fa-globe"></i>
+                <input
+                  type="text"
+                  name="whereTo"
+                  placeholder="New York,USA"
+                  class="informations__input"
+                />
+              </div>
+              <div>
+                <label for="FlyingFrom">Flying from </label>
+                <input
+                  type="text"
+                  name="FlyingFrom"
+                  placeholder="London"
+                  class="informations__input"
+                />
+              </div>
+              <div>
+                <label for="when">When? </label>
+                <input
+                  type="text"
+                  name="when"
+                  placeholder="Tue,30 Oct 2016"
+                  class="informations__input"
+                />
+              </div>
+              <div>
+                <label for="long">For how long? </label>
+                <input
+                  type="text"
+                  name="long"
+                  placeholder="7 nights"
+                  class="informations__input"
+                />
+              </div>
+              <button>FIND A HOLIDAY</button>
             </div>
-            <div>
-              <label for="when">When? </label>
-              <input
-                type="text"
-                name="when"
-                placeholder="Tue,30 Oct 2016"
-                class="informations__input"
-              />
+            <div class="travel__planning--icons">
+              <div class="dots__icon">
+                <i class="fas fa-circle"></i>
+                <i class="fas fa-circle"></i>
+                <i class="fas fa-circle"></i>
+                <i class="fas fa-circle"></i>
+                <i class="fas fa-circle"></i>
+                <i class="fas fa-circle"></i>
+              </div>
+
+              <i class="fas fa-plane-departure fa-2x"></i>
             </div>
-            <div>
-              <label for="long">For how long? </label>
-              <input
-                type="text"
-                name="long"
-                placeholder="7 nights"
-                class="informations__input"
-              />
+            <div class="dicover__destinations">
+              <h1>START YOUR TRAVEL PLANNING HERE</h1>
+              <a href="">DISCOVER OUR TOP DESTINATIONS</a>
             </div>
-            <button>FIND A HOLIDAY</button>
-          </div>
-          <div class="travel__planning--icons">
-            <div class="dots__icon">
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
-              <i class="fas fa-circle"></i>
+            <div class="travel__planning--links">
+              <a href="">WORLWIDE</a>
+              <a href="">POPULAR</a>
+              <a href="">EXOTIC</a>
+              <a href="">SPECIAL OFFERS</a>
             </div>
 
-            <i class="fas fa-plane-departure fa-2x"></i>
-          </div>
-          <div class="dicover__destinations">
-            <h1>START YOUR TRAVEL PLANNING HERE</h1>
-            <a href="">DISCOVER OUR TOP DESTINATIONS</a>
-          </div>
-          <div class="travel__planning--links">
-            <a href="">WORLWIDE</a>
-            <a href="">POPULAR</a>
-            <a href="">EXOTIC</a>
-            <a href="">SPECIAL OFFERS</a>
-          </div>
-
-          <!-- images of travel planning section -->
-          <div class="travel__planning--images">
-            <!-- new york image -->
-            <div class="image__container">
-              <img src="img/newYork.jpeg" alt="" class="newYork" />
-              <div class="overlay overlay__newYork">
-                <h2>NEW YORK</h2>
-                <hr />
-                <div class="city__search">
-                  <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <p>Find Hotels</p>
+            <!-- images of travel planning section -->
+            <div class="travel__planning--images">
+              <!-- new york image -->
+              <div class="image__container">
+                <img src="img/newYork.jpeg" alt="" class="newYork" />
+                <div class="overlay overlay__newYork">
+                  <h2>NEW YORK</h2>
+                  <hr />
+                  <div class="city__search">
+                    <div>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <p>Find Hotels</p>
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <p>Find Flights</p>
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <p>Find cars</p>
+                    </div>
                   </div>
-                  <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <p>Find Flights</p>
-                  </div>
-                  <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <p>Find cars</p>
+                  <div class="see__deals">
+                    <p>SEE DEALS</p>
+                    <i class="fas fa-thin fa-angle-right"></i>
                   </div>
                 </div>
-                <div class="see__deals">
-                  <p>SEE DEALS</p>
-                  <i class="fas fa-thin fa-angle-right"></i>
+              </div>
+
+              <!-- sydney image -->
+              <div class="image__container">
+                <img src="img/sydney.webp" alt="" class="sydney" />
+                <div class="overlay overlay__sydney">
+                  <h2>SYDNEY</h2>
+                  <hr />
+
+                  <div class="city__search">
+                    <div>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <p>Find Hotels</p>
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <p>Find Flights</p>
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <p>Find cars</p>
+                    </div>
+                  </div>
+                  <div class="see__deals">
+                    <p>SEE DEALS</p>
+                    <i class="fas fa-thin fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- paris image -->
+
+              <div class="image__container">
+                <img src="img/paris.jpg" alt="" class="paris" />
+                <div class="overlay overlay__paris">
+                  <h2>PARIS</h2>
+                  <hr />
+
+                  <div class="city__search">
+                    <div>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <p>Find Hotels</p>
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <p>Find Flights</p>
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <p>Find cars</p>
+                    </div>
+                  </div>
+                  <div class="see__deals">
+                    <p>SEE DEALS</p>
+                    <i class="fas fa-thin fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- tokyo image -->
+
+              <div class="image__container">
+                <img src="img/tokyo.webp" alt="" class="tokyo" />
+                <div class="overlay overlay__tokyo">
+                  <h2>TOKYO</h2>
+                  <hr />
+
+                  <div class="city__search">
+                    <div>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <p>Find Hotels</p>
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <p>Find Flights</p>
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <p>Find cars</p>
+                    </div>
+                  </div>
+                  <div class="see__deals">
+                    <p>SEE DEALS</p>
+                    <i class="fas fa-thin fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- oslo image -->
+
+              <div class="image__container">
+                <img src="img/oslo.jpeg" alt="" class="oslo" />
+                <div class="overlay overlay__oslo">
+                  <h2>OSLO</h2>
+                  <hr />
+
+                  <div class="city__search">
+                    <div>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <p>Find Hotels</p>
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <p>Find Flights</p>
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <p>Find cars</p>
+                    </div>
+                  </div>
+                  <div class="see__deals">
+                    <p>SEE DEALS</p>
+                    <i class="fas fa-thin fa-angle-right"></i>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <!-- sydney image -->
-            <div class="image__container">
-              <img src="img/sydney.webp" alt="" class="sydney" />
-              <div class="overlay overlay__sydney">
-                <h2>SYDNEY</h2>
-                <hr />
-
-                <div class="city__search">
-                  <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <p>Find Hotels</p>
-                  </div>
-                  <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <p>Find Flights</p>
-                  </div>
-                  <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <p>Find cars</p>
-                  </div>
-                </div>
-                <div class="see__deals">
-                  <p>SEE DEALS</p>
-                  <i class="fas fa-thin fa-angle-right"></i>
-                </div>
-              </div>
-            </div>
-
-            <!-- paris image -->
-
-            <div class="image__container">
-              <img src="img/paris.jpg" alt="" class="paris" />
-              <div class="overlay overlay__paris">
-                <h2>PARIS</h2>
-                <hr />
-
-                <div class="city__search">
-                  <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <p>Find Hotels</p>
-                  </div>
-                  <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <p>Find Flights</p>
-                  </div>
-                  <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <p>Find cars</p>
-                  </div>
-                </div>
-                <div class="see__deals">
-                  <p>SEE DEALS</p>
-                  <i class="fas fa-thin fa-angle-right"></i>
-                </div>
-              </div>
-            </div>
-
-            <!-- tokyo image -->
-
-            <div class="image__container">
-              <img src="img/tokyo.webp" alt="" class="tokyo" />
-              <div class="overlay overlay__tokyo">
-                <h2>TOKYO</h2>
-                <hr />
-
-                <div class="city__search">
-                  <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <p>Find Hotels</p>
-                  </div>
-                  <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <p>Find Flights</p>
-                  </div>
-                  <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <p>Find cars</p>
-                  </div>
-                </div>
-                <div class="see__deals">
-                  <p>SEE DEALS</p>
-                  <i class="fas fa-thin fa-angle-right"></i>
-                </div>
-              </div>
-            </div>
-
-            <!-- oslo image -->
-
-            <div class="image__container">
-              <img src="img/oslo.jpeg" alt="" class="oslo" />
-              <div class="overlay overlay__oslo">
-                <h2>OSLO</h2>
-                <hr />
-
-                <div class="city__search">
-                  <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <p>Find Hotels</p>
-                  </div>
-                  <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <p>Find Flights</p>
-                  </div>
-                  <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <p>Find cars</p>
-                  </div>
-                </div>
-                <div class="see__deals">
-                  <p>SEE DEALS</p>
-                  <i class="fas fa-thin fa-angle-right"></i>
-                </div>
-              </div>
-            </div>
+            <button>VIEW MORE</button>
           </div>
-          <button>VIEW MORE</button>
         </div>
         <!-- end of travel planning -->
       </main>
