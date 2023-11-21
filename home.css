@@ -188,6 +188,7 @@ input[type="text"]::-webkit-calendar-picker-indicator {
   font-weight: 700;
   background: linear-gradient(to right, #00ff88, #00a6ff, #00a6ff);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   cursor: pointer;
 }
@@ -199,6 +200,7 @@ input[type="text"]::-webkit-calendar-picker-indicator {
 .search__holiday--button:hover {
   background: white;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   cursor: pointer;
 }
@@ -251,6 +253,7 @@ input[type="text"]::-webkit-calendar-picker-indicator {
 
 /* travel planning section */
 .travel {
+  position: relative;
   width: 100%;
   background: #000;
   margin: auto;
