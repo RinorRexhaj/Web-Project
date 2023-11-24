@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 body {
@@ -23,8 +23,13 @@ button {
   background: url("./img/bg3.jpg") no-repeat bottom center/cover;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 50px;
   align-items: center;
+}
+
+.banner > * {
+  max-width: 1000px;
+  margin: auto;
 }
 
 header {
@@ -75,28 +80,13 @@ nav {
 
 /* search holiday section */
 
-main {
-  position: relative;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 90px;
-  /* border: 1px solid red; */
-}
-
-main > * {
-  margin: auto;
-  max-width: 1000px;
-  /* border: 1px solid black; */
-}
-
 .search__holiday {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: white;
-  gap: 10px;
+  gap: 30px;
   /* height: 500px; */
   /* border: 1px solid red; */
 }
@@ -131,10 +121,12 @@ input[type="search"]::-webkit-search-results-decoration {
   border: none;
   padding: 10px 15px;
   color: white;
+  transition: 0.3s all;
 }
 
 .search > input {
   font-size: 15px;
+  width: 90%;
 }
 
 .search > input::placeholder {
@@ -154,12 +146,6 @@ input[type="search"]::-webkit-search-results-decoration {
   outline: none;
   border: none;
 }
-/* 
-input[type="text"]::-webkit-inner-spin-button,
-input[type="text"]::-webkit-calendar-picker-indicator {
-  display: none;
-  -webkit-appearance: none;
-} */
 
 .date > input::placeholder {
   color: rgb(242, 242, 242);
@@ -171,6 +157,10 @@ input[type="text"]::-webkit-calendar-picker-indicator {
   border: none;
   padding: 10px;
   color: white;
+}
+
+.search__holiday--inputs > div:focus-within {
+  background: rgba(10, 53, 91, 0.8);
 }
 
 .only__for--btnColor {
@@ -214,7 +204,7 @@ input[type="text"]::-webkit-calendar-picker-indicator {
   letter-spacing: 1.8px;
   padding-bottom: 20px;
   /* border: 1px solid red; */
-  gap: 5px;
+  gap: 10px;
 }
 
 .search__borabora {
@@ -250,22 +240,21 @@ input[type="text"]::-webkit-calendar-picker-indicator {
 /* end of search holiday section */
 
 /* ------------------------------------------- */
-
-/* travel planning section */
-.travel {
+main {
   position: relative;
+  padding: 50px;
   width: 100%;
-  background: #000;
-  margin: auto;
-  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
 }
 
+/* travel planning section */
 .travel__planning {
-  position: absolute;
-  /* width: calc(100% + 100px); */
-  max-width: 1200px;
+  max-width: 1000px;
   padding: 0 40px;
-  left: -50px;
+  border-radius: 3px;
   /* border: 1px solid red; */
   background: white;
   display: flex;
@@ -284,7 +273,7 @@ input[type="text"]::-webkit-calendar-picker-indicator {
 }
 
 .travel__planning--labels {
-  margin-top: 30px;
+  /* margin-top: 30px; */
   display: flex;
   gap: 20px;
 }
@@ -295,6 +284,7 @@ input[type="text"]::-webkit-calendar-picker-indicator {
   border: 1px solid grey;
   background: white;
   width: 150px;
+  transition: 0.15s all;
 }
 
 .selected {
@@ -303,8 +293,9 @@ input[type="text"]::-webkit-calendar-picker-indicator {
 }
 
 .travel__planning--labels > *:hover {
-  color: #00a6ff;
+  color: white;
   border: 1px solid #00a6ff;
+  background: #00a6ff;
 }
 
 .travel__planning--informations {
