@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Lato", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 body {
@@ -253,7 +253,7 @@ main {
 /* travel planning section */
 .travel__planning {
   max-width: 1000px;
-  padding: 0 40px;
+  padding: 30px 40px;
   border-radius: 3px;
   /* border: 1px solid red; */
   background: white;
@@ -261,7 +261,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 60px;
 }
 
 .travel__planning > * {
@@ -270,6 +270,12 @@ main {
   max-width: 1000px;
   display: flex;
   justify-content: center;
+}
+
+.travel__planning--label-info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .travel__planning--labels {
@@ -300,41 +306,56 @@ main {
 
 .travel__planning--informations {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
-.where__to {
-  position: relative;
-  display: inline-block;
+.travel__planning--informations > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.where__to > input {
-  width: 225px;
+.travel__planning--informations > div > div {
+  display: flex;
+  gap: 5px;
+  padding: 8px;
+  border: 1px solid gray;
 }
 
-.where__to i {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translate(-50%);
+.travel__planning--informations > div > div > input {
+  width: 100%;
+  border: none;
+  outline: none;
 }
 
-.where__to > input::placeholder {
-  padding-left: 30px;
-}
-
-.travel__planning--informations > input,
-label {
-  display: block;
+.travel__planning--informations > div > div > select {
+  width: 100%;
+  border: none;
+  outline: none;
 }
 
 .travel__planning--informations > button {
+  margin-top: 15px;
   border: none;
-  padding: 10px 35px;
+  width: 750px;
+  height: 50px;
   color: white;
   cursor: pointer;
-  border-radius: 3px;
-  background: linear-gradient(to right, #20bf55, #01baef);
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  border-radius: 2px;
+  background: linear-gradient(to right, #20bf75, #01baef);
+  transition: 0.4s all;
+}
+
+.travel__planning--informations > button:hover {
+  background: white;
+  color: #00a6ff;
+  outline: 2px solid #01baef;
+  cursor: pointer;
 }
 
 .travel__planning--icons {
@@ -374,53 +395,60 @@ label {
   transition: all 1.5s;
 }
 
-.travel__planning--links > * {
+.travel__planning--links > a {
+  width: 120px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
+  padding: 10px;
+  font-weight: 500;
   color: black;
+  transition: 0.2s all;
+  border-bottom: 0px solid #00a6ff;
 }
 
-.travel__planning--links > *:hover {
-  border-bottom: 1.4px solid black;
+.travel__planning--links > a:hover {
+  color: #00a6ff;
+  border-bottom: 1px solid #00a6ff;
 }
 
 .travel__planning--images {
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 520px;
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
   gap: 10px;
-}
-
-.travel__planning--images > * {
-  height: 300px;
-  display: block;
-}
-
-.newYork {
-  width: 59%;
-}
-.sydney {
-  width: 39%;
-}
-.paris {
-  width: 39%;
-}
-.tokyo {
-  width: 59%;
-}
-.oslo {
-  width: 99%;
+  overflow: hidden;
 }
 
 .image__container {
   position: relative;
-  overflow: hidden;
+  width: 450px;
+  height: 250px;
 }
+
+.image__container:hover {
+  cursor: pointer;
+}
+
+.image__container > img {
+  width: 100%;
+  height: 100%;
+}
+
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 59%;
-  height: 300px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: white;
   background: rgba(
     0,
@@ -428,35 +456,40 @@ label {
     0,
     0.5
   ); /* Adjust the overlay color and transparency */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  gap: 10px;
+  transition: 0.3s ease-in-out;
+  gap: 50px;
 }
 
 .image__container:hover .overlay {
   opacity: 1;
 }
 
-.overlay__newYork > hr {
+.overlay > .title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay > .title > span {
   height: 1px;
   background: white;
-  width: 20%;
+  width: 150px;
 }
+
 .city__search {
+  width: 80%;
   display: flex;
   justify-content: space-between;
-  width: 60%;
-  /* border: 1px solid red; */
-  margin-top: 40px;
 }
 
 .city__search > div {
   display: flex;
   align-items: center;
+  gap: 7px;
+  transition: 0.2s all;
 }
 
 .see__deals {
@@ -467,19 +500,30 @@ label {
   right: 0;
   padding: 10px;
   gap: 15px;
+  transition: 0.2s all;
 }
 
-.overlay__sydney {
-  width: 39%;
+.city__search > div:hover,
+.see__deals:hover {
+  color: #00c3ff;
 }
-.overlay__paris {
-  width: 39%;
+
+.view__more {
+  cursor: pointer;
+  padding: 10px 25px;
+  border: 1px solid #00a6ff;
+  color: #00a6ff;
+  font-weight: 500;
+  background: white;
+  width: 150px;
+  transition: 0.2s all;
 }
-.overlay__tokyo {
-  width: 59%;
+
+.view__more:hover {
+  color: white;
+  border: 1px solid #00a6ff;
+  background: #00a6ff;
 }
-.overlay__oslo {
-  width: 99%;
-}
+
 /*end of travel planning section */
 /* ---------------------------------------- */

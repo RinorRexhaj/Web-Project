@@ -88,53 +88,51 @@
       <!-- travel planning -->
       <div class="travel__planning">
         <h1>CHOOSE YOUR TRAVEL METHOD</h1>
-        <div class="travel__planning--labels">
-          <button class="selected">HOLIDAY</button>
-          <button>HOTEL ONLY</button>
-          <button>FLYDRIVE</button>
-          <button>CAR HIRE</button>
-          <button>CRUISE</button>
-          <button>TOURS</button>
-        </div>
-        <div class="travel__planning--informations">
-          <div class="where__to">
-            <label for="whereTo">Where to? </label>
-            <i class="fas fa-globe"></i>
-            <input
-              type="text"
-              name="whereTo"
-              placeholder="New York,USA"
-              class="informations__input"
-            />
+        <div class="travel__planning--label-info">
+          <div class="travel__planning--labels">
+            <button class="selected">HOLIDAY</button>
+            <button>HOTEL ONLY</button>
+            <button>FLYDRIVE</button>
+            <button>CAR HIRE</button>
+            <button>CRUISE</button>
+            <button>TOURS</button>
           </div>
-          <div>
-            <label for="FlyingFrom">Flying from </label>
-            <input
-              type="text"
-              name="FlyingFrom"
-              placeholder="London"
-              class="informations__input"
-            />
+          <div class="travel__planning--informations">
+            <div class="where_to">
+              <p>Where to?</p>
+              <div>
+                <i class="fa-solid fa-globe"></i>
+                <input type="text" placeholder="Your destination..." />
+              </div>
+            </div>
+            <div class="where_to">
+              <p>Flying from</p>
+              <div>
+                <input type="text" placeholder="Your departure..." />
+              </div>
+            </div>
+            <div class="where_to">
+              <p>When?</p>
+              <div>
+                <input type="date" placeholder="The start..." />
+              </div>
+            </div>
+            <div class="where_to">
+              <p>For how long?</p>
+              <div>
+                <select name="nights" id="nights">
+                  <option value="1" selected>1 night</option>
+                  <option value="2">2 nights</option>
+                  <option value="3">3 nights</option>
+                  <option value="4">4 nights</option>
+                  <option value="5">5 nights</option>
+                  <option value="6">6 nights</option>
+                  <option value="7">7 nights</option>
+                </select>
+              </div>
+            </div>
+            <button>FIND A HOLIDAY</button>
           </div>
-          <div>
-            <label for="when">When? </label>
-            <input
-              type="text"
-              name="when"
-              placeholder="Tue,30 Oct 2016"
-              class="informations__input"
-            />
-          </div>
-          <div>
-            <label for="long">For how long? </label>
-            <input
-              type="text"
-              name="long"
-              placeholder="7 nights"
-              class="informations__input"
-            />
-          </div>
-          <button>FIND A HOLIDAY</button>
         </div>
         <div class="travel__planning--icons">
           <div class="dots__icon">
@@ -156,7 +154,7 @@
           <a href="">WORLWIDE</a>
           <a href="">POPULAR</a>
           <a href="">EXOTIC</a>
-          <a href="">SPECIAL OFFERS</a>
+          <a href="">SPECIAL</a>
         </div>
 
         <!-- images of travel planning section -->
@@ -165,8 +163,10 @@
           <div class="image__container">
             <img src="img/newYork.jpeg" alt="" class="newYork" />
             <div class="overlay overlay__newYork">
-              <h2>NEW YORK</h2>
-              <hr />
+              <div class="title">
+                <h2>NEW YORK</h2>
+                <span></span>
+              </div>
               <div class="city__search">
                 <div>
                   <i class="fa-solid fa-magnifying-glass"></i>
@@ -192,9 +192,10 @@
           <div class="image__container">
             <img src="img/sydney.webp" alt="" class="sydney" />
             <div class="overlay overlay__sydney">
-              <h2>SYDNEY</h2>
-              <hr />
-
+              <div class="title">
+                <h2>SYDNEY</h2>
+                <span></span>
+              </div>
               <div class="city__search">
                 <div>
                   <i class="fa-solid fa-magnifying-glass"></i>
@@ -221,9 +222,10 @@
           <div class="image__container">
             <img src="img/paris.jpg" alt="" class="paris" />
             <div class="overlay overlay__paris">
-              <h2>PARIS</h2>
-              <hr />
-
+              <div class="title">
+                <h2>PARIS</h2>
+                <span></span>
+              </div>
               <div class="city__search">
                 <div>
                   <i class="fa-solid fa-magnifying-glass"></i>
@@ -250,9 +252,10 @@
           <div class="image__container">
             <img src="img/tokyo.webp" alt="" class="tokyo" />
             <div class="overlay overlay__tokyo">
-              <h2>TOKYO</h2>
-              <hr />
-
+              <div class="title">
+                <h2>TOKYO</h2>
+                <span></span>
+              </div>
               <div class="city__search">
                 <div>
                   <i class="fa-solid fa-magnifying-glass"></i>
@@ -279,9 +282,10 @@
           <div class="image__container">
             <img src="img/oslo.jpeg" alt="" class="oslo" />
             <div class="overlay overlay__oslo">
-              <h2>OSLO</h2>
-              <hr />
-
+              <div class="title">
+                <h2>OSLO</h2>
+                <span></span>
+              </div>
               <div class="city__search">
                 <div>
                   <i class="fa-solid fa-magnifying-glass"></i>
@@ -303,7 +307,7 @@
             </div>
           </div>
         </div>
-        <button>VIEW MORE</button>
+        <button class="view__more">VIEW MORE</button>
       </div>
       <!-- end of travel planning -->
     </main>
