@@ -36,7 +36,7 @@ header {
   width: 100%;
   height: 130px;
   max-width: 1100px;
-  padding: 20px 40px;
+  padding: 20px 0;
   /* border: 1px solid black; */
   display: flex;
   justify-content: space-between;
@@ -45,11 +45,39 @@ header {
 
 /* fillimi navbarit */
 nav {
-  max-width: 700px;
+  max-width: 600px;
   display: flex;
-  gap: 30px;
+  gap: 20px;
   align-items: center;
 }
+
+/* Stick the Navbar to the top of the page after scrolling */
+/* .scroll {
+  max-width: 100%;
+  padding: 0 200px;
+  height: 60px;
+  background: white;
+  outline: 2px solid #00a6ff;
+  box-shadow: 2px 2px 2px #00a6ff;
+  position: fixed;
+  z-index: 10;
+  transition: 0.3s all;
+}
+
+
+
+.scroll .travel_title {
+  color: #00a6ff;
+}
+
+.scroll .links {
+  background-color: #00a6ff;
+}
+
+.scroll .current {
+  background: white;
+  outline: 3px solid #00a6ff;
+} */
 
 .company__name {
   color: rgb(242, 242, 242);
@@ -70,7 +98,9 @@ nav {
   font-weight: 600;
 }
 
-.links:hover {
+/* Current page link indicator */
+.links:hover,
+.current {
   background-color: white;
   color: #00a6ff;
 }
@@ -241,10 +271,10 @@ input[type="search"]::-webkit-search-results-decoration {
 
 /* ------------------------------------------- */
 main {
-  position: relative;
   padding: 50px;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   /* border: 1px solid red; */
@@ -525,5 +555,91 @@ main {
   background: #00a6ff;
 }
 
-/*end of travel planning section */
+/*End of travel planning section */
+
+/* Newsletter Section */
+.newsletter {
+  width: 100%;
+  padding: 60px 40px;
+  display: flex;
+  background: linear-gradient(to right, #00ff95, #00d5ff, #006eff);
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; */
+}
+
+.newsletter__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  color: white;
+  gap: 20px;
+}
+
+.newsletter__info > h1 {
+  font-size: 32px;
+}
+
+.newsletter__info > p {
+  font-size: 18px;
+}
+
+.newsletter__input {
+  height: 40px;
+  width: 450px;
+  display: flex;
+  padding-left: 10px;
+  background: white;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid white;
+}
+
+.inp {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.inp > i {
+  color: #00a6ff;
+  font-size: 20px;
+}
+
+.inp > input {
+  height: 100%;
+  width: 100%;
+  padding: 0 10px;
+  border: none;
+  outline: none;
+}
+
+.inp > input:focus {
+  outline: 2px solid #00a6ff;
+}
+
+.newsletter__input > button {
+  width: 120px;
+  height: 100%;
+  background: #00a6ff;
+  color: white;
+  font-weight: 600;
+  transition: 0.2s all;
+}
+
+.newsletter__input > button:hover {
+  background: white;
+  color: #00a6ff;
+  border-left: 2px solid #00a6ff;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  background: rgb(127, 127, 127);
+}
+
+.footer__content {
+}
 /* ---------------------------------------- */
