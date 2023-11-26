@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&
+      family=Lato:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="home.js"></script>
+    <title>Holiday Website</title>
+  </head>
+  <body>
+    <div class="banner">
+      <header>
+        <div class="company__name">
+          <h2>Dunhill</h2>
+          <span class="travel_title"><b>Travel</b></span>
+          <b>Deals</b>
+        </div>
+        <nav>
+          <a href="/home/home.html" class="links current"><p>Home</p></a>
+          <a href="/about_page/about.html" class="links">About Us</a>
+          <a href="login.html" class="links">Login</a>
+          <a href="#" class="links">Hotel</a>
+          <a href="#" class="links">Cruises</a>
+        </nav>
+      </header>
+      <div class="search__holiday">
+        <div class="search__holidays">
+          <h1>Explore</h1>
+          <h2>The World</h2>
+        </div>
+        <div class="search__holiday--inputs">
+          <div class="search">
+            <i class="fa-solid fa-earth-americas fa-xl"></i>
+            <input type="search" placeholder="Your Destination or Hotel" />
+          </div>
+          <div class="date">
+            <i class="fa-solid fa-calendar fa-xl"></i>
+            <input
+              type="text"
+              name="d1"
+              placeholder="Check In"
+              onfocus="(this.type='date')"
+              onblur="(this.type='text')"
+            />
+            -
+            <input
+              type="text"
+              name="d2"
+              placeholder="Check Out"
+              onfocus="(this.type='date')"
+              onblur="(this.type='text')"
+            />
+          </div>
+          <div class="only__for--btnColor">
+            <button class="search__holiday--button">
+              SEARCH FOR MY HOLIDAY
+            </button>
+          </div>
+        </div>
+        <div class="bora__bora">
+          <p>Bora Bora</p>
+          <div class="search__borabora">
+            <p>MATIRA BEACH</p>
+            <button>
+              GET THERE <i class="fas fa-thin fa-angle-right"></i>
+            </button>
+          </div>
+          <hr />
+          <!-- Search Holiday -->
+        </div>
+      </div>
+    </div>
+    <main>
+      <!-- Travel Planning -->
+      <section class="travel__planning">
+        <h1>CHOOSE YOUR TRAVEL METHOD</h1>
+        <div class="travel__planning--label-info">
+          <div class="travel__planning--labels">
+            <button class="selected">HOLIDAY</button>
+            <button>HOTEL ONLY</button>
+            <button>FLYDRIVE</button>
+            <button>CAR HIRE</button>
+            <button>CRUISE</button>
+            <button>TOURS</button>
+          </div>
+          <div class="travel__planning--informations">
+            <div class="where_to">
+              <p>Where to?</p>
+              <div>
+                <i class="fa-solid fa-globe"></i>
+                <input type="text" placeholder="Your destination..." />
+              </div>
+            </div>
+            <div class="where_to">
+              <p>Flying from</p>
+              <div>
+                <input type="text" placeholder="Your departure..." />
+              </div>
+            </div>
+            <div class="where_to">
+              <p>When?</p>
+              <div>
+                <input type="date" placeholder="The start..." />
+              </div>
+            </div>
+            <div class="where_to">
+              <p>For how long?</p>
+              <div>
+                <select name="nights" id="nights">
+                  <option value="1" selected>1 night</option>
+                  <option value="2">2 nights</option>
+                  <option value="3">3 nights</option>
+                  <option value="4">4 nights</option>
+                  <option value="5">5 nights</option>
+                  <option value="6">6 nights</option>
+                  <option value="7">7 nights</option>
+                </select>
+              </div>
+            </div>
+            <button>FIND A HOLIDAY</button>
+          </div>
+        </div>
+        <div class="travel__planning--icons">
+          <div class="dots__icon">
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-circle"></i>
+          </div>
+
+          <i class="fas fa-plane-departure fa-2x"></i>
+        </div>
+        <div class="dicover__destinations">
+          <h1>START YOUR TRAVEL PLANNING HERE</h1>
+          <a href="">DISCOVER OUR TOP DESTINATIONS</a>
+        </div>
+        <div class="travel__planning--links">
+          <a href="">WORLWIDE</a>
+          <a href="">POPULAR</a>
+          <a href="">EXOTIC</a>
+          <a href="">SPECIAL</a>
+        </div>
+
+        <!-- Images of travel planning section -->
+        <div class="travel__planning--images">
+          <!-- new york image -->
+          <div class="image__container">
+            <img src="/img/newYork.jpeg" alt="" class="newYork" />
+            <div class="overlay overlay__newYork">
+              <div class="title">
+                <h2>NEW YORK</h2>
+                <span></span>
+              </div>
+              <div class="city__search">
+                <div>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <p>Find Hotels</p>
+                </div>
+                <div>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <p>Find Flights</p>
+                </div>
+                <div>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <p>Find cars</p>
+                </div>
+              </div>
+              <div class="see__deals">
+                <p>SEE DEALS</p>
+                <i class="fas fa-thin fa-angle-right"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- sydney image -->
+          <div class="image__container">
+            <img src="/img/sydney.webp" alt="" class="sydney" />
+            <div class="overlay overlay__sydney">
+              <div class="title">
+                <h2>SYDNEY</h2>
+                <span></span>
+              </div>
+              <div class="city__search">
+                <div>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <p>Find Hotels</p>
+                </div>
+                <div>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <p>Find Flights</p>
+                </div>
+                <div>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <p>Find cars</p>
+                </div>
+              </div>
+              <div class="see__deals">
+                <p>SEE DEALS</p>
+                <i class="fas fa-thin fa-angle-right"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- paris image -->
+
+          <div class="image__container">
+            <img src="/img/paris.jpg" alt="" class="paris" />
+            <div class="overlay overlay__paris">
+              <div class="title">
+                <h2>PARIS</h2>
+                <span></span>
+              </div>
+              <div class="city__search">
+                <div>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <p>Find Hotels</p>
+                </div>
+                <div>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <p>Find Flights</p>
+                </div>
+                <div>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <p>Find cars</p>
+                </div>
+              </div>
+              <div class="see__deals">
+                <p>SEE DEALS</p>
+                <i class="fas fa-thin fa-angle-right"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- tokyo image -->
+
+          <div class="image__container">
+            <img src="/img/tokyo.webp" alt="" class="tokyo" />
+            <div class="overlay overlay__tokyo">
+              <div class="title">
+                <h2>TOKYO</h2>
+                <span></span>
+              </div>
+              <div class="city__search">
+                <div>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <p>Find Hotels</p>
+                </div>
+                <div>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <p>Find Flights</p>
+                </div>
+                <div>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <p>Find cars</p>
+                </div>
+              </div>
+              <div class="see__deals">
+                <p>SEE DEALS</p>
+                <i class="fas fa-thin fa-angle-right"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- oslo image -->
+
+          <div class="image__container">
+            <img src="/img/oslo.jpeg" alt="" class="oslo" />
+            <div class="overlay overlay__oslo">
+              <div class="title">
+                <h2>OSLO</h2>
+                <span></span>
+              </div>
+              <div class="city__search">
+                <div>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <p>Find Hotels</p>
+                </div>
+                <div>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <p>Find Flights</p>
+                </div>
+                <div>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <p>Find cars</p>
+                </div>
+              </div>
+              <div class="see__deals">
+                <p>SEE DEALS</p>
+                <i class="fas fa-thin fa-angle-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="view__more">VIEW MORE</button>
+      </section>
+      <!-- End of travel planning -->
+    </main>
+
+    <!-- NewsLetter Section -->
+    <section class="newsletter">
+      <div class="newsletter__info">
+        <h1>Subscribe to our Newsletter</h1>
+        <p>Get to know the latest offers</p>
+        <div class="newsletter__input">
+          <div class="inp">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" placeholder="Email..." />
+          </div>
+          <button>SUBSCRIBE</button>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer__content">
+        <div class="company__name">
+          <h2>Dunhill</h2>
+          <span class="travel_title--footer"><b>Travel</b></span>
+          Deals
+        </div>
+        <div class="about">
+          <h4>ABOUT</h4>
+          <p>Company</p>
+          <p>Careers</p>
+          <p>Mobile</p>
+          <p>Blog</p>
+        </div>
+        <div class="travel--info">
+          <h4>TRAVEL INFORMATION</h4>
+          <p>Travel updates</p>
+          <p>Before you go</p>
+          <p>Holiday information</p>
+          <p>FAQs</p>
+          <p>Customer support</p>
+        </div>
+        <div class="sections">
+          <h4>SECTIONS</h4>
+          <p>Hotel Deals</p>
+          <p>Cruise Deals</p>
+          <p>Vacation Deals</p>
+          <p>Air Deals</p>
+          <p>Car Deals</p>
+          <p>Last Minute Travel Deals</p>
+          <p>Travel Themes</p>
+        </div>
+        <div class="contact--us">
+          <h4>CONTACT US</h4>
+          <p>Help</p>
+          <p>Press</p>
+          <p>Partners</p>
+          <p>Hotel Owners</p>
+        </div>
+      </div>
+      <div class="icons__enter--email">
+        <div class="footer--icons">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-google"></i>
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-youtube"></i>
+        </div>
+        <div class="enter--email">
+          <input type="email" placeholder="Enter email to get best offers" />
+          <i class="fas fa-paper-plane"></i>
+        </div>
+      </div>
+      <hr />
+      <div class="conditions">
+        <div class="privacy--conditions">
+          <p>PRIVACY POLICY</p>
+          <p>TERMS & CONDITIONS</p>
+        </div>
+        <p>DUNHILL TRAVEL DEALS &copy; 2023</p>
+      </div>
+    </footer>
+  </body>
+</html>

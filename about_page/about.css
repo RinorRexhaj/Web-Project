@@ -1,0 +1,250 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.banner {
+  width: 100%;
+  background: url(/img/aboutUs_bg.jpeg) no-repeat bottom center/cover;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+}
+
+.banner > * {
+  max-width: 1000px;
+  margin: auto;
+}
+
+header {
+  width: 100%;
+  height: 130px;
+  max-width: 1100px;
+  padding: 20px 0;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* fillimi navbarit */
+nav {
+  max-width: 600px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.company__name {
+  color: rgb(242, 242, 242);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.travel_title {
+  color: rgb(96, 236, 120);
+}
+
+.links {
+  text-decoration: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 25px;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+
+/* Current page link indicator */
+.links:hover,
+.current {
+  background-color: white;
+  color: #00a6ff;
+}
+
+/* fundi navbarit */
+/* -------------------------------------------- */
+.about--h1 {
+  color: white;
+  margin-bottom: 100px;
+}
+
+.about__text--section {
+  display: flex;
+  max-width: 1000px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 100px;
+  margin-top: 70px;
+  margin-bottom: 100px;
+}
+
+.about--text {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.about--exp {
+  display: flex;
+  gap: 30px;
+}
+.first--icon,
+.second--icon {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.boat--img {
+  width: 450px;
+  height: 250px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.what-we-offer-section {
+  display: flex;
+  height: 400px;
+  max-width: 1000px;
+  margin-bottom: 70px;
+}
+.pasport {
+  height: 350px;
+  width: 250px;
+}
+.what-we-offer-section > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  border: 1px solid white;
+  height: 350px;
+  background: rgb(96, 236, 120);
+  color: white;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  background: rgb(54, 54, 54);
+}
+footer > * {
+  display: flex;
+  margin: auto;
+  width: calc(100% - 200px);
+  max-width: 100%;
+}
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  margin-top: 40px;
+}
+
+.about,
+.travel--info,
+.sections,
+.contact--us {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: small;
+}
+
+.about > p,
+.travel--info > p,
+.sections > p,
+.contact--us > p,
+.conditions {
+  color: gray;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.about > p:hover,
+.travel--info > p:hover,
+.sections > p:hover,
+.contact--us > p:hover {
+  color: white;
+}
+
+.about > h4,
+.travel--info > h4,
+.sections > h4,
+.contact--us > h4 {
+  margin-bottom: 12px;
+}
+
+.icons__enter--email {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 45px;
+  color: white;
+  margin-bottom: 45px;
+}
+
+.footer--icons {
+  display: flex;
+  gap: 33px;
+}
+.footer--icons > * {
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.footer--icons > *:hover {
+  font-size: larger;
+}
+
+.enter--email {
+  position: relative;
+  display: inline-block;
+}
+.enter--email input {
+  padding: 7px 200px 7px 15px;
+  border: none;
+  background: rgb(171, 170, 170);
+}
+.enter--email i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.enter--email > input::placeholder {
+  color: rgb(71, 70, 70);
+  overflow: visible;
+}
+footer > hr {
+  width: 100%;
+}
+
+.conditions {
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.privacy--conditions {
+  display: flex;
+  gap: 60px;
+}
+/* ---------------------------------------- */
