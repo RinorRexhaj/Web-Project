@@ -93,6 +93,9 @@ main {
 .about--h1 {
   color: white;
   font-size: 28px;
+  width: 100%;
+  display: flex;
+  justify-content: end;
 }
 
 .about__text--section {

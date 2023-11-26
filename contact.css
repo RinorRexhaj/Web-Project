@@ -1,0 +1,138 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.banner {
+  width: 100%;
+  background: url("./img/contact-bg.jpeg") no-repeat top center/cover;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+}
+
+/* .banner > * {
+  max-width: 1000px;
+  margin: auto;
+} */
+
+header {
+  width: 100%;
+  height: 130px;
+  max-width: 1100px;
+  padding: 20px 0;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* fillimi navbarit */
+nav {
+  max-width: 600px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.company__name {
+  color: rgb(242, 242, 242);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.travel_title {
+  color: rgb(96, 236, 120);
+}
+
+.links {
+  text-decoration: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 25px;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+
+/* Current page link indicator */
+.links:hover,
+.current {
+  background-color: white;
+  color: #00a6ff;
+}
+
+.lets__talk {
+  color: white;
+  font-size: 100px;
+  margin-bottom: 150px;
+}
+
+.contact__us {
+  display: flex;
+  width: 100%;
+}
+
+.contact__us > * {
+  height: 300px;
+  width: 100%;
+}
+.contact__us > div > div > i {
+  color: #01baef;
+}
+.meet__us {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: white;
+  padding-left: 40px;
+  padding-top: 20px;
+}
+
+.meet__us > div {
+  display: flex;
+  gap: 15px;
+}
+.pitch__us {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: rgb(218, 216, 216);
+  padding-left: 40px;
+  padding-top: 20px;
+}
+.pitch__us > button {
+  margin-top: 15px;
+  border: none;
+  width: 100px;
+  height: 35px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  border-radius: 25px;
+  background: linear-gradient(to right, #20bf75, #01baef);
+  transition: 0.4s all;
+}
+
+.pitch__us > button:hover {
+  background: white;
+  color: #00a6ff;
+  outline: 2px solid #01baef;
+  cursor: pointer;
+}

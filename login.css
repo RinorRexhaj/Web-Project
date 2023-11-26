@@ -1,0 +1,154 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.banner {
+  width: 100%;
+  background: url("./img/login-bg.webp") no-repeat bottom center/cover;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.banner > * {
+  max-width: 1000px;
+  margin: auto;
+}
+
+header {
+  width: 100%;
+  height: 130px;
+  max-width: 1100px;
+  padding: 20px 0;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* fillimi navbarit */
+nav {
+  max-width: 600px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.company__name {
+  color: rgb(242, 242, 242);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.travel_title {
+  color: rgb(96, 236, 120);
+}
+
+.links {
+  text-decoration: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 25px;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+
+/* Current page link indicator */
+.links:hover,
+.current {
+  background-color: white;
+  color: #00a6ff;
+}
+
+/* log in form */
+
+.login__form {
+  color: gray;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-bottom: 100px;
+}
+.login__form > h1 {
+  color: black;
+  margin: 30px 0;
+}
+
+.login__form > input {
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding: 15px;
+}
+
+.login__form > button {
+  background: rgb(253, 97, 97);
+  border-radius: 7px;
+  padding: 15px;
+  color: white;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+.login__form > button:hover {
+  transform: scale(1.02);
+}
+
+.login__form > hr {
+  margin: 30px 0;
+  background: gray;
+}
+
+.login__form > p > button {
+  background: none;
+  border: none;
+  color: rgb(253, 97, 97);
+  transition: all 0.2s;
+}
+.login__form > p > button:hover {
+  border-bottom: 1px solid rgb(253, 97, 97);
+}
+
+.sign__with--other {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sign__with--other > div {
+  display: flex;
+  gap: 10px;
+}
+
+.sign__with--other > div > i {
+  border: 1px solid gray;
+  border-radius: 50%;
+  padding: 10px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.sign__with--other > div > i:hover {
+  transform: scale(1.075);
+  border: none;
+}
