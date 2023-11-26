@@ -21,7 +21,7 @@ button {
 .banner {
   position: relative;
   width: 100%;
-  background: url(/img/aboutUs_bg.jpeg) no-repeat bottom center/cover;
+  background: url("./img/aboutUs_bg.jpeg") no-repeat bottom center/cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
