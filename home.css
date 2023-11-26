@@ -637,9 +637,110 @@ main {
 /* Footer */
 footer {
   width: 100%;
-  background: rgb(127, 127, 127);
+  background: rgb(54, 54, 54);
+}
+footer > *:not(hr) {
+  display: flex;
+  margin: auto;
+  /* width: calc(100% - 200px); */
+  max-width: 1000px;
+}
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  margin-top: 40px;
 }
 
-.footer__content {
+.about,
+.travel--info,
+.sections,
+.contact--us {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: small;
+}
+
+.about > p,
+.travel--info > p,
+.sections > p,
+.contact--us > p,
+.conditions {
+  color: gray;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.about > p:hover,
+.travel--info > p:hover,
+.sections > p:hover,
+.contact--us > p:hover {
+  color: white;
+}
+
+.about > h4,
+.travel--info > h4,
+.sections > h4,
+.contact--us > h4 {
+  margin-bottom: 12px;
+}
+
+.icons__enter--email {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 45px;
+  color: white;
+  margin-bottom: 45px;
+}
+
+.footer--icons {
+  display: flex;
+  gap: 33px;
+}
+.footer--icons > * {
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.footer--icons > *:hover {
+  font-size: 24px;
+  color: #00a6ff;
+}
+
+.enter--email {
+  position: relative;
+  display: inline-block;
+}
+.enter--email input {
+  padding: 7px 200px 7px 15px;
+  border: none;
+  background: rgb(171, 170, 170);
+}
+.enter--email i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.enter--email > input::placeholder {
+  color: rgb(71, 70, 70);
+  overflow: visible;
+}
+footer > hr {
+  width: 100%;
+}
+
+.conditions {
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.privacy--conditions {
+  display: flex;
+  gap: 60px;
 }
 /* ---------------------------------------- */
