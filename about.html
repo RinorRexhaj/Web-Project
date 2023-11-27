@@ -34,8 +34,10 @@
           <a href="about.html" class="links current">About Us</a>
           <a href="login.html" class="links">Login</a>
           <a href="contact.html" class="links">Contact Us</a>
-          <!-- <a href="#" class="links">Cruises</a> -->
         </nav>
+        <button class="menu">
+          <i class="fa-solid fa-bars menuBtn"></i>
+        </button>
       </header>
       <div class="about--h1">
         <h1>About us</h1>
@@ -66,7 +68,7 @@
             error facilis quis odit officiis quisquam.
           </p>
         </div>
-        <div class="boat--img">
+        <div class="boat--img" onclick="window.location='./contact.html'">
           <img src="./img/boat.webp" alt="" />
           <p>Contact Us</p>
           <div class="overlay"></div>
@@ -125,37 +127,36 @@
           <span class="travel_title--footer"><b>Travel</b></span>
           Deals
         </div>
-        <div class="about">
-          <h4>ABOUT</h4>
-          <p>Company</p>
-          <p>Careers</p>
-          <p>Mobile</p>
-          <p>Blog</p>
-        </div>
-        <div class="travel--info">
-          <h4>TRAVEL INFORMATION</h4>
-          <p>Travel updates</p>
-          <p>Before you go</p>
-          <p>Holiday information</p>
-          <p>FAQs</p>
-          <p>Customer support</p>
-        </div>
-        <div class="sections">
-          <h4>SECTIONS</h4>
-          <p>Hotel Deals</p>
-          <p>Cruise Deals</p>
-          <p>Vacation Deals</p>
-          <p>Air Deals</p>
-          <p>Car Deals</p>
-          <p>Last Minute Travel Deals</p>
-          <p>Travel Themes</p>
-        </div>
-        <div class="contact--us">
-          <h4>CONTACT US</h4>
-          <p>Help</p>
-          <p>Press</p>
-          <p>Partners</p>
-          <p>Hotel Owners</p>
+        <div class="footer__sections">
+          <div class="about">
+            <h4>ABOUT</h4>
+            <p>Company</p>
+            <p>Careers</p>
+            <p>Mobile</p>
+            <p>Blog</p>
+          </div>
+          <div class="travel--info">
+            <h4>TRAVEL INFORMATION</h4>
+            <p>Travel updates</p>
+            <p>Before you go</p>
+            <p>Holiday information</p>
+            <p>FAQs</p>
+            <p>Customer support</p>
+          </div>
+          <div class="sections">
+            <h4>SECTIONS</h4>
+            <p class="about-us">About Us</p>
+            <p class="priorities">Our Priorities</p>
+            <p class="offer">What We Offer</p>
+            <p class="our-location">Our Location</p>
+          </div>
+          <div class="contact--us">
+            <h4>CONTACT US</h4>
+            <p>Help</p>
+            <p>Press</p>
+            <p>Partners</p>
+            <p>Hotel Owners</p>
+          </div>
         </div>
       </div>
       <div class="icons__enter--email">
@@ -167,7 +168,7 @@
           <i class="fa-brands fa-youtube"></i>
         </div>
         <div class="enter--email">
-          <input type="email" placeholder="Enter email to get best offers" />
+          <input type="email" placeholder="Get the best offers" />
           <i class="fas fa-paper-plane"></i>
         </div>
       </div>

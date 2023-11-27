@@ -1,0 +1,6 @@
+To do Website-Project
+-Make sections links scroll into respective section
+-Make selection of holiday on either form appear on the other after they are selected
+-Give each of the locations their category
+-Make the travel deals able to fill out the holiday form
+-Make a dashboard

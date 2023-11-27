@@ -19,8 +19,8 @@ button {
 }
 
 .banner {
-  position: relative;
-  width: 100%;
+  /* position: relative; */
+  min-width: 100%;
   background: url("./img/aboutUs_bg.jpeg") no-repeat bottom center/cover;
   display: flex;
   flex-direction: column;
@@ -53,6 +53,11 @@ nav {
   gap: 20px;
   align-items: center;
 }
+
+.menu {
+  display: none;
+}
+
 .company__name {
   color: rgb(242, 242, 242);
   font-size: 22px;
@@ -112,10 +117,12 @@ main {
   gap: 40px;
   flex-wrap: wrap;
 }
+
 .about--exp {
   display: flex;
   gap: 50px;
 }
+
 .first--icon,
 .second--icon {
   display: flex;
@@ -181,7 +188,6 @@ main {
 
 .what-we-offer-section {
   display: flex;
-  height: 400px;
   /* max-width: 1000px; */
 }
 
@@ -266,22 +272,30 @@ main {
 
 /* Footer */
 footer {
-  width: 100%;
+  flex-wrap: wrap;
+  min-width: 100%;
   background: rgb(54, 54, 54);
 }
 
 footer > *:not(hr) {
   display: flex;
   margin: auto;
-  /* width: calc(100% - 200px); */
+  width: calc(100% - 200px);
   max-width: 1000px;
 }
 
 .footer__content {
-  display: flex;
-  justify-content: space-between;
-  color: white;
   margin-top: 40px;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+}
+
+.footer__sections {
+  display: flex;
+  gap: 100px;
+  color: white;
 }
 
 .about,
@@ -320,7 +334,10 @@ footer > *:not(hr) {
 
 .icons__enter--email {
   display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   justify-content: space-between;
+  align-items: center;
   /* border: 1px solid black; */
   align-items: center;
   margin-top: 45px;
@@ -341,11 +358,12 @@ footer > *:not(hr) {
   justify-content: center;
   transition: all 0.15s;
   cursor: pointer;
+  color: rgb(180, 180, 180);
 }
 
 .footer--icons > *:hover {
-  font-size: 24px;
-  color: #00a6ff;
+  font-size: 22px;
+  color: white;
 }
 
 .enter--email {
@@ -397,3 +415,218 @@ footer > hr {
   color: rgb(242, 242, 242);
 }
 /* ---------------------------------------- */
+/* Responsive Design */
+@media (max-width: 1100px) {
+  header {
+    width: 800px;
+  }
+
+  nav {
+    max-width: 550px;
+  }
+
+  .banner > *,
+  main > *:not(.what-we-offer-section) {
+    width: 800px;
+    margin: auto;
+    /* padding: 0 20px; */
+  }
+
+  .boat--img {
+    width: 400px;
+    height: 200px;
+  }
+  .boat--img > img {
+    width: 400px;
+    height: 200px;
+  }
+
+  .location > iframe {
+    width: calc(100% - 100px);
+    margin: auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  header {
+    position: relative;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    color: white;
+    font-size: 26px;
+  }
+
+  .active {
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  .footer__content {
+    width: calc(100% - 100px);
+  }
+  .footer__sections {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 850px) {
+  .banner > * {
+    width: calc(100% - 100px);
+  }
+
+  .about--h1 > h1 {
+    font-size: 44px;
+    text-align: center;
+    margin: auto;
+  }
+
+  .about__text--section {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about__text--section > * {
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .what-we-offer-section {
+    flex-wrap: wrap;
+    /* gap: 5px; */
+  }
+
+  .what-we-offer-section > div {
+    width: 100%;
+    height: 300px;
+  }
+
+  .what-we-offer-section > div:not(.passport) {
+    padding: 0 20px;
+    height: 300px;
+  }
+
+  .passport > img {
+    height: 300px;
+  }
+
+  .what-we-offer-section > div:not(.passport) > p {
+    width: 50%;
+  }
+
+  .what-we-offer-section > .passport > img {
+    width: 100%;
+  }
+
+  .location > iframe {
+    max-width: 500px;
+    margin: auto;
+  }
+
+  .footer__content {
+    justify-content: flex-start;
+    gap: 70px;
+  }
+
+  .footer__sections {
+    gap: 40px;
+  }
+
+  .icons__enter--email {
+    position: relative;
+    left: -50px;
+  }
+
+  .conditions {
+    flex-wrap: wrap;
+    gap: 30px;
+    position: relative;
+    left: -40px;
+  }
+
+  .privacy--conditions {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 560px) {
+  .banner > * {
+    width: calc(100% - 20px);
+  }
+
+  .about--text > h1 {
+    width: 70%;
+    font-size: 24px;
+  }
+
+  .about--text > p {
+    width: 70%;
+    font-size: 14px;
+  }
+
+  .enter--email {
+    /* min-width: 250px; */
+    padding: 7px;
+  }
+}
+
+@media (max-width: 450px) {
+  .about--text > h1 {
+    width: 50%;
+    font-size: 22px;
+  }
+
+  .about--exp {
+    flex-direction: column;
+  }
+
+  .about--text > p {
+    width: 50%;
+    font-size: 13px;
+  }
+
+  .boat--img {
+    width: 300px;
+    height: 150px;
+  }
+
+  .boat--img > img {
+    width: 300px;
+    height: 150px;
+  }
+
+  .what-we-offer-section > div > h4 {
+    width: 50%;
+  }
+
+  .what-we-offer-section > div > p {
+    max-width: 200px;
+    font-size: 14px;
+  }
+
+  .location > iframe {
+    max-width: 300px;
+    height: 250px;
+  }
+}
