@@ -10,6 +10,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
 }
 
 button {
@@ -514,11 +515,13 @@ footer > hr {
 
   .what-we-offer-section {
     flex-wrap: wrap;
+    overflow-x: hidden;
     /* gap: 5px; */
   }
 
   .what-we-offer-section > div {
-    width: 100%;
+    width: 100vw;
+    margin: auto;
     height: 300px;
   }
 
@@ -535,8 +538,9 @@ footer > hr {
     width: 50%;
   }
 
-  .what-we-offer-section > .passport > img {
+  .passport > img {
     width: 100%;
+    border: 1px solid black;
   }
 
   .location > iframe {
