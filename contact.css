@@ -51,6 +51,7 @@ nav {
   display: flex;
   gap: 20px;
   align-items: center;
+  z-index: 100;
 }
 
 .menu {
@@ -208,6 +209,39 @@ nav {
     top: 100px;
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(43, 42, 42, 0.8);
+  }
+  .contact__us > * {
+    font-size: small;
+  }
+}
+@media (max-width: 850px) {
+  header {
+    width: calc(100% - 100px);
+  }
+  .lets__talk {
+    font-size: 75px;
+  }
+  .contact__us {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 700px) {
+  .lets__talk {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 560px) {
+  .pitch__us > button {
+    margin-bottom: 5px;
+  }
+}
+@media (max-width: 450px) {
+  .lets__talk {
+    font-size: 40px;
   }
 }
