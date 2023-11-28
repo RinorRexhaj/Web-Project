@@ -30,6 +30,8 @@ const dest = document.querySelector(".dest");
 const news = document.querySelector(".news");
 const deals = document.querySelector(".deals");
 const getThere = document.querySelector(".get-there");
+const seeDeals = document.querySelectorAll(".see__deals");
+const pick = document.querySelectorAll(".pick");
 
 explore.addEventListener("click", () => {
   scroll(header);
@@ -53,6 +55,18 @@ news.addEventListener("click", () => {
 
 deals.addEventListener("click", () => {
   scroll(travelDeals);
+});
+
+seeDeals.forEach((sd) => {
+  sd.addEventListener("click", () => {
+    scroll(travelDeals);
+  });
+});
+
+pick.forEach((p) => {
+  p.addEventListener("click", () => {
+    scroll(travelPlanning);
+  });
 });
 
 function scroll(element) {

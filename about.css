@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
+  /* overflow-x: hidden; */
 }
 
 body {
@@ -41,7 +42,6 @@ header {
   height: 130px;
   max-width: 1100px;
   padding: 20px 0;
-  /* border: 1px solid black; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -96,6 +96,7 @@ main {
   padding: 100px 0;
   gap: 150px;
 }
+
 .about--h1 {
   color: white;
   font-size: 28px;
@@ -134,7 +135,7 @@ main {
 
 .boat--img {
   position: relative;
-  width: 450px;
+  min-width: 450px;
   height: 250px;
   transition: 0.2s all;
   display: flex;
@@ -194,7 +195,7 @@ main {
 
 .passport {
   height: 400px;
-  width: 320px;
+  min-width: 320px;
   position: relative;
   outline: 2px solid white;
   display: flex;
@@ -204,9 +205,9 @@ main {
 }
 
 .passport > img {
-  height: 400px;
-  width: 320px;
-  object-fit: fill;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .passport > p {
@@ -232,8 +233,8 @@ main {
 
 .what-we-offer-section > div:not(.passport) {
   height: 400px;
-  /* width: 25%; */
-  padding: 20px;
+  /* width: 100vw; */
+  padding: 20px 0px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -241,6 +242,7 @@ main {
   justify-content: center;
   gap: 30px;
   outline: 2px solid white;
+
   background: rgb(24, 143, 147);
   color: white;
   transition: 0.2s all;
@@ -430,11 +432,10 @@ footer > hr {
   main > *:not(.what-we-offer-section) {
     width: 800px;
     margin: auto;
-    /* padding: 0 20px; */
   }
 
   .boat--img {
-    width: 400px;
+    min-width: 400px;
     height: 200px;
   }
   .boat--img > img {
@@ -476,6 +477,7 @@ footer > hr {
     position: absolute;
     right: 0;
     top: 100px;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     background: rgba(255, 255, 255, 0.4);
@@ -484,12 +486,17 @@ footer > hr {
   .footer__content {
     width: calc(100% - 100px);
   }
+
   .footer__sections {
     flex-wrap: wrap;
   }
 }
 
 @media (max-width: 850px) {
+  html {
+    overflow-x: hidden;
+  }
+
   .banner > * {
     width: calc(100% - 100px);
   }
@@ -516,7 +523,6 @@ footer > hr {
   .what-we-offer-section {
     flex-wrap: wrap;
     overflow-x: hidden;
-    /* gap: 5px; */
   }
 
   .what-we-offer-section > div {
@@ -530,17 +536,13 @@ footer > hr {
     height: 300px;
   }
 
-  .passport > img {
-    height: 300px;
-  }
-
   .what-we-offer-section > div:not(.passport) > p {
     width: 50%;
   }
 
   .passport > img {
-    width: 100%;
-    border: 1px solid black;
+    object-fit: cover;
+    min-width: 100%;
   }
 
   .location > iframe {
@@ -576,7 +578,7 @@ footer > hr {
 
 @media (max-width: 560px) {
   .banner > * {
-    width: calc(100% - 20px);
+    width: calc(100% - 80px);
   }
 
   .about--text > h1 {
@@ -590,12 +592,15 @@ footer > hr {
   }
 
   .enter--email {
-    /* min-width: 250px; */
     padding: 7px;
   }
 }
 
 @media (max-width: 450px) {
+  .company__name {
+    font-size: 18px;
+  }
+
   .about--text > h1 {
     width: 50%;
     font-size: 22px;
@@ -632,5 +637,18 @@ footer > hr {
   .location > iframe {
     max-width: 300px;
     height: 250px;
+  }
+}
+
+@media (max-width: 410px) {
+  .what-we-offer-section > div {
+    width: 100%;
+    margin: auto;
+    height: 300px;
+  }
+
+  .passport > img {
+    object-position: center;
+    object-fit: contain;
   }
 }

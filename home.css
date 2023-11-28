@@ -535,6 +535,17 @@ main {
   transition: 0.2s all;
 }
 
+.pick {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  gap: 10px;
+  transition: 0.2s all;
+}
+
 .see__deals {
   display: flex;
   align-items: center;
@@ -547,7 +558,8 @@ main {
 }
 
 .city__search > div:hover,
-.see__deals:hover {
+.see__deals:hover,
+.pick:hover {
   color: #00c3ff;
 }
 
@@ -677,10 +689,7 @@ main {
   position: relative;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
   gap: 5px;
-  cursor: pointer;
   text-align: left;
 }
 
@@ -1077,9 +1086,6 @@ footer > hr {
   .search > input {
     font-size: 12px;
     width: 80%;
-  }
-
-  .date {
   }
 
   .date > input {
