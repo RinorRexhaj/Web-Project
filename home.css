@@ -59,19 +59,17 @@ nav {
 }
 
 /* Stick the Navbar to the top of the page after scrolling */
-/* .scroll {
-  max-width: 100%;
-  padding: 0 200px;
-  height: 60px;
-  background: white;
-  outline: 2px solid #00a6ff;
+.scroll {
+  min-width: 100%;
+  padding: 0 150px;
+  height: 80px;
+  background: rgb(54, 54, 54, 0.9);
+  /* outline: 2px solid #00a6ff; */
   box-shadow: 2px 2px 2px #00a6ff;
   position: fixed;
   z-index: 10;
   transition: 0.3s all;
 }
-
-
 
 .scroll .travel_title {
   color: #00a6ff;
@@ -84,7 +82,7 @@ nav {
 .scroll .current {
   background: white;
   outline: 3px solid #00a6ff;
-} */
+}
 
 .company__name {
   color: rgb(242, 242, 242);

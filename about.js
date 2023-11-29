@@ -7,6 +7,16 @@ menu.addEventListener("click", () => {
   nav.classList.toggle("active");
 });
 
+/* Stick the Navbar to the top of the page after scrolling */
+window.addEventListener("scroll", () => {
+  let scroll = this.scrollY;
+  if (scroll > 250) {
+    header.classList.add("scroll");
+  } else {
+    header.classList.remove("scroll");
+  }
+});
+
 const prEl = document.querySelector(".about__text--section");
 const offerEl = document.querySelector(".what-we-offer-section");
 const locationEl = document.querySelector(".location");
