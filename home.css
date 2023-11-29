@@ -458,8 +458,8 @@ main {
 }
 
 .travel__planning--images {
-  max-width: 100rem;
-  height: 50rem;
+  max-width: 40rem;
+  height: 30rem;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -468,7 +468,7 @@ main {
 .image__container {
   position: absolute;
   top: 0;
-  width: 70%;
+  width: 100%;
   height: 20rem;
   display: flex;
   align-items: center;
@@ -487,8 +487,8 @@ main {
 
 .slider__btn {
   position: absolute;
-  top: 50%;
-  z-index: 10;
+  top: 80%;
+  z-index: 0;
   border: none;
   font-family: inherit;
   color: #333;
@@ -498,7 +498,7 @@ main {
   font-size: 3.25rem;
   cursor: pointer;
   transition: all 0.2s;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: white;
 }
 
 .slider__btn--left {
@@ -513,7 +513,7 @@ main {
 
 .dots {
   position: absolute;
-  bottom: 48%;
+  bottom: 17%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -992,11 +992,6 @@ footer > hr {
     flex-wrap: wrap;
   }
 
-  .image__container {
-    width: 400px;
-    height: 220px;
-  }
-
   .travel__planning--informations > button {
     width: 200px;
   }
@@ -1099,6 +1094,17 @@ footer > hr {
     flex-wrap: wrap;
   }
 
+  .slider__btn {
+    font-size: 35px;
+  }
+  .dots__dot {
+    height: 0.6rem;
+    width: 0.6rem;
+    justify-content: space-around;
+  }
+  .dots {
+    bottom: 18%;
+  }
   .newsletter {
     padding: 50px 10px;
   }
@@ -1153,11 +1159,16 @@ footer > hr {
     width: 135px;
   }
 
-  .image__container {
-    width: 320px;
-    height: 180px;
+  .slider__btn {
+    font-size: 30px;
   }
-
+  .dots__dot {
+    height: 0.5rem;
+    width: 0.5rem;
+  }
+  .dots {
+    bottom: 28%;
+  }
   .newsletter__input {
     width: 100%;
   }
