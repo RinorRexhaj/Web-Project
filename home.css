@@ -63,7 +63,7 @@ nav {
   min-width: 100%;
   padding: 0 150px;
   height: 80px;
-  background: rgb(54, 54, 54, 0.9);
+  background: rgb(54, 54, 54, 0.95);
   /* outline: 2px solid #00a6ff; */
   box-shadow: 2px 2px 2px #00a6ff;
   position: fixed;
@@ -987,6 +987,14 @@ footer > hr {
     background: rgba(43, 42, 42, 0.8);
   }
 
+  .scroll {
+    padding: 0 65px;
+  }
+
+  .scroll .active {
+    right: 35px;
+  }
+
   .travel__planning--labels,
   .travel__planning--informations {
     flex-wrap: wrap;
@@ -1078,6 +1086,10 @@ footer > hr {
 @media (max-width: 560px) {
   .banner > * {
     width: calc(100% - 20px);
+  }
+
+  .scroll {
+    padding: 0 40px;
   }
 
   .travel__planning > h1,

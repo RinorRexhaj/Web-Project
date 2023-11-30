@@ -508,6 +508,14 @@ footer > hr {
     background: rgba(43, 42, 42, 0.8);
   }
 
+  .scroll {
+    padding: 0 65px;
+  }
+
+  .scroll .active {
+    right: 35px;
+  }
+
   .footer__content {
     width: calc(100% - 100px);
   }
@@ -603,6 +611,10 @@ footer > hr {
 @media (max-width: 560px) {
   .banner > * {
     width: calc(100% - 80px);
+  }
+
+  .scroll {
+    padding: 0 40px;
   }
 
   .about--text > h1 {
