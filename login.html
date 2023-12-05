@@ -42,9 +42,12 @@
       <div class="login__form">
         <h1>Log in to Dunhill travel</h1>
         <form action="">
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <button type="submit">Sign in</button>
+          <input type="email" placeholder="Email" id="email" />
+          <div class="error error-email"></div>
+          <input type="password" placeholder="Password" id="password" />
+          <div class="error error-password"></div>
+
+          <button type="submit" id="submit">Sign in</button>
         </form>
         <p>Don't have an account? <button>Sign up</button></p>
         <hr />
