@@ -39,24 +39,44 @@
           <i class="fa-solid fa-bars menuBtn"></i>
         </button>
       </header>
-      <div class="login__form">
-        <h1>Log in to Dunhill travel</h1>
-        <form action="">
-          <input type="email" placeholder="Email" id="email" />
-          <div class="error error-email"></div>
-          <input type="password" placeholder="Password" id="password" />
-          <div class="error error-password"></div>
+      <div class="login__register">
+        <div class="login__form login">
+          <h1>Log in to Dunhill travel</h1>
+          <form action="">
+            <input type="email" placeholder="Email" id="email" />
+            <div class="error error-email"></div>
+            <input type="password" placeholder="Password" id="password" />
+            <div class="error error-password"></div>
 
-          <button type="submit" id="submit">Sign in</button>
-        </form>
-        <p>Don't have an account? <button>Sign up</button></p>
-        <hr />
-        <div class="sign__with--other">
-          <p>Or sign in with</p>
-          <div>
-            <i class="fa-brands fa-google"></i>
-            <i class="fa-brands fa-twitter"></i>
+            <button type="submit" id="submit">Sign in</button>
+          </form>
+          <p>
+            Don't have an account? <button class="signUpBtn">Sign up</button>
+          </p>
+          <hr />
+          <div class="sign__with--other">
+            <p>Or sign in with</p>
+            <div>
+              <i class="fa-brands fa-google"></i>
+              <i class="fa-brands fa-twitter"></i>
+            </div>
           </div>
+        </div>
+        <div class="login__form hidden">
+          <button class="back"><- back to login</button>
+          <h1>Register to Dunhill travel</h1>
+          <form>
+            <input type="text" placeholder="User" id="perdoruesi" />
+            <div class="error error-perdoruesi"></div>
+            <input type="text" placeholder="Firstname && Lastname" id="emri" />
+            <div class="error error-emri"></div>
+            <input type="email" placeholder="Email" id="emaili" />
+            <div class="error error-emaili"></div>
+            <input type="password" placeholder="Password" id="passwordi" />
+            <div class="error error-passwordi"></div>
+
+            <button type="submit" id="submit2">Submit</button>
+          </form>
         </div>
       </div>
     </div>
