@@ -98,7 +98,7 @@ nav {
   color: gray;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  margin-top: -75px;
+  margin-bottom: 200px;
 }
 
 .error {
@@ -240,12 +240,21 @@ ul {
     max-width: 550px;
   }
 
+  .login__register {
+    margin-top: 150px;
+  }
+
   .search__holidays > h1 {
     font-size: 80px;
   }
 
   .search__holidays > h2 {
     font-size: 25px;
+  }
+
+  .login__form {
+    margin: auto;
+    margin-bottom: 600px;
   }
 }
 
@@ -288,8 +297,20 @@ ul {
   .banner > *:not(.login__form) {
     width: calc(100% - 100px);
   }
+
+  .login__register {
+    margin-top: 0;
+  }
+
+  .login__form {
+    margin: auto;
+    margin-bottom: 450px;
+  }
 }
 @media (max-width: 450px) {
+  .company__name {
+    font-size: 18px;
+  }
   .login__form {
     font-size: smaller;
   }

@@ -34,7 +34,7 @@ const seeDeals = document.querySelectorAll(".see__deals");
 const pick = document.querySelectorAll(".pick");
 
 explore.addEventListener("click", () => {
-  scroll(header);
+  scroll(banner);
 });
 
 method.addEventListener("click", () => {

@@ -459,6 +459,7 @@ main {
 
 .travel__planning--images {
   max-width: 40rem;
+  min-width: 340px;
   height: 30rem;
   margin: 0 auto;
   position: relative;
@@ -1099,7 +1100,11 @@ footer > hr {
   }
 
   .travel__planning--informations > div {
-    max-width: 90%;
+    max-width: 100%;
+  }
+
+  .image__container > img {
+    object-fit: cover;
   }
 
   .travel__planning--links {
@@ -1146,7 +1151,6 @@ footer > hr {
   .search__borabora > button {
     width: 120px;
     height: 30px;
-
     font-size: 14px;
   }
 

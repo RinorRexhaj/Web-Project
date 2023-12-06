@@ -1,6 +1,7 @@
 const header = document.querySelector("header");
 const nav = document.querySelector("nav");
 const menu = document.querySelector(".menu");
+const banner = document.querySelector(".banner");
 const bars = document.querySelector(".menuBtn");
 
 menu.addEventListener("click", () => {
@@ -27,7 +28,7 @@ const offer = document.querySelector(".offer");
 const ourLocation = document.querySelector(".our-location");
 
 aboutUs.addEventListener("click", () => {
-  scroll(header);
+  scroll(banner);
 });
 
 priorities.addEventListener("click", () => {
