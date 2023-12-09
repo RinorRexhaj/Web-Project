@@ -259,7 +259,7 @@ main {
 .what-we-offer-section > div:not(.passport) {
   height: 400px;
   /* width: 100vw; */
-  padding: 20px 0px;
+  padding: 20px 10px;
   text-align: center;
   display: flex;
   flex-direction: column;

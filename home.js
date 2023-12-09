@@ -19,6 +19,9 @@ window.addEventListener("scroll", () => {
 
 const canyon = document.querySelector(".canyon");
 const banner = document.querySelector(".search__holiday");
+const travelPlanningButtons = document.querySelectorAll(
+  ".travel__planning--labels button"
+);
 const travelPlanning = document.querySelector(".travel__planning--label-info");
 const destinations = document.querySelector(".dicover__destinations");
 const newsletter = document.querySelector(".newsletter");
@@ -32,6 +35,7 @@ const deals = document.querySelector(".deals");
 const getThere = document.querySelector(".get-there");
 const seeDeals = document.querySelectorAll(".see__deals");
 const pick = document.querySelectorAll(".pick");
+const viewMore = document.querySelector(".view__more");
 
 explore.addEventListener("click", () => {
   scroll(banner);
@@ -63,15 +67,30 @@ seeDeals.forEach((sd) => {
   });
 });
 
+viewMore.addEventListener("click", () => {
+  scroll(travelDeals);
+});
+
 pick.forEach((p) => {
   p.addEventListener("click", () => {
     scroll(travelPlanning);
   });
 });
 
+//Scroll into Page View function
 function scroll(element) {
   element.scrollIntoView({ behavior: "smooth", block: "center" });
 }
+
+//Select only one button at a time
+travelPlanningButtons.forEach((tBtn) => {
+  tBtn.addEventListener("click", () => {
+    travelPlanningButtons.forEach((tB) => {
+      if (tB.classList.contains("selected")) tB.classList.remove("selected");
+    });
+    tBtn.classList.add("selected");
+  });
+});
 
 // slideShow
 const slides = document.querySelectorAll(".image__container");

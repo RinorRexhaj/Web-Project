@@ -93,7 +93,7 @@ nav {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 15px 30px;
   background: white;
   color: gray;
   border-radius: 20px;
@@ -102,7 +102,7 @@ nav {
 }
 
 .error {
-  height: 15px;
+  height: 14px;
   color: red;
   font-size: 14px;
 }
@@ -115,7 +115,7 @@ nav {
 .login__form > form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
 }
 
 .login__form > form > input {
@@ -253,8 +253,8 @@ ul {
   }
 
   .login__form {
-    margin: auto;
-    margin-bottom: 600px;
+    /* margin: auto; */
+    margin-top: -200px;
   }
 }
 
