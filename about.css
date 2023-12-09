@@ -71,6 +71,7 @@ nav {
   position: fixed;
   z-index: 10;
   transition: 0.3s all;
+  padding-bottom: -15px;
 }
 .scroll .travel_title {
   color: #00a6ff;
@@ -511,6 +512,7 @@ footer > hr {
 
   .scroll {
     padding: 0px 65px;
+    padding-top: 10px;
   }
 
   .scroll .active {
@@ -532,6 +534,10 @@ footer > hr {
 
   .banner > * {
     width: calc(100% - 100px);
+  }
+
+  .scroll {
+    padding-top: 15px;
   }
 
   .about--h1 > h1 {
@@ -616,6 +622,7 @@ footer > hr {
 
   .scroll {
     padding: 0px 40px;
+    padding-top: 10px;
   }
 
   .about--text > h1 {
