@@ -40,7 +40,7 @@ submit.addEventListener("click", (e) => {
     return;
   }
 
-  window.location = "/home.html";
+  window.location = "./home.html";
 });
 
 const emailValid = (email) => {
@@ -107,7 +107,7 @@ submit2.addEventListener("click", (e) => {
     return;
   }
 
-  window.location = "/home.html";
+  window.location = "./home.html";
 });
 
 const emailiValid = (emaili) => {
