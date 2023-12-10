@@ -22,7 +22,7 @@ button {
 
 .banner {
   min-width: 100%;
-  background: url("./img/bg3.jpg") no-repeat bottom center/cover;
+  background: url("./img/bg3.jpg") no-repeat bottom center/cover fixed;
   display: flex;
   flex-direction: column;
   padding: 0 30px;
