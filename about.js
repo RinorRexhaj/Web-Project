@@ -11,7 +11,7 @@ menu.addEventListener("click", () => {
 /* Stick the Navbar to the top of the page after scrolling */
 window.addEventListener("scroll", () => {
   let scroll = this.scrollY;
-  if (scroll > 250) {
+  if (scroll > 350) {
     header.classList.add("scroll");
   } else {
     header.classList.remove("scroll");
