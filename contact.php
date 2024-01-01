@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
   session_start();
 ?>
 
 
+=======
+>>>>>>> 40ae9efbd7ce26667e6403acc8aac93a63780763
 <!DOCTYPE html>
 <html lang="en">
   <head>

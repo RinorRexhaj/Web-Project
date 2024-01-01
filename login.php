@@ -10,6 +10,7 @@
     $_SESSION['logged'] = false;
 
     for($i = 0; $i < count($users); $i++) {
+<<<<<<< HEAD
       if($email == $users[$i]['email'] && $password == $users[$i]['password']) {
           $_SESSION['email'] = $email;                    
           $_SESSION['password'] = $password;        
@@ -21,11 +22,28 @@
       }
     }
   }
+=======
+          if($email == $users[$i]['email'] && $password == $users[$i]['password']) {
+              $_SESSION['email'] = $email;                    
+              $_SESSION['password'] = $password;        
+              $_SESSION['username'] = $users[$i]['username'];
+              $_SESSION['fullname'] = $users[$i]['fullname'];
+              $_SESSION['admin'] = $users[$i]['admin'];
+              $_SESSION['logged'] = true;
+              header('Location: home.php');
+          }
+    }
+
+>>>>>>> 40ae9efbd7ce26667e6403acc8aac93a63780763
     if(isset($_SESSION['logged'])) {
       if(!$_SESSION['logged'])
         session_destroy();
     }
+<<<<<<< HEAD
   
+=======
+  }
+>>>>>>> 40ae9efbd7ce26667e6403acc8aac93a63780763
 
   
 ?>
@@ -59,6 +77,7 @@
       <?php include "header.php" ?>
       <div class="login__register">
         <div class="login__form login">
+<<<<<<< HEAD
         <?php 
             if(!isset($_SESSION['logged']) || !$_SESSION['logged']) {
               echo "<h1>Login to Holiday Website</h1>";
@@ -93,6 +112,19 @@
               else if($_SESSION['logged'])      
                 echo '';
             ?>
+=======
+          <h1>Log in to Holiday Website</h1>
+          <form action="login.php" method="post" id="login">
+            <input type="email" placeholder="Email" id="email" name="email" />
+            <div class="error error-email">
+              <?php 
+                if(isset($_SESSION['logged']) && !$_SESSION['logged']) {
+                   echo "Te dhenat jane gabim!";
+                }
+              ?>
+            </div>
+            <input type="password" placeholder="Password" id="password" name="password" />
+>>>>>>> 40ae9efbd7ce26667e6403acc8aac93a63780763
             <div class="error error-password"></div>
             <button type="submit" id="submit" name="submit">Sign in</button>
           </form>
