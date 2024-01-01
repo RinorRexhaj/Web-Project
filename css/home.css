@@ -1,0 +1,1092 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.banner {
+  min-width: 100%;
+  background: url("../img/bg3.jpg") no-repeat bottom center/cover fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  gap: 50px;
+  align-items: center;
+}
+
+.banner > * {
+  max-width: 1000px;
+  margin: auto;
+}
+
+header {
+  width: 100%;
+  height: 130px;
+  max-width: 1100px;
+  padding: 20px 0;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* -------------------------------------------- */
+
+/* search holiday section */
+
+.search__holiday {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  gap: 30px;
+  /* height: 500px; */
+  /* border: 1px solid red; */
+}
+
+/* Remove x from search bar */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+.search__holidays > h1 {
+  font-size: 90px;
+}
+
+.search__holidays > h2 {
+  font-size: 30px;
+}
+
+.search__holiday--inputs {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search,
+.date {
+  background-color: rgba(10, 53, 91, 0.5);
+  border-radius: 5px;
+  border: none;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  /* gap: 5px; */
+  color: white;
+  transition: 0.3s all;
+}
+
+.search > input {
+  font-size: 15px;
+  width: 90%;
+}
+
+.search > input::placeholder {
+  color: rgb(242, 242, 242);
+}
+
+.search > input:focus {
+  outline: none;
+}
+
+.date > input {
+  width: 140px;
+  text-align: center;
+}
+
+.date > input[type="date"] {
+  outline: none;
+  border: none;
+}
+
+.date > input::placeholder {
+  color: rgb(242, 242, 242);
+}
+
+.search__holiday--inputs > div > input {
+  background-color: transparent;
+  border-radius: 3px;
+  border: none;
+  padding: 10px;
+  color: white;
+}
+
+.search__holiday--inputs > div:focus-within {
+  background: rgba(10, 53, 91, 0.8);
+}
+
+.only__for--btnColor {
+  background: white;
+  border-radius: 3px;
+  text-align: center;
+  transition: 0.2s all;
+}
+
+.search__holiday--button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 15px;
+  font-weight: 700;
+  background: linear-gradient(to right, #00ff88, #00a6ff, #00a6ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.only__for--btnColor:hover {
+  background: rgba(10, 53, 91, 0.8);
+}
+
+.search__holiday--button:hover {
+  background: white;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.bora__bora {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  padding-bottom: 20px;
+  /* border: 1px solid red; */
+  gap: 10px;
+}
+
+.search__borabora {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+.search__borabora > button {
+  width: 160px;
+  height: 30px;
+  background: transparent;
+  letter-spacing: 1.8px;
+  justify-content: space-between;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  transition: 0.2s all;
+}
+
+.search__borabora > button:hover {
+  background-color: white;
+  color: rgb(7, 24, 109);
+  border-radius: 5px;
+}
+
+.bora__bora > hr {
+  height: 2px;
+  border: none;
+  background-color: white;
+}
+/* end of search holiday section */
+
+/* ------------------------------------------- */
+main {
+  padding: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+/* travel planning section */
+.travel__planning {
+  max-width: 1000px;
+  padding: 30px 40px;
+  border-radius: 3px;
+  /* border: 1px solid red; */
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.travel__planning > * {
+  /* border: 1px solid red; */
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+}
+
+.travel__planning--label-info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.travel__planning--labels {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.travel__planning--labels > * {
+  cursor: pointer;
+  padding: 10px 25px;
+  border: 1px solid grey;
+  background: white;
+  width: 150px;
+  transition: 0.15s all;
+}
+
+.selected {
+  color: #00d9ff;
+  border: 1px solid #00d9ff;
+}
+
+.travel__planning--labels > *:hover {
+  color: white;
+  border: 1px solid #00a6ff;
+  background: #00a6ff;
+}
+
+.travel__planning--informations {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.travel__planning--informations > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.travel__planning--informations > div > div {
+  display: flex;
+  gap: 5px;
+  padding: 8px;
+  border: 1px solid gray;
+}
+
+.travel__planning--informations > div > div > input {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.travel__planning--informations > div > div > select {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.travel__planning--informations > button {
+  margin-top: 15px;
+  border: none;
+  width: 750px;
+  height: 50px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  border-radius: 2px;
+  background: linear-gradient(to right, #20bf75, #01baef);
+  transition: 0.4s all;
+}
+
+.travel__planning--informations > button:hover {
+  background: white;
+  color: #00a6ff;
+  outline: 2px solid #01baef;
+  cursor: pointer;
+}
+
+.travel__planning--icons {
+  margin: 50px 0;
+  color: #00a6ff;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.dots__icon {
+  display: flex;
+  gap: 15px;
+  font-size: 8px;
+}
+
+.informations__input {
+  padding: 5px 0 5px 10px;
+}
+
+.dicover__destinations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.dicover__destinations > h1 {
+  width: 70%;
+  text-align: center;
+}
+
+.dicover__destinations > a {
+  text-decoration: none;
+  color: #00a6ff;
+}
+
+.travel__planning--links {
+  display: flex;
+  justify-content: space-evenly;
+  transition: all 1.5s;
+}
+
+.travel__planning--links > a {
+  width: 120px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 500;
+  color: black;
+  transition: 0.2s all;
+  border-bottom: 0px solid #00a6ff;
+}
+
+.travel__planning--links > a:hover {
+  color: #00a6ff;
+  border-bottom: 1px solid #00a6ff;
+}
+
+.travel__planning--images {
+  max-width: 40rem;
+  min-width: 340px;
+  height: 30rem;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.image__container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1s;
+}
+
+.image__container:hover {
+  cursor: pointer;
+}
+
+.image__container > img {
+  width: 100%;
+  height: 100%;
+}
+
+.slider__btn {
+  position: absolute;
+  top: 80%;
+  z-index: 0;
+  border: none;
+  font-family: inherit;
+  color: #333;
+  border-radius: 50%;
+  height: 5.5rem;
+  width: 5.5rem;
+  font-size: 3.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: white;
+}
+
+.slider__btn--left {
+  left: 6%;
+  transform: translate(-50%, -50%);
+}
+
+.slider__btn--right {
+  right: 6%;
+  transform: translate(50%, -50%);
+}
+
+.dots {
+  position: absolute;
+  bottom: 17%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.dots__dot {
+  border: none;
+  background-color: #b9b9b9;
+  opacity: 0.7;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  margin-right: 1.75rem;
+  cursor: pointer;
+  transition: all 0.5s;
+  /* box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.7); */
+}
+
+.dots__dot:last-child {
+  margin: 0;
+}
+
+.dots__dot--active {
+  /* background-color: #fff; */
+  background-color: #888;
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  gap: 50px;
+}
+
+.image__container:hover .overlay {
+  opacity: 1;
+}
+
+.overlay > .title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay > .title > span {
+  height: 1px;
+  background: white;
+  width: 150px;
+}
+
+.city__search {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.city__search > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: 0.2s all;
+}
+
+.pick {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  gap: 10px;
+  transition: 0.2s all;
+}
+
+.see__deals {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  gap: 15px;
+  transition: 0.2s all;
+}
+
+.city__search > div:hover,
+.see__deals:hover,
+.pick:hover {
+  color: #00c3ff;
+}
+
+.view__more {
+  cursor: pointer;
+  padding: 10px 25px;
+  border: 1px solid #00a6ff;
+  color: #00a6ff;
+  font-weight: 500;
+  background: white;
+  width: 150px;
+  transition: 0.2s all;
+}
+
+.view__more:hover {
+  color: white;
+  border: 1px solid #00a6ff;
+  background: #00a6ff;
+}
+
+/*End of travel planning section */
+
+/* Newsletter Section */
+.newsletter {
+  width: 100%;
+  padding: 60px 40px;
+  display: flex;
+  background: linear-gradient(to right, #00ff95, #00d5ff, #006eff);
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; */
+}
+
+.newsletter__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  color: white;
+  gap: 20px;
+}
+
+.newsletter__info > h1 {
+  font-size: 32px;
+}
+
+.newsletter__info > p {
+  font-size: 18px;
+}
+
+.newsletter__input {
+  height: 40px;
+  width: 450px;
+  display: flex;
+  padding-left: 10px;
+  background: white;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid white;
+}
+
+.inp {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.inp > i {
+  color: #00a6ff;
+  font-size: 20px;
+}
+
+.inp > input {
+  height: 100%;
+  width: 100%;
+  padding: 0 10px;
+  border: none;
+  outline: none;
+}
+
+.inp > input:focus {
+  outline: 2px solid #00a6ff;
+}
+
+.newsletter__input > button {
+  width: 120px;
+  height: 100%;
+  background: #00a6ff;
+  color: white;
+  font-weight: 600;
+  transition: 0.2s all;
+}
+
+.newsletter__input > button:hover {
+  background: white;
+  color: #00a6ff;
+  border-left: 2px solid #00a6ff;
+}
+
+/* Deals Section */
+.travel__deals {
+  display: flex;
+  flex-direction: column;
+  max-width: 1040px;
+  width: 100%;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 80px 20px;
+}
+
+.october__deals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.canyon__deals {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.canyon {
+  max-width: 450px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+  transition: 0.2s all;
+}
+
+.canyon > p {
+  position: absolute;
+  top: 100px;
+  color: transparent;
+  font-weight: 600;
+  font-size: 20px;
+  z-index: 10;
+  transition: 0.2s all;
+}
+
+/* .canyon:hover p {
+  color: white;
+} */
+
+.canyon:hover .overlay {
+  opacity: 1;
+}
+
+.canyon--text {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 5px;
+}
+
+.canyon > img {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px gray;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* .Footer_.footer__content */
+footer {
+  flex-wrap: wrap;
+  min-width: 100%;
+  background: rgb(54, 54, 54);
+}
+
+footer > *:not(hr) {
+  display: flex;
+  margin: auto;
+  width: calc(100% - 200px);
+  max-width: 1000px;
+}
+
+.footer__content {
+  margin-top: 40px;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+}
+
+.footer__sections {
+  display: flex;
+  gap: 100px;
+  color: white;
+}
+
+.about,
+.travel--info,
+.sections,
+.contact--us {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: small;
+}
+
+.about > p,
+.travel--info > p,
+.sections > p,
+.contact--us > p,
+.conditions {
+  color: rgb(163, 163, 163);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.about > p:hover,
+.travel--info > p:hover,
+.sections > p:hover,
+.contact--us > p:hover {
+  color: white;
+}
+
+.about > h4,
+.travel--info > h4,
+.sections > h4,
+.contact--us > h4 {
+  margin-bottom: 12px;
+}
+
+.icons__enter--email {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid black; */
+  align-items: center;
+  margin-top: 45px;
+  color: white;
+  margin-bottom: 45px;
+}
+
+.footer--icons {
+  display: flex;
+  gap: 30px;
+}
+
+.footer--icons > * {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  cursor: pointer;
+  color: rgb(180, 180, 180);
+}
+
+.footer--icons > *:hover {
+  font-size: 22px;
+  color: white;
+}
+
+.enter--email {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: rgb(171, 170, 170);
+}
+
+.enter--email input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.enter--email i {
+  cursor: pointer;
+}
+
+.enter--email > input::placeholder {
+  color: rgb(71, 70, 70);
+  overflow: visible;
+}
+
+footer > hr {
+  width: 100%;
+}
+
+.conditions {
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.privacy--conditions {
+  display: flex;
+  gap: 60px;
+}
+
+.privacy--conditions > p {
+  transition: 0.15s all;
+}
+
+.privacy--conditions > p:hover {
+  color: rgb(242, 242, 242);
+}
+/* ---------------------------------------- */
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+  header {
+    width: 800px;
+  }
+
+  .banner > * {
+    width: 800px;
+    margin: auto;
+  }
+
+  .search__holidays > h1 {
+    font-size: 80px;
+  }
+
+  .search__holidays > h2 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 1000px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  header {
+    position: relative;
+  }
+
+  .travel__planning--labels,
+  .travel__planning--informations {
+    flex-wrap: wrap;
+  }
+
+  .travel__planning--informations > button {
+    width: 200px;
+  }
+
+  .canyon__deals {
+    flex-wrap: wrap;
+    gap: 60px;
+  }
+
+  .footer__content {
+    width: calc(100% - 100px);
+  }
+  .footer__sections {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 850px) {
+  .banner > * {
+    width: calc(100% - 70px);
+  }
+
+  .search__holidays > h1 {
+    font-size: 70px;
+  }
+
+  .search__holidays > h2 {
+    font-size: 20px;
+  }
+
+  .search__holiday--inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bora__bora {
+    width: 100%;
+  }
+
+  .newsletter {
+    padding: 60px 20px;
+  }
+
+  .newsletter__info > h1 {
+    font-size: 26px;
+  }
+
+  .newsletter__info > p {
+    font-size: 14px;
+  }
+
+  .newsletter__input {
+    max-width: 90%;
+  }
+
+  .footer__content {
+    justify-content: flex-start;
+    gap: 70px;
+  }
+
+  .footer__sections {
+    gap: 40px;
+  }
+
+  .icons__enter--email {
+    position: relative;
+    left: -50px;
+  }
+
+  .conditions {
+    flex-wrap: wrap;
+    gap: 30px;
+    position: relative;
+    left: -40px;
+  }
+
+  .privacy--conditions {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 560px) {
+  .banner > * {
+    width: calc(100% - 20px);
+  }
+
+  .travel__planning > h1,
+  .dicover__destinations > h1 {
+    font-size: 22px;
+    width: 80%;
+  }
+
+  .travel__planning--informations > div {
+    max-width: 100%;
+  }
+
+  .image__container > img {
+    object-fit: cover;
+  }
+
+  .travel__planning--links {
+    flex-wrap: wrap;
+  }
+
+  .slider__btn {
+    font-size: 35px;
+  }
+  .dots__dot {
+    height: 0.6rem;
+    width: 0.6rem;
+    justify-content: space-around;
+  }
+  .dots {
+    bottom: 18%;
+  }
+  .newsletter {
+    padding: 50px 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .company__name {
+    font-size: 18px;
+  }
+
+  .search__holidays > h1 {
+    font-size: 55px;
+  }
+
+  .search__holidays > h2 {
+    font-size: 18px;
+  }
+
+  .bora__bora {
+    font-size: 24px;
+  }
+
+  .search__borabora {
+    font-size: 13px;
+  }
+
+  .search__borabora > button {
+    width: 120px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .search,
+  .date {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .search > input {
+    font-size: 12px;
+    width: 80%;
+  }
+
+  .date > input {
+    width: 125px;
+    font-size: 12px;
+  }
+
+  .travel__planning--labels > * {
+    padding: 10px 20px;
+    width: 135px;
+  }
+
+  .slider__btn {
+    font-size: 30px;
+  }
+  .dots__dot {
+    height: 0.5rem;
+    width: 0.5rem;
+  }
+  .dots {
+    bottom: 28%;
+  }
+  .newsletter__input {
+    width: 100%;
+  }
+
+  .enter--email {
+    /* min-width: 250px; */
+    padding: 7px;
+  }
+}
