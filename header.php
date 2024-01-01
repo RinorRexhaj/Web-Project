@@ -16,17 +16,10 @@
       <a href="./login.php" class="links <?php if($current == 'login') echo 'current' ?>">Login</a>
       <a href="./contact.php" class="links <?php if($current == 'contact') echo 'current' ?>">Contact Us</a>
       <?php 
-<<<<<<< HEAD
-        // if(isset($_SESSION['username'])) {
-        //   $username = $_SESSION['username'];
-        //   echo "<p>$username</p>";
-        // }
-=======
         if(isset($_SESSION['username'])) {
           $username = $_SESSION['username'];
           echo "<p>$username</p>";
         }
->>>>>>> 40ae9efbd7ce26667e6403acc8aac93a63780763
       ?>
     </nav>
     <button class="menu">

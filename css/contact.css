@@ -45,45 +45,6 @@ header {
   align-items: center;
 }
 
-/* fillimi navbarit */
-nav {
-  max-width: 600px;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  z-index: 100;
-}
-
-.menu {
-  display: none;
-}
-
-.company__name {
-  color: rgb(242, 242, 242);
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.travel_title {
-  color: rgb(96, 236, 120);
-}
-
-.links {
-  text-decoration: none;
-  color: white;
-  padding: 10px 25px;
-  border-radius: 25px;
-  transition: all 0.2s;
-  font-weight: 600;
-}
-
-/* Current page link indicator */
-.links:hover,
-.current {
-  background-color: white;
-  color: #00a6ff;
-}
-
 .lets__talk {
   color: white;
   font-size: 100px;

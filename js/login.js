@@ -62,46 +62,51 @@ const errorPerdoruesi = document.querySelector(".error-perdoruesi");
 const errorEmri = document.querySelector(".error-emri");
 const errorEmaili = document.querySelector(".error-emaili");
 const errorPasswordi = document.querySelector(".error-passwordi");
-const submit2 = document.getElementById("submit2");
+const registerForm = document.getElementById("register");
 
-submit2.addEventListener("click", () => {
-  // e.preventDefault();
+registerForm.addEventListener("submit", (e) => {
   errorPerdoruesi.innerText = "";
   errorEmri.innerText = "";
   errorEmaili.innerText = "";
   errorPasswordi.innerText = "";
 
   if (perdoruesi.value == "") {
+    e.preventDefault();
     errorPerdoruesi.innerText = "Ju lutem shtoni emrin e userit";
     perdoruesi.focus();
     return;
   }
 
   if (emri.value == "") {
+    e.preventDefault();
     errorEmri.innerText = "Ju lutem shtoni emrin dhe mbiemrin";
     emri.focus();
     return;
   }
 
   if (emaili.value == "") {
+    e.preventDefault();
     errorEmaili.innerText = "Ju lutem shtoni email-in";
     emaili.focus();
     return;
   }
 
   if (passwordi.value == "") {
+    e.preventDefault();
     errorPasswordi.innerText = "Ju lutem shtoni passwordin";
     passwordi.focus();
     return;
   }
 
   if (!emailiValid(emaili.value)) {
+    e.preventDefault();
     errorEmaili.innerText = "Formati i email-it eshte invalid!";
     emaili.focus();
     return;
   }
 
   if (!passwordiValid(passwordi.value)) {
+    e.preventDefault();
     errorPasswordi.innerText = "Formati i password-it eshte invalid!";
     passwordi.focus();
     return;
@@ -126,17 +131,15 @@ const passwordiValid = (psw) => {
 //when sign up is clicked
 const signUpBtn = document.querySelector(".signUpBtn");
 const login = document.querySelector(".login");
-const register = document.querySelector(".hidden");
+const register = document.getElementById("register");
 const back = document.querySelector(".back");
 
-signUpBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+signUpBtn.addEventListener("click", () => {
   register.classList.toggle("hidden");
   login.classList.toggle("hidden");
 });
 
-back.addEventListener("click", (e) => {
-  e.preventDefault();
+back.addEventListener("click", () => {
   register.classList.toggle("hidden");
   login.classList.toggle("hidden");
 });
