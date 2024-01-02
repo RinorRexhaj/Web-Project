@@ -24,7 +24,6 @@
       rel="stylesheet"
     />
     <script defer src="./js/contact.js"></script>
-    <script defer src="./js/nav.js"></script>
     <title>Holiday Website - Contact</title>
   </head>
   <body>

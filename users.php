@@ -21,6 +21,13 @@ $users = [
         "email" => "dren@gmail.com",
         "password" => "Pass2003",
         "admin" => false
+    ],
+    [
+        "username" => "Username101",
+        "fullname" => "U 01",
+        "email" => "u1@gmail.com",
+        "password" => "Pass2003",
+        "admin" => false
     ]
 ];
 

@@ -33,12 +33,12 @@
   }
 
 // Log Out
-if(isset($_GET['logout']) && $_GET['logout'] == 'true') {
-  if(isset($_SESSION['logged']) && $_SESSION['logged']) {
-      session_destroy();
-      header('Location: home.php'); 
-  }
-} 
+  if(isset($_POST['logout'])) {
+    if(isset($_SESSION['logged']) && $_SESSION['logged']) {
+        session_destroy();
+        header('Location: login.php');
+    }
+  } 
 
 //Register
 
@@ -99,7 +99,6 @@ if(isset($_GET['logout']) && $_GET['logout'] == 'true') {
       rel="stylesheet"
     />
     <script defer src="./js/login.js"></script>
-    <script defer src="./js/nav.js"></script>
     <title>Holiday Website - Login</title>
   </head>
   <body>

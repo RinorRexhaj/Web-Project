@@ -25,8 +25,6 @@
       rel="stylesheet"
     />
     <script defer src="./js/about.js"></script>
-    <script defer src="./js/nav.js"></script>
-    <script defer src="./js/scroll.js"></script>
     <title>Holiday Website - About</title>
   </head>
   <body>
