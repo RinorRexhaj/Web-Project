@@ -3,6 +3,7 @@ nav {
   display: flex;
   gap: 20px;
   align-items: center;
+  z-index: 10;
 }
 
 .menu {
@@ -59,6 +60,31 @@ nav {
 .current {
   background-color: white;
   color: #00a6ff;
+}
+
+/* user log in/log out */
+.user__login {
+  cursor: pointer;
+  position: relative;
+}
+
+.logoutBtn,
+.dashboardBtn {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px 10px;
+  z-index: 1;
+  /* background-color: #ddd; */
+}
+
+.user__login .logoutBtn {
+  margin-top: 27px;
 }
 
 @media (max-width: 1100px) {

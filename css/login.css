@@ -193,6 +193,29 @@ ul {
   color: rgb(223, 65, 65);
   border-bottom: 1px solid rgb(223, 65, 65);
 }
+
+/* user button when log in/log out */
+.user__login {
+  cursor: pointer;
+  position: relative;
+}
+
+.logoutBtn {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px 10px;
+  z-index: 1;
+}
+
+.user__login:hover .logoutBtn {
+  display: block;
+}
 /* Responsive Design */
 @media (max-width: 1100px) {
   header {

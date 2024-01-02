@@ -32,13 +32,13 @@
     }
   }
 
-//Log Out
-  if(isset($_POST['logout'])) {
-    if(isset($_SESSION['logged']) && $_SESSION['logged']) {
-        session_destroy();
-        header('Location: login.php');
-    }
-  }  
+// Log Out
+if(isset($_GET['logout']) && $_GET['logout'] == 'true') {
+  if(isset($_SESSION['logged']) && $_SESSION['logged']) {
+      session_destroy();
+      header('Location: home.php'); 
+  }
+} 
 
 //Register
 

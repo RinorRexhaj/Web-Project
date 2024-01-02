@@ -2,25 +2,25 @@
 
 $users = [
     [
-        "username" => "Rinor123",
+        "username" => "Rinori",
         "fullname" => "Rinor Rexhaj",
         "email" => "rinor@gmail.com",
         "password" => "Pass1234",
-        "role" => "admin"
+        "admin" => true
     ],
     [
-        "username" => "User1",
-        "fullname" => "User",
-        "email" => "user1@gmail.com",
-        "password" => "psps1212",
-        "role" => "user"
+        "username" => "Orgesi",
+        "fullname" => "Orges Sadriu",
+        "email" => "orges@gmail.com",
+        "password" => "Pass2004",
+        "admin" => false
     ],
     [
-        "username" => "User2",
-        "fullname" => "User2",
-        "email" => "user2@gmail.com",
-        "password" => "ssss1111",
-        "role" => "user"
+        "username" => "Dreni",
+        "fullname" => "Dren Musliu",
+        "email" => "dren@gmail.com",
+        "password" => "Pass2003",
+        "admin" => false
     ]
 ];
 
