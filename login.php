@@ -115,6 +115,12 @@
             else if($_SESSION['logged']) {
               $fullname = $_SESSION['fullname'];
               echo "<h1>Logged in as $fullname</h1>";
+              echo "<script>
+              document.addEventListener('DOMContentLoaded', function() {
+                const hide = document.querySelector('.hide');
+                hide.style.visibility = 'hidden';
+            });
+              </script>";
             }
           ?>
           <form action="login.php" method="post" id="login">
@@ -161,15 +167,15 @@
                   echo '';   
             ?>">Log Out</button>
           </form>
-          <p>
-            Don't have an account? <button class="signUpBtn">Sign up</button>
+          <p class="hide">
+            Don't have an account? <button class="signUpBtn hide">Sign up</button>
           </p>
           <hr />
           <div class="sign__with--other">
-            <p>Or sign in with</p>
+            <p class="hide">Or sign in with</p>
             <div>
-              <i class="fa-brands fa-google"></i>
-              <i class="fa-brands fa-twitter"></i>
+              <i class="fa-brands fa-google hide"></i>
+              <i class="fa-brands fa-twitter hide"></i>
             </div>
           </div>
         </div>  

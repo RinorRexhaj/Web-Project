@@ -18,6 +18,9 @@
       <a href="./about.php" class="links <?php if($current == 'about') echo 'current' ?>">About Us</a>
       <a href="./login.php" class="links <?php if($current == 'login') echo 'current' ?>">Login</a>
       <a href="./contact.php" class="links <?php if($current == 'contact') echo 'current' ?>">Contact Us</a>
+ <!-- Sun i rasha nfije se sdalke dashboardi kur klikojsha dashboard nmenu e e qita si link veq me ndreq dashboardin se su pake-->
+      <a href="./dashboard.php" class="links <?php if($current == 'dashboard') echo 'current' ?>">Dashboard</a>
+
       <?php 
         if(isset($_SESSION['username'])) {
           $username = $_SESSION['username'];
@@ -44,4 +47,13 @@
     <button class="menu">
       <i class="fa-solid fa-bars menuBtn"></i>
     </button>
+    <!-- ja shtova qeta kur ta klikon dashboard prej menu me dal ndashboard.php po sbajke -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+    const dashboardBtn = document.querySelector('.dashboardBtn');
+      dashboardBtn.addEventListener('click', function () {
+        window.location.href = 'dashboard.php';
+    })
+  });
+    </script>
 </header>
