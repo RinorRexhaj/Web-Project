@@ -19,41 +19,32 @@
       <a href="./login.php" class="links <?php if($current == 'login') echo 'current' ?>">Login</a>
       <a href="./contact.php" class="links <?php if($current == 'contact') echo 'current' ?>">Contact Us</a>
  <!-- Sun i rasha nfije se sdalke dashboardi kur klikojsha dashboard nmenu e e qita si link veq me ndreq dashboardin se su pake-->
-      <a href="./dashboard.php" class="links <?php if($current == 'dashboard') echo 'current' ?>">Dashboard</a>
+      <!-- <a href="./dashboard.php" class="links ">Dashboard</a> -->
 
       <?php 
-        if(isset($_SESSION['username'])) {
+        if(isset($_SESSION['username']) && isset($_SESSION['admin'])) {
           $username = $_SESSION['username'];
-          $isAdmin = isset($_SESSION['admin']) && $_SESSION['admin'] == 'admin';
+          $isAdmin = $_SESSION['admin'];
 
           echo '
-          <form action="login.php" method="post" class="user__login">
+          <div class="user__login">
             <div class="user">
               <i class="fa-solid fa-user"></i>
             </div>
             <div class="user_info">
               <p class="username">'.$username.'</p>
-              <button class="profileBtn">Profile</button>';
+              <a href="./profile.php" class="profileBtn">Profile</a>';
 
           if($isAdmin) {
-            echo '<button class="dashboardBtn">Dashboard</button>';
+            echo '<a href="./dashboard.php" class="dashboardBtn">Dashboard</a>';
           }
 
-          if($current == 'login') echo '</div></form>';
-          else echo '<button type="submit" name="logout" class="logoutBtn">Logout</button></div></form>';
+          if($current == 'login') echo '</div></div>';
+          else echo '<form action="login.php" method="post"><button type="submit" name="logout" class="logoutBtn">Logout</button></form></div></div>';
         }
       ?>
     </nav>
     <button class="menu">
       <i class="fa-solid fa-bars menuBtn"></i>
     </button>
-    <!-- ja shtova qeta kur ta klikon dashboard prej menu me dal ndashboard.php po sbajke -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-    const dashboardBtn = document.querySelector('.dashboardBtn');
-      dashboardBtn.addEventListener('click', function () {
-        window.location.href = 'dashboard.php';
-    })
-  });
-    </script>
 </header>

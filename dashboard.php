@@ -1,9 +1,11 @@
 <?php
   session_start();
-  if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
-    header('Location: login.php');
-    exit();
-  }
+
+  if (!isset($_SESSION['admin']) || !$_SESSION['admin']) {
+    echo '<h1>Not Authorized</h1>';
+    
+  } 
+
   include "users.php";
 ?>
 
@@ -17,31 +19,31 @@
   <title>Dashboard</title>
 </head>
 <body>
-  <?php include "header.php"; ?>
-
-  <div class="dashboard">
-    <h1>User Dashboard</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Username</th>
-          <th>Full Name</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-          foreach ($users as $user) {
-            echo "<tr>";
-            echo "<td>{$user['username']}</td>";
-            echo "<td>{$user['fullname']}</td>";
-            echo "<td>{$user['email']}</td>";
-            echo "</tr>";
-          }
-        ?>
-      </tbody>
-    </table>
+  <div class="banner">
+    <?php include "header.php"; ?>
+    <div class="dashboard">
+      <h1>User Dashboard</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Full Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+            foreach ($users as $user) {
+              echo "<tr>";
+              echo "<td>{$user['username']}</td>";
+              echo "<td>{$user['fullname']}</td>";
+              echo "<td>{$user['email']}</td>";
+              echo "</tr>";
+            }
+          ?>
+        </tbody>
+      </table>
+    </div>
   </div>
-
 </body>
 </html>
