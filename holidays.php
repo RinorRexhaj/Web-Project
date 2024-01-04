@@ -2,31 +2,76 @@
     session_start();
     include "holidays_array.php";
 
-    class Holidays {
-        private $holidays;
+    class Holiday {
+        private $title;
+        private $img;
+        private $description;
+        private $location;
+        private $price;
 
-        public function __construct($holidays) {
-            $this->holidays = $holidays;
+        public function __construct($title, $img, $description, $location, $price) {
+            $this->title = $title;
+            $this->img = $img;
+            $this->description = $description;
+            $this->location = $location;
+            $this->price = $price;
         }
 
-        public function displayHolidays() {
-            foreach ($this->holidays as $holiday) {
-                echo '<div class="holiday">';
-                echo '<h2>' . $holiday['title'] . '</h2>';
-                echo '<div class="image-container">';
-                echo '<img style="width:350px; height:250px;" src="' . $holiday['img'] . '" alt="' . $holiday['title'] . '">';
-                echo '<div class="description">' . $holiday['description'] . '</div>';
-                echo '</div>';
-                echo '<div class="place__details">';
-                echo '<p style="font-weight:600;">Location: ' . $holiday['location'] . '</p>';
-                echo '<p style="font-weight:600;">Price: ' . $holiday['price'] . '$' . '</p>';
-                echo '</div>';
-                echo '</div>';
-            }
+        //Getters
+        public function getTitle() {
+          return $this->title;
+        }
+        public function getImg() {
+          return $this->img;
+        }
+        public function getDescription() {
+          return $this->description;
+        }
+        public function getLocation() {
+          return $this->location;
+        }
+        public function getPrice() {
+          return $this->price;
+        }
+
+        //Setters
+        public function setTitle($title) {
+          $this->title = $title;
+        }
+        public function setImg($img) {
+          $this->img = $img;
+        }
+        public function setDescription($description) {
+          $this->description = $description;
+        }
+        public function setLocation($location) {
+          $this->location = $location;
+        }
+        public function setPrice($price) {
+          $this->price = $price;
+        }
+
+        public function displayHoliday() {
+            echo '<div class="holiday">
+                    <div class="image-container">
+                      <img src="' . $this->img . '" alt="' . $this->title . '">
+                        <div class="description">' . $this->description . '</div>
+                        </div>
+                        <h2>' . $this->title . '</h2>
+                        <div class="place__details">
+                      <p>Location: ' . $this->location . '</p>
+                      <p>Price: ' . $this->price . '$' . '</p>
+                    </div>
+                  </div>';
         }
     }
 
-    $holidaysInstance = new Holidays($holidays);
+    $holidays;
+
+    foreach($holidays_arr as $holiday) {
+      $h = new Holiday($holiday['title'], $holiday['img'], $holiday['description'], $holiday['location'], $holiday['price']);
+      $holidays[] = $h;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +82,8 @@
     <title>Holiday Website - Holidays</title>
     <link rel="stylesheet" href="./css/holidays.css">
     <link rel="stylesheet" href="./css/nav.css">
-    <script defer scr="./js/holidays.js"></script>
+    <link rel="stylesheet" href="./css/footer.css">
+    <script defer src="./js/holidays.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -55,10 +101,22 @@
 </head>
 <body>
     <?php include "header.php"; ?>
+    <form action="holidays.php" method="post" class="pick_holidays">
+      <button type="submit" name="this_week">This Week</button>
+      <button type="submit" name="all_time">All Time</button>
+      <button type="submit" name="your_holidays">Your Holidays</button>
+    </form>
     <main>
         <div class="this_week">
             <h1>This Week's Destinations</h1>
             <button class="btn--show-modal">Add Your Next Tour Here</button>
+        </div>     
+        <div class="holiday__container">
+        <?php
+            foreach($holidays as $holiday) {
+              $holiday->displayHoliday();
+            }
+        ?>
         </div>
         <div class="modal hidden">
             <button class="btn--close-modal">&times;</button>
@@ -73,38 +131,7 @@
             </form>
         </div>
         <div class="overlay hidden"></div>
-        <div class="holiday__container">
-        <?php
-            $holidaysInstance->displayHolidays();
-        ?>
-        </div>
-        
     </main>
-    <script>
-    const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
-const btnCloseModal = document.querySelector(".btn--close-modal");
-const btnsOpenModal = document.querySelectorAll(".btn--show-modal");
-
-const toggleModal = function (e) {
-  e.preventDefault();
-  modal.classList.toggle("hidden");
-  overlay.classList.toggle("hidden");
-};
-
-btnsOpenModal.forEach((btn) => {
-  btn.addEventListener("click", toggleModal);
-});
-
-btnCloseModal.addEventListener("click", toggleModal);
-overlay.addEventListener("click", toggleModal);
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") {
-    modal.classList.add("hidden");
-    overlay.classList.add("hidden");
-  }
-});
-</script>
-</body>
+    <!-- <?php include "footer.php"; ?> -->
+  </body>
 </html>
