@@ -15,12 +15,10 @@
     </div>
     <nav>
       <a href="./home.php" class="links <?php if($current == 'home') echo 'current' ?>"><p>Home</p></a>
+      <a href="./holidays.php" class="links <?php if($current == 'holidays') echo 'current' ?>"><p>Holidays</p></a>
       <a href="./about.php" class="links <?php if($current == 'about') echo 'current' ?>">About Us</a>
       <a href="./login.php" class="links <?php if($current == 'login') echo 'current' ?>">Login</a>
       <a href="./contact.php" class="links <?php if($current == 'contact') echo 'current' ?>">Contact Us</a>
- <!-- Sun i rasha nfije se sdalke dashboardi kur klikojsha dashboard nmenu e e qita si link veq me ndreq dashboardin se su pake-->
-      <!-- <a href="./dashboard.php" class="links ">Dashboard</a> -->
-
       <?php 
         if(isset($_SESSION['username']) && isset($_SESSION['admin'])) {
           $username = $_SESSION['username'];

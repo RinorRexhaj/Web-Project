@@ -1,0 +1,176 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url(../img/bahamas.jpeg) no-repeat top center/cover;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+header {
+  width: 100%;
+  height: 130px;
+  max-width: 1000px;
+  padding: 20px 0;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.this_week {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 65px;
+}
+
+.this_week button {
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  background: blue;
+}
+
+.this_week button:hover {
+  transform: scale(1.02);
+}
+
+.holiday__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.holiday {
+  width: 350px;
+  margin: 20px;
+  text-align: center;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+.image-container:hover img {
+  transform: scale(1.1);
+}
+
+.description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  cursor: default;
+}
+
+.image-container:hover .description {
+  opacity: 1;
+}
+
+.place__details {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px 0 10px;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  background-color: #f3f3f3;
+  padding: 80px 96px;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: all 0.5s;
+  margin-top: 5px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  transition: all 0.5s;
+}
+
+.modal__header {
+  margin-bottom: 10px;
+}
+
+.modal__form {
+  text-align: center;
+}
+.modal__form input,
+textarea {
+  width: 300px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.btn {
+  background: blue;
+  border-radius: 7px;
+  padding: 15px;
+  color: white;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.btn--close-modal {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font-size: 50px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
