@@ -69,6 +69,7 @@
       $_SESSION['email'] = $reg_email;                    
       $_SESSION['username'] = $username;
       $_SESSION['fullname'] = $fullname;
+      $_SESSION['admin'] = false;
       $_SESSION['logged'] = true;
       $_SESSION['registered'] = true;
       header('Location: home.php');

@@ -38,7 +38,7 @@
           }
 
           if($current == 'login') echo '</div></div>';
-          else echo '<form action="login.php" method="post"><button type="submit" name="logout" class="logoutBtn">Logout</button></form></div></div>';
+          else echo '<form action="login.php" method="post" class="logoutBtn"><button type="submit" name="logout">Logout</button></form></div></div>';
         }
       ?>
     </nav>

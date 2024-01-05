@@ -9,12 +9,13 @@
         private $location;
         private $price;
 
-        public function __construct($title, $img, $description, $location, $price) {
+        public function __construct($title, $img, $description, $location, $price, $user) {
             $this->title = $title;
             $this->img = $img;
             $this->description = $description;
             $this->location = $location;
             $this->price = $price;
+            $this->user = $user;
         }
 
         //Getters
@@ -33,6 +34,9 @@
         public function getPrice() {
           return $this->price;
         }
+        public function getUser() {
+          return $this->user;
+        }
 
         //Setters
         public function setTitle($title) {
@@ -50,12 +54,15 @@
         public function setPrice($price) {
           $this->price = $price;
         }
+        public function setUser($user) {
+          $this->user = $user;
+        }
 
         public function displayHoliday() {
             echo '<div class="holiday">
                     <div class="image-container">
                       <img src="' . $this->img . '" alt="' . $this->title . '">
-                        <div class="description">' . $this->description . '</div>
+                        <div class="description">Posted by: '.$this->user .'<br><br>'. $this->description . '</div>
                         </div>
                         <h2>' . $this->title . '</h2>
                         <div class="place__details">
@@ -69,11 +76,11 @@
     $holidays;
 
     foreach($holidays_arr as $holiday) {
-      $h = new Holiday($holiday['title'], $holiday['img'], $holiday['description'], $holiday['location'], $holiday['price']);
+      $h = new Holiday($holiday['title'], $holiday['img'], $holiday['description'], $holiday['location'], $holiday['price'], $holiday['added_by']['username']);
       $holidays[] = $h;
     }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_tour'])) {
+    if (isset($_POST['add_tour'])) {
       $current_user = $_SESSION['username'];
       $current_user_email = $_SESSION['email'];
       
@@ -92,6 +99,31 @@
       $holidays_arr[] = $newTour;
       file_put_contents('holidays_array.php', '<?php $holidays_arr = ' . var_export($holidays_arr, true) . '; ?>');
   }
+
+  $_SESSION['picked_holidays'] = 'this_week';
+
+  if(isset($_POST['this_week'])) {
+    $_SESSION['picked_holidays'] = 'this_week';
+    unset($_POST['all_time']);
+    unset($_POST['your_holidays']);
+  } 
+  else if(isset($_POST['all_time'])) {
+    $_SESSION['picked_holidays'] = 'all_time';
+    unset($_POST['this_week']);
+    unset($_POST['your_holidays']);    
+  }
+  else if(isset($_POST['your_holidays'])) {
+    $_SESSION['picked_holidays'] = 'your_holidays';
+    unset($_POST['this_week']);
+    unset($_POST['all_time']);
+  }
+
+  $your_holidays= [];
+
+  foreach($holidays as $holiday) {
+    if(isset($_SESSION['username']) && ($_SESSION['username'] == $holiday->getUser()))
+      $your_holidays[] = $holiday;
+  }
 ?>
 
 <!DOCTYPE html>
@@ -104,6 +136,7 @@
     <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/footer.css">
     <script defer src="./js/holidays.js"></script>
+    <script defer src="./js/preventRefresh.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -122,39 +155,62 @@
 <body>
     <?php include "header.php"; ?>
     <form action="holidays.php" method="post" class="pick_holidays">
-      <button type="submit" name="this_week">This Week</button>
-      <button type="submit" name="all_time">All Time</button>
-      <button type="submit" name="your_holidays">Your Holidays</button>
+      <button type="submit" name="this_week" class="<?php if($_SESSION['picked_holidays'] == 'this_week') echo 'picked'; ?>">This Week</button>
+      <button type="submit" name="all_time" class="<?php if($_SESSION['picked_holidays'] == 'all_time') echo 'picked'; ?>">All Time</button>
+      <button type="submit" name="your_holidays" class="<?php if($_SESSION['picked_holidays'] == 'your_holidays') echo 'picked'; ?>">Your Holidays</button>
     </form>
     <main>
         <div class="this_week">
-            <h1>This Week's Destinations</h1>
+            <h1>
+              <?php
+                if($_SESSION['picked_holidays'] == 'this_week')
+                  echo "This Week's Destinations";
+                else if($_SESSION['picked_holidays'] == 'all_time') 
+                  echo "All Time Favorites";
+                else echo 'Your Holidays';
+              ?>
+            </h1>
             <button class="btn--show-modal">Add Your Next Tour Here</button>
         </div>     
         <div class="holiday__container">
         <?php
-         $holidays = [];
-            foreach($holidays_arr as $holiday) {
-              $h = new Holiday($holiday['title'], $holiday['img'], $holiday['description'], $holiday['location'], $holiday['price']);
-              $holidays[] = $h;
-            }
-
+          if($_SESSION['picked_holidays'] == 'this_week') {
             foreach ($holidays as $holiday) {
               $holiday->displayHoliday();
+            }
           }
+          else if($_SESSION['picked_holidays'] == 'your_holidays') {
+            if(count($your_holidays) == 0) {
+              echo "<h1>You haven't added any holidays...<h1>";
+            }
+            foreach ($your_holidays as $holiday) {
+              $holiday->displayHoliday();
+            }
+          }
+          
         ?>
         </div>
         <div class="modal hidden">
             <button class="btn--close-modal">&times;</button>
-            <h2 class="modal__header">Where you want to go next?</h2>
-            <form class="modal__form" method="post" action="holidays.php">
-                <input type="text" name="title" placeholder="Title" required>
-                <textarea name="description" placeholder="Description" required></textarea>
-                <input type="text" name="location" placeholder="Location" required>
-                <input type="number" name="price" placeholder="Price" required>
-                <input type="file" name="img" accept="image/*" required>
-                <button class="btn" type="submit" name="add_tour">Add Tour</button>
-            </form>
+            <?php
+              if(isset($_SESSION['logged']) &&$_SESSION['logged']) {
+                echo '
+                <h2 class="modal__header">Where you want to go next?</h2>
+                <form class="modal__form" method="post" action="holidays.php">
+                    <input type="text" name="title" placeholder="Title" required>
+                    <textarea name="description" placeholder="Description" required></textarea>
+                    <input type="text" name="location" placeholder="Location" required>
+                    <input type="number" name="price" placeholder="Price" required>
+                    <input type="file" name="img" accept="image/*" required>
+                    <button class="btn" type="submit" name="add_tour">Add Tour</button>
+                </form>
+                ';
+              }
+              else echo '
+                <h2 class="modal__header">You need to be logged in to add a holiday.</h2>
+                <a href="login.php" class="tour_login">Log In</a>
+              ';
+            ?>
         </div>
         <div class="overlay hidden"></div>
     </main>
