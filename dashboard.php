@@ -7,6 +7,7 @@
   } 
 
   include "users.php";
+  include "holidays_array.php";
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +39,37 @@
               echo "<td>{$user['username']}</td>";
               echo "<td>{$user['fullname']}</td>";
               echo "<td>{$user['email']}</td>";
+              echo "</tr>";
+            }
+          ?>
+        </tbody>
+      </table>
+    </div>
+    <div class="dashboard">
+      <h1>Added Tour Dashboard</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Title</th>
+            <th style="width:350px;">Description</th>
+            <th>Location</th>
+            <th>Price</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+            foreach ($holidays_arr as $holiday) {
+              echo "<tr>";
+              echo "<td>{$holiday['added_by']['username']}</td>";
+              echo "<td>{$holiday['added_by']['email']}</td>";
+              echo "<td>{$holiday['title']}</td>";
+              echo "<td>{$holiday['description']}</td>";
+              echo "<td>{$holiday['location']}</td>";
+              echo "<td>{$holiday['price']}</td>";
+              echo "<td>{$holiday['img']}</td>";
               echo "</tr>";
             }
           ?>

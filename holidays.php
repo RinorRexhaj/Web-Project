@@ -72,6 +72,26 @@
       $h = new Holiday($holiday['title'], $holiday['img'], $holiday['description'], $holiday['location'], $holiday['price']);
       $holidays[] = $h;
     }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_tour'])) {
+      $current_user = $_SESSION['username'];
+      $current_user_email = $_SESSION['email'];
+      
+      $newTour = [
+          'title' => $_POST['title'],
+          'description' => $_POST['description'],
+          'location' => $_POST['location'],
+          'price' => $_POST['price'],
+          'img' => $_POST['img'],
+          'added_by' => [
+            'username' => $current_user,
+            'email' => $current_user_email,
+        ], 
+      ];
+
+      $holidays_arr[] = $newTour;
+      file_put_contents('holidays_array.php', '<?php $holidays_arr = ' . var_export($holidays_arr, true) . '; ?>');
+  }
 ?>
 
 <!DOCTYPE html>
@@ -113,21 +133,27 @@
         </div>     
         <div class="holiday__container">
         <?php
-            foreach($holidays as $holiday) {
-              $holiday->displayHoliday();
+         $holidays = [];
+            foreach($holidays_arr as $holiday) {
+              $h = new Holiday($holiday['title'], $holiday['img'], $holiday['description'], $holiday['location'], $holiday['price']);
+              $holidays[] = $h;
             }
+
+            foreach ($holidays as $holiday) {
+              $holiday->displayHoliday();
+          }
         ?>
         </div>
         <div class="modal hidden">
             <button class="btn--close-modal">&times;</button>
             <h2 class="modal__header">Where you want to go next?</h2>
-            <form class="modal__form">
+            <form class="modal__form" method="post" action="holidays.php">
                 <input type="text" name="title" placeholder="Title" required>
                 <textarea name="description" placeholder="Description" required></textarea>
                 <input type="text" name="location" placeholder="Location" required>
                 <input type="number" name="price" placeholder="Price" required>
                 <input type="file" name="img" accept="image/*" required>
-                <button class="btn">Add Tour</button>
+                <button class="btn" type="submit" name="add_tour">Add Tour</button>
             </form>
         </div>
         <div class="overlay hidden"></div>
