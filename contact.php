@@ -59,16 +59,16 @@
         </div>
         <div class="pitch__us">
           <h1>Pitch Us</h1>
-          <form action="">
+          <form action="contact.php" method="post">
             <textarea
-              name=""
+              name="user_message"
               id=""
               cols="30"
               rows="5"
               placeholder="Impress Us..."
             ></textarea>
+            <button class="send" type="submit" name="submit_message">Send</button>
           </form>
-          <button>Send</button>
         </div>
       </div>
     </div>

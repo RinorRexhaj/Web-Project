@@ -1,6 +1,6 @@
 <?php
   session_start();
-
+include "subscribed_users.php";
   // echo $_SESSION['username'].' '.$_SESSION['fullname'];
 ?>
 
@@ -277,12 +277,12 @@
       <div class="newsletter__info">
         <h1>Subscribe to our Newsletter</h1>
         <p>Get to know the latest offers</p>
-        <form class="newsletter__input">
+        <form class="newsletter__input" method="post" action="subscribe.php">
           <div class="inp">
             <i class="fa-solid fa-envelope"></i>
-            <input type="email" placeholder="Email..." />
+            <input type="email" placeholder="Email..." name="subscribe_email" />
           </div>
-          <button>SUBSCRIBE</button>
+          <button type="submit" name="subscribe">SUBSCRIBE</button>
         </form>
       </div>
     </section>

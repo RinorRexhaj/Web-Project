@@ -102,7 +102,7 @@ header {
   padding: 10px;
 }
 
-.pitch__us > button {
+.send {
   margin-top: 15px;
   border: none;
   width: 100px;
@@ -116,7 +116,7 @@ header {
   transition: 0.4s all;
 }
 
-.pitch__us > button:hover {
+.send:hover {
   background: white;
   color: #00a6ff;
   outline: 2px solid #01baef;

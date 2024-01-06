@@ -6,8 +6,11 @@
     
   } 
 
+  $contact_messages = file_exists('contact_array.php') ? include 'contact_array.php' : [];
+
   include "users.php";
   include "holidays_array.php";
+  include "subscribed_users.php";
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/dashboard.css">
   <link rel="stylesheet" href="./css/nav.css">
+  <script defer src="./js/dashboard.js"></script>
   <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -41,33 +45,33 @@
       <div class="sidebar">
         <h1>Tables</h1>
         <div class="tables">
-          <div class="table current">
-            <span class="indc">
-              <i class="fa-gift fa-solid"></i>
-            </span>
-            <button type="submit">Holidays</button>
-          </div>
-          <div class="table">
+        <div class="table current">
             <span class="indc">
               <i class="fa-user fa-solid"></i>
             </span>
-            <button type="submit">Users</button>
+            <button type="submit" class="usersbtn">Users</button>
+          </div>
+          <div class="table">
+            <span class="indc">
+              <i class="fa-gift fa-solid"></i>
+            </span>
+            <button type="submit" class="holidaysbtn">Holidays</button>
           </div>
           <div class="table">
             <span class="indc">
               <i class="fa-newspaper fa-solid"></i>
             </span>
-            <button type="submit">Newsletter</button>
+            <button type="submit" class="newsletterbtn">Newsletter</button>
           </div>
           <div class="table">
             <span class="indc">
               <i class="fa-message fa-solid"></i>
             </span>
-            <button type="submit">Contact</button>
+            <button type="submit" class="contactbtn">Contact</button>
           </div>
         </div>
       </div>
-      <div class="dashboard">
+      <div class="dashboard users_dash">
         <h1>User Dashboard</h1>
         <table>
           <thead>
@@ -90,7 +94,7 @@
           </tbody>
         </table>
       </div>
-      <div class="dashboard hidden">
+      <div class="dashboard holidays_dash hidden">
         <h1>Added Tour Dashboard</h1>
         <table>
           <thead>
@@ -117,6 +121,56 @@
                 echo "<td>{$holiday['img']}</td>";
                 echo "</tr>";
               }
+            ?>
+          </tbody>
+        </table>
+      </div>
+      <div class="dashboard newsletter_dash hidden">
+        <h1>Newsletter Subscribers</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Full Name</th>
+              <th>Email</th>
+              <th>Subscribed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+              foreach ($users as $user) {
+                echo "<tr>";
+                echo "<td>{$user['username']}</td>";
+                echo "<td>{$user['fullname']}</td>";
+                echo "<td>{$user['email']}</td>";
+                echo "<td>" . (in_array($user['email'], $subscribed_users) ? 'Yes' : 'No') . "</td>";
+                echo "</tr>";
+              }
+            ?>
+          </tbody>
+        </table>
+      </div>
+      <div class="dashboard contact_dash hidden">
+        <h1>Users Messages dashboard</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Full Name</th>
+              <th>Email</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+              foreach ($users as $user) {
+                echo "<tr>
+                  <td>{$user['username']}</td>
+                  <td>{$user['fullname']}</td>
+                  <td>{$user['email']}</td>
+                  <td>{$user['message']}</td>
+                  </tr>";
+            }
             ?>
           </tbody>
         </table>
