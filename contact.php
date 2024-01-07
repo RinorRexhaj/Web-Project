@@ -1,5 +1,8 @@
 <?php
   session_start();
+  if(!(isset($_SESSION['logged']) &&$_SESSION['logged'])){
+    
+  }
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +62,7 @@
         </div>
         <div class="pitch__us">
           <h1>Pitch Us</h1>
-          <form action="contact.php" method="post">
+          <form action="process_contact.php" method="post">
             <textarea
               name="user_message"
               id=""

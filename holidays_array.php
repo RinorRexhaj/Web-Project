@@ -53,41 +53,15 @@
   ),
   4 => 
   array (
-    'title' => 'vdkmsm',
-    'description' => 'mvkdsm',
-    'location' => 'vdmks',
-    'price' => '78',
-    'img' => '-6ga42g.jpg',
+    'title' => 'Paris',
+    'description' => 'lorem ipsum minus',
+    'location' => 'France',
+    'price' => '450',
+    'img' => 'boat.webp',
     'added_by' => 
     array (
-      'username' => 'Rinori',
-      'email' => 'rinor@gmail.com',
-    ),
-  ),
-  5 => 
-  array (
-    'title' => 'vdkmsm',
-    'description' => 'mvkdsm',
-    'location' => 'vdmks',
-    'price' => '78',
-    'img' => '-6ga42g.jpg',
-    'added_by' => 
-    array (
-      'username' => 'Rinori',
-      'email' => 'rinor@gmail.com',
-    ),
-  ),
-  6 => 
-  array (
-    'title' => 'Prishtina',
-    'description' => 'djagajsjvnfkjdnv',
-    'location' => 'Kosovo',
-    'price' => '500',
-    'img' => 'aboutUs_bg.jpeg',
-    'added_by' => 
-    array (
-      'username' => 'Orgesi',
-      'email' => 'orges@gmail.com',
+      'username' => 'Edioni',
+      'email' => 'edion@gmail.com',
     ),
   ),
 ); ?>

@@ -73,6 +73,7 @@
       </div>
       <div class="dashboard users_dash">
         <h1>User Dashboard</h1>
+        <div class="table-container">
         <table>
           <thead>
             <tr>
@@ -94,8 +95,11 @@
           </tbody>
         </table>
       </div>
+
+      </div>
       <div class="dashboard holidays_dash hidden">
         <h1>Added Tour Dashboard</h1>
+        <div class="table-container">
         <table>
           <thead>
             <tr>
@@ -125,8 +129,11 @@
           </tbody>
         </table>
       </div>
+
+      </div>
       <div class="dashboard newsletter_dash hidden">
         <h1>Newsletter Subscribers</h1>
+        <div class="table-container">
         <table>
           <thead>
             <tr>
@@ -150,8 +157,11 @@
           </tbody>
         </table>
       </div>
+
+      </div>
       <div class="dashboard contact_dash hidden">
         <h1>Users Messages dashboard</h1>
+        <div class="table-container">
         <table>
           <thead>
             <tr>
@@ -163,17 +173,20 @@
           </thead>
           <tbody>
             <?php
-              foreach ($users as $user) {
+              $contact_messages = file_exists('contact_array.php') ? include 'contact_array.php' : [];
+              foreach ($contact_messages as $message) {
                 echo "<tr>
-                  <td>{$user['username']}</td>
-                  <td>{$user['fullname']}</td>
-                  <td>{$user['email']}</td>
-                  <td>{$user['message']}</td>
-                  </tr>";
-            }
-            ?>
+                      <td>{$message['username']}</td>
+                      <td>{$message['fullname']}</td>
+                      <td>{$message['email']}</td>
+                      <td>{$message['message']}</td>
+                      </tr>";
+                }
+              ?>
           </tbody>
         </table>
+      </div>
+
       </div>
     </div>
 </body>

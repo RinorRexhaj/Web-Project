@@ -66,6 +66,21 @@
       $_SESSION['registered'] = false;
       header('Location: login.php');
     } else {
+      //kur t regjistrohet new user
+      $newUser = [
+        "username" => $username,
+        "fullname" => $fullname,
+        "email" => $reg_email,
+        "password" => $reg_password,
+        "admin" => false
+    ];
+
+    include "users.php";
+    $users[] = $newUser;  
+    $usersFile = fopen("users.php", "w");
+    fwrite($usersFile, "<?php\n\n\$users = " . var_export($users, true) . ";\n\n?>");
+    fclose($usersFile);
+
       $_SESSION['email'] = $reg_email;                    
       $_SESSION['username'] = $username;
       $_SESSION['fullname'] = $fullname;

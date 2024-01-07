@@ -126,12 +126,13 @@ header {
 
 .dashboard {
   max-width: 900px;
-  height: 550px;
+  max-height: 550px;
   /* margin: 50px auto; */
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  overflow: auto;
 }
 
 .hidden {
@@ -142,8 +143,11 @@ h1 {
   color: #333;
 }
 
+.table-container {
+  overflow: auto;
+}
+
 table {
-  width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
