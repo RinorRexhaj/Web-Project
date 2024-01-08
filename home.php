@@ -1,7 +1,15 @@
 <?php
   session_start();
-include "subscribed_users.php";
+  include "subscribed_users.php";
   // echo $_SESSION['username'].' '.$_SESSION['fullname'];
+
+  if(isset($_POST['submit'])) {
+    $_SESSION['destination'] = $_POST['destination'];
+    $_SESSION['from'] = $_POST['from'];
+    $_SESSION['check_in'] = $_POST['d1'];
+    $_SESSION['check_out'] = $_POST['d2'];
+    $_SESSION['reserved'] = true;
+  }
 ?>
 
 <!DOCTYPE html>
@@ -23,20 +31,34 @@ include "subscribed_users.php";
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="./js/home.js"></script>
+    <script defer src="./js/preventRefresh.js"></script>
     <title>Holiday Website - Home</title>
   </head>
   <body>
     <div class="banner">
       <?php include "header.php" ?>
+      <?php
+        if(isset($_SESSION['reserved']) && $_SESSION['reserved']) {
+          echo '
+          <div class="modal">
+            <button class="btn--close-modal">&times;</button>
+            <h2 class="modal__header">Your reservation was submitted successfully!</h2>
+            <i class="fa-solid fa-circle-check" style="color: #00ff88;font-size: 36px;"></i>
+          </div>
+          <div class="overlay_modal"></div>
+          ';
+          $_SESSION['reserved'] = false;
+        }
+      ?>
       <div class="search__holiday">
         <div class="search__holidays">
           <h1>Explore</h1>
           <h2>The World</h2>
         </div>
-        <div class="search__holiday--inputs">
+        <form action="home.php" method="post" class="search__holiday--inputs">
           <div class="search">
             <i class="fa-solid fa-earth-americas fa-xl"></i>
-            <input type="search" placeholder="Your Destination or Hotel" />
+            <input type="search" name="destination" placeholder="Your Destination or Hotel" />
           </div>
           <div class="date">
             <i class="fa-solid fa-calendar fa-xl"></i>
@@ -56,16 +78,29 @@ include "subscribed_users.php";
               onblur="(this.type='text')"
             />
           </div>
+          <input type="text" name="from" class="invisible">
           <div class="only__for--btnColor">
-            <button class="search__holiday--button">
-              SEARCH FOR MY HOLIDAY
+            <button type="submit" name="submit" class="search__holiday--button">
+              BOOK MY HOLIDAY
             </button>
-          </div>
+        </form>
         </div>
         <div class="bora__bora">
-          <p>Bora Bora</p>
+          <p>
+            <?php
+              if(isset($_SESSION['destination']))
+                echo $_SESSION['from'].' <i class="fa-solid fa-arrow-right"></i> '.$_SESSION['destination'];
+              else echo 'Bora Bora';
+            ?>
+          </p>
           <div class="search__borabora">
-            <p>MATIRA BEACH</p>
+            <p>
+              <?php
+                if(isset($_SESSION['destination']))
+                  echo 'Your latest trip from '. date_format(date_create($_SESSION['check_in']), "d/m/Y");
+                else echo 'MATIRA BEACH';
+              ?>
+            </p>
             <button class="get-there">
               GET THERE <i class="fas fa-thin fa-angle-right"></i>
             </button>
@@ -120,11 +155,11 @@ include "subscribed_users.php";
                   <option value="5">5 nights</option>
                   <option value="6">6 nights</option>
                   <option value="7">7 nights</option>
-                  <option value="other">Other</option>
+                  <option value="other" class="option_scroll">Other</option>
                 </select>
               </div>
             </div>
-            <button>
+            <button type="submit" class="search_holiday">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </form>

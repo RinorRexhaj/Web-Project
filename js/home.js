@@ -1,17 +1,22 @@
 const header = document.querySelector("header");
 
 //Complete respective input when one of them is complete
+const holidayForm = document.querySelector(".search__holiday--inputs");
 const destHotel = document.querySelector(
   ".search__holiday--inputs .search input"
 );
 const checkIn = document.querySelector(".date input[name='d1']");
 const checkOut = document.querySelector(".date input[name='d2']");
+const from = document.querySelector(".search__holiday--inputs .invisible");
 const sHBtn = document.querySelector(".search__holiday--button");
 
 const whereTo = document.querySelector(".where_to input");
 const flyingFrom = document.querySelector(".flying_from input");
 const when = document.querySelector(".when input");
 const howLong = document.querySelector(".how_long select");
+const travelPlanningInfo = document.querySelector(
+  ".travel__planning--informations"
+);
 
 function completeOther(input1, input2) {
   input2.value = input1.value;
@@ -48,14 +53,20 @@ checkOut.addEventListener("change", () => {
   if (checkIn.value != "") {
     let diff = (checkOutDay - checkInDay) / 60 / 60 / 24 / 1000;
     if (diff > 7) {
-      howLong.value = "other";
-      howLong.innerHTML = diff;
-    }
-    howLong.value = diff;
+      let diffHowLong = document.createElement("option");
+      diffHowLong.text = diff + " nights";
+      howLong.options.add(diffHowLong, 7);
+      howLong[7].selected = "selected";
+    } else howLong.value = diff;
   }
 });
 
 howLong.addEventListener("change", () => {
+  if (howLong.value == "other") {
+    scroll(banner);
+    checkOut.value = "";
+    return;
+  }
   let checkInDay = new Date(checkIn.value);
   let checkOutDay = new Date(checkOut.value);
   if (checkInDay > checkOutDay) {
@@ -65,14 +76,61 @@ howLong.addEventListener("change", () => {
   if (checkIn.value == "" && checkOut.value != "") {
     checkInDay.setDate(checkOutDay.getDate() - Number(howLong.value));
     checkIn.value = checkOutDay.toISOString().split("T")[0];
-  } else if (checkIn.value != "" && checkOut.value == "") {
-    checkOutDay.setDate(checkOutDay.getDate() + Number(howLong.value));
+  } else if (checkIn.value != "") {
+    checkOutDay.setDate(checkInDay.getDate() + Number(howLong.value));
     checkOut.value = checkOutDay.toISOString().split("T")[0];
-  } else if (checkIn.value != "" && checkOut.value != "") {
   }
 });
 
-sHBtn.addEventListener("click", () => {});
+flyingFrom.addEventListener("change", () => {
+  completeOther(flyingFrom, from);
+});
+
+holidayForm.addEventListener("submit", (e) => {
+  if (destHotel.value == "") {
+    e.preventDefault();
+    destHotel.focus();
+    scroll(destHotel);
+  } else if (checkIn.value == "") {
+    e.preventDefault();
+    checkIn.focus();
+    scroll(checkIn);
+  } else if (checkOut.value == "") {
+    e.preventDefault();
+    checkOut.focus();
+    scroll(checkOut);
+  } else if (from.value == "") {
+    e.preventDefault();
+    flyingFrom.focus();
+    scroll(flyingFrom);
+  }
+});
+
+travelPlanningInfo.addEventListener("submit", (e) => {
+  e.preventDefault();
+  scroll(destHotel);
+});
+
+//Modal on successful reservation
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay_modal");
+const btnCloseModal = document.querySelector(".btn--close-modal");
+
+const toggleModal = function (e) {
+  e.preventDefault();
+  modal.classList.toggle("hidden");
+  overlay.classList.toggle("hidden");
+};
+
+btnCloseModal.addEventListener("click", toggleModal);
+overlay.addEventListener("click", toggleModal);
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    modal.classList.add("hidden");
+    overlay.classList.add("hidden");
+  }
+});
 
 //Footer links scroll into sections
 const canyon = document.querySelector(".canyon");
@@ -94,6 +152,7 @@ const getThere = document.querySelector(".get-there");
 const seeDeals = document.querySelectorAll(".see__deals");
 const pick = document.querySelectorAll(".pick");
 const viewMore = document.querySelector(".view__more");
+const searchHoliday = document.querySelector(".search_holiday");
 
 explore.addEventListener("click", () => {
   scroll(banner);
@@ -134,6 +193,8 @@ pick.forEach((p) => {
     scroll(travelPlanning);
   });
 });
+
+searchHoliday.addEventListener("click", () => scroll(banner));
 
 //Scroll into Page View function
 function scroll(element) {
