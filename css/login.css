@@ -222,10 +222,6 @@ ul {
     width: 800px;
   }
 
-  nav {
-    max-width: 550px;
-  }
-
   .login__register {
     margin-top: 150px;
   }
@@ -253,29 +249,8 @@ ul {
     position: relative;
   }
 
-  nav {
-    display: none;
-    z-index: 10;
-  }
-
-  .menu {
-    display: block;
-    width: 30px;
-    height: 30px;
-    background: transparent;
-    color: white;
-    font-size: 26px;
-  }
-
-  .active {
-    padding: 10px;
-    border-radius: 5px;
-    position: absolute;
-    right: 0;
-    top: 100px;
-    display: flex;
-    flex-direction: column;
-    background: rgba(43, 42, 42, 0.8);
+  .user__login .user_info {
+    top: 60px;
   }
 }
 

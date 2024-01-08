@@ -96,19 +96,20 @@ include "subscribed_users.php";
                 <input type="text" placeholder="Your destination..." />
               </div>
             </div>
-            <div class="where_to">
+            <div class="flying_from">
               <p>Flying from</p>
               <div>
+                <i class="fa-solid fa-location-dot"></i>
                 <input type="text" placeholder="Your departure..." />
               </div>
             </div>
-            <div class="where_to">
+            <div class="when">
               <p>When?</p>
               <div>
                 <input type="date" placeholder="The start..." />
               </div>
             </div>
-            <div class="where_to">
+            <div class="how_long">
               <p>For how long?</p>
               <div>
                 <select name="nights" id="nights">
@@ -119,10 +120,13 @@ include "subscribed_users.php";
                   <option value="5">5 nights</option>
                   <option value="6">6 nights</option>
                   <option value="7">7 nights</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
             </div>
-            <button>FIND A HOLIDAY</button>
+            <button>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
           </form>
         </div>
         <div class="travel__planning--icons">

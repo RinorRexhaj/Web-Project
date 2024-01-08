@@ -1,14 +1,80 @@
 const header = document.querySelector("header");
 
-//Convert Text date into an adequate format for data insertion
-// const sHBtn = document.querySelector(".search__holiday--button");
-// const dateInput = document.querySelector(".date input");
-// sHBtn.addEventListener("click", () => {
-//   d1 = new Date(dateInput.value);
-//   d1 = d1.toISOString();
-//   console.log(d1);
-// });
+//Complete respective input when one of them is complete
+const destHotel = document.querySelector(
+  ".search__holiday--inputs .search input"
+);
+const checkIn = document.querySelector(".date input[name='d1']");
+const checkOut = document.querySelector(".date input[name='d2']");
+const sHBtn = document.querySelector(".search__holiday--button");
 
+const whereTo = document.querySelector(".where_to input");
+const flyingFrom = document.querySelector(".flying_from input");
+const when = document.querySelector(".when input");
+const howLong = document.querySelector(".how_long select");
+
+function completeOther(input1, input2) {
+  input2.value = input1.value;
+}
+
+destHotel.addEventListener("input", () => completeOther(destHotel, whereTo));
+whereTo.addEventListener("input", () => completeOther(whereTo, destHotel));
+
+checkIn.addEventListener("change", () => {
+  completeOther(checkIn, when);
+  if (howLong.value != "" && checkIn.value != "") {
+    let checkOutDay = new Date(checkIn.value);
+    checkOutDay.setDate(checkOutDay.getDate() + Number(howLong.value));
+    checkOut.value = checkOutDay.toISOString().split("T")[0];
+  }
+});
+
+when.addEventListener("change", () => {
+  completeOther(when, checkIn);
+  if (howLong.value != "" && checkIn.value != "") {
+    let checkOutDay = new Date(checkIn.value);
+    checkOutDay.setDate(checkOutDay.getDate() + Number(howLong.value));
+    checkOut.value = checkOutDay.toISOString().split("T")[0];
+  }
+});
+
+checkOut.addEventListener("change", () => {
+  let checkInDay = new Date(checkIn.value);
+  let checkOutDay = new Date(checkOut.value);
+  if (checkInDay > checkOutDay) {
+    checkOut.value = "";
+    return;
+  }
+  if (checkIn.value != "") {
+    let diff = (checkOutDay - checkInDay) / 60 / 60 / 24 / 1000;
+    if (diff > 7) {
+      howLong.value = "other";
+      howLong.innerHTML = diff;
+    }
+    howLong.value = diff;
+  }
+});
+
+howLong.addEventListener("change", () => {
+  let checkInDay = new Date(checkIn.value);
+  let checkOutDay = new Date(checkOut.value);
+  if (checkInDay > checkOutDay) {
+    checkOut.value = "";
+    return;
+  }
+  if (checkIn.value == "" && checkOut.value != "") {
+    checkInDay.setDate(checkOutDay.getDate() - Number(howLong.value));
+    checkIn.value = checkOutDay.toISOString().split("T")[0];
+  } else if (checkIn.value != "" && checkOut.value == "") {
+    checkOutDay.setDate(checkOutDay.getDate() + Number(howLong.value));
+    checkOut.value = checkOutDay.toISOString().split("T")[0];
+  } else if (checkIn.value != "" && checkOut.value != "") {
+  }
+});
+
+sHBtn.addEventListener("click", () => {});
+
+//Footer links scroll into sections
 const canyon = document.querySelector(".canyon");
 const banner = document.querySelector(".search__holiday");
 const travelPlanningButtons = document.querySelectorAll(

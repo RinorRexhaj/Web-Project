@@ -281,7 +281,8 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  font-weight: 500;
+  gap: 20px;
 }
 
 .travel__planning--informations > div {
@@ -293,15 +294,16 @@ main {
 
 .travel__planning--informations > div > div {
   display: flex;
-  gap: 5px;
-  padding: 8px;
-  border: 1px solid gray;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgb(207, 207, 207);
 }
 
 .travel__planning--informations > div > div > input {
   width: 100%;
   border: none;
   outline: none;
+  font-weight: 500;
 }
 
 .travel__planning--informations > div > div > select {
@@ -313,22 +315,22 @@ main {
 .travel__planning--informations > button {
   margin-top: 15px;
   border: none;
-  width: 750px;
+  min-width: 50px;
+  max-width: 50px;
   height: 50px;
   color: white;
   cursor: pointer;
   font-weight: 600;
-  letter-spacing: 1.1px;
-  border-radius: 2px;
-  background: linear-gradient(to right, #20bf75, #01baef);
-  transition: 0.4s all;
+  font-size: 20px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.95);
+  outline: 2px solid rgba(0, 0, 0, 0.95);
+  transition: 0.3s all;
 }
 
 .travel__planning--informations > button:hover {
   background: white;
-  color: #00a6ff;
-  outline: 2px solid #01baef;
-  cursor: pointer;
+  color: rgba(0, 0, 0, 0.95);
 }
 
 .travel__planning--icons {

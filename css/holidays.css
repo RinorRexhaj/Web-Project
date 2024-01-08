@@ -236,7 +236,7 @@ main {
   width: 300px;
   text-align: center;
   display: flex;
-  border: 1px solid red;
+  flex-direction: column;
   gap: 10px;
 }
 
