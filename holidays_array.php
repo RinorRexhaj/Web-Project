@@ -6,11 +6,7 @@
     'location' => 'Albania',
     'price' => '125',
     'img' => './img/bb.jpg',
-    'added_by' => 
-    array (
-      'username' => 'Orgesi',
-      'email' => 'orges@gmail.com',
-    ),
+    'username' => 'Orgesi',
   ),
   1 => 
   array (
@@ -19,11 +15,7 @@
     'location' => 'French Polynesia',
     'price' => '900',
     'img' => './img/borabora.jpg',
-    'added_by' => 
-    array (
-      'username' => 'Dreni',
-      'email' => 'dren@gmail.com',
-    ),
+    'username' => 'Dreni',
   ),
   2 => 
   array (
@@ -32,11 +24,7 @@
     'location' => 'UAE',
     'price' => '500',
     'img' => './img/dubai.jpg',
-    'added_by' => 
-    array (
-      'username' => 'Dreni',
-      'email' => 'dren@gmail.com',
-    ),
+    'username' => 'Dreni',
   ),
   3 => 
   array (
@@ -45,11 +33,7 @@
     'location' => 'France',
     'price' => '350',
     'img' => './img/paris.jpg',
-    'added_by' => 
-    array (
-      'username' => 'Username101',
-      'email' => 'u1@gmail.com',
-    ),
+    'username' => 'Username101',
   ),
   4 => 
   array (
@@ -58,10 +42,33 @@
     'location' => 'France',
     'price' => '450',
     'img' => 'boat.webp',
-    'added_by' => 
-    array (
-      'username' => 'Edioni',
-      'email' => 'edion@gmail.com',
-    ),
+    'username' => 'Edioni',
+  ),
+  5 => 
+  array (
+    'title' => 'mfkmk',
+    'description' => 'mbfkm',
+    'location' => 'mbfkd',
+    'price' => '855',
+    'img' => '-6ga42g.jpg',
+    'username' => 'Rinori',
+  ),
+  6 => 
+  array (
+    'title' => 'vmkdsmkvmkds',
+    'description' => 'mbkdsmsk',
+    'location' => 'vmdsk',
+    'price' => '855',
+    'img' => '7545a59.jpg',
+    'username' => 'Rinori',
+  ),
+  7 => 
+  array (
+    'title' => 'mvfkmk',
+    'description' => 'mfkbmkd',
+    'location' => 'fmbkdmfk73',
+    'price' => '848',
+    'img' => '-6ga42g.jpg',
+    'username' => 'Rinori',
   ),
 ); ?>

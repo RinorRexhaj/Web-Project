@@ -1,4 +1,6 @@
 const table = document.querySelectorAll(".table");
+const sideBar = document.querySelector(".sidebar");
+const sideBtn = document.querySelector(".sidebar button");
 const usersbtn = document.querySelector(".usersbtn");
 const holidaysbtn = document.querySelector(".holidaysbtn");
 const newsletterbtn = document.querySelector(".newsletterbtn");
@@ -7,6 +9,11 @@ const users_dash = document.querySelector(".users_dash");
 const holidays_dash = document.querySelector(".holidays_dash");
 const newsletter_dash = document.querySelector(".newsletter_dash");
 const contact_dash = document.querySelector(".contact_dash");
+
+console.log(sideBtn);
+sideBtn.addEventListener("click", () => {
+  sideBar.classList.toggle("active_side");
+});
 
 table.forEach(function (button) {
   button.addEventListener("click", function () {

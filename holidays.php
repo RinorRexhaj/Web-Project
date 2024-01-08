@@ -8,6 +8,7 @@
         private $description;
         private $location;
         private $price;
+        private $user;
 
         public function __construct($title, $img, $description, $location, $price, $user) {
             $this->title = $title;
@@ -76,13 +77,12 @@
     $holidays;
 
     foreach($holidays_arr as $holiday) {
-      $h = new Holiday($holiday['title'], $holiday['img'], $holiday['description'], $holiday['location'], $holiday['price'], $holiday['added_by']['username']);
+      $h = new Holiday($holiday['title'], $holiday['img'], $holiday['description'], $holiday['location'], $holiday['price'], $holiday['username']);
       $holidays[] = $h;
     }
 
     if (isset($_POST['add_tour'])) {
       $current_user = $_SESSION['username'];
-      $current_user_email = $_SESSION['email'];
       
       $newTour = [
           'title' => $_POST['title'],
@@ -90,10 +90,7 @@
           'location' => $_POST['location'],
           'price' => $_POST['price'],
           'img' => $_POST['img'],
-          'added_by' => [
-            'username' => $current_user,
-            'email' => $current_user_email,
-        ], 
+          'username' => $current_user,
       ];
 
       $holidays_arr[] = $newTour;
@@ -146,11 +143,7 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&
-      family=Lato:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <?php include "header.php"; ?>

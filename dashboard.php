@@ -31,8 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&
-      family=Lato:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
   <title>Dashboard</title>
@@ -44,38 +43,41 @@
   <div class="container">
       <div class="sidebar">
         <h1>Tables</h1>
+        <button>
+          <i class="fa-solid fa-table"></i>
+        </button>
         <div class="tables">
-        <div class="table current">
+          <button type="submit" class="table current usersbtn">
             <span class="indc">
               <i class="fa-user fa-solid"></i>
             </span>
-            <button type="submit" class="usersbtn">Users</button>
-          </div>
-          <div class="table">
+            <h3>Users</h3>
+          </button>
+          <button type="submit" class="table holidaysbtn">
             <span class="indc">
               <i class="fa-gift fa-solid"></i>
             </span>
-            <button type="submit" class="holidaysbtn">Holidays</button>
-          </div>
-          <div class="table">
+            <h3>Holidays</h3>
+          </button>
+          <button type="submit" class="table newsletterbtn">
             <span class="indc">
               <i class="fa-newspaper fa-solid"></i>
             </span>
-            <button type="submit" class="newsletterbtn">Newsletter</button>
-          </div>
-          <div class="table">
+            <h3>Newsletter</h3>
+          </button>
+          <button type="submit" class="table contactbtn">
             <span class="indc">
               <i class="fa-message fa-solid"></i>
             </span>
-            <button type="submit" class="contactbtn">Contact</button>
-          </div>
+            <h3>Contact</h3>
+          </button>
         </div>
       </div>
       <div class="dashboard users_dash">
-        <h1>User Dashboard</h1>
+        <h1>Users: <?php echo count($users); ?></h1>
         <div class="table-container">
         <table>
-          <thead>
+          <thead class="fixed">
             <tr>
               <th>Username</th>
               <th>Full Name</th>
@@ -98,15 +100,14 @@
 
       </div>
       <div class="dashboard holidays_dash hidden">
-        <h1>Added Tour Dashboard</h1>
+        <h1>Added Tours: <?php echo count($holidays_arr); ?></h1>
         <div class="table-container">
         <table>
-          <thead>
+          <thead class="fixed">
             <tr>
               <th>Username</th>
-              <th>Email</th>
               <th>Title</th>
-              <th style="width:350px;">Description</th>
+              <th style="width:250px;">Description</th>
               <th>Location</th>
               <th>Price</th>
               <th>Image</th>
@@ -116,8 +117,7 @@
             <?php
               foreach ($holidays_arr as $holiday) {
                 echo "<tr>";
-                echo "<td>{$holiday['added_by']['username']}</td>";
-                echo "<td>{$holiday['added_by']['email']}</td>";
+                echo "<td>{$holiday['username']}</td>";
                 echo "<td>{$holiday['title']}</td>";
                 echo "<td>{$holiday['description']}</td>";
                 echo "<td>{$holiday['location']}</td>";
@@ -132,10 +132,10 @@
 
       </div>
       <div class="dashboard newsletter_dash hidden">
-        <h1>Newsletter Subscribers</h1>
+        <h1>Newsletter Subscribers: <?php echo count($subscribed_users); ?></h1>
         <div class="table-container">
         <table>
-          <thead>
+          <thead class="fixed">
             <tr>
               <th>Username</th>
               <th>Full Name</th>
@@ -160,10 +160,10 @@
 
       </div>
       <div class="dashboard contact_dash hidden">
-        <h1>Users Messages dashboard</h1>
+        <h1>Users Messages: <?php echo count($contact_messages); ?></h1>
         <div class="table-container">
         <table>
-          <thead>
+          <thead class="fixed">
             <tr>
               <th>Username</th>
               <th>Full Name</th>

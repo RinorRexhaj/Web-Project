@@ -38,7 +38,19 @@
           }
 
           if($current == 'login') echo '</div></div>';
-          else echo '<form action="login.php" method="post" class="logoutBtn"><button type="submit" name="logout">Logout</button></form></div></div>';
+          else echo '<button type="submit" class="logoutBtn">Logout</button></div></div>';
+
+          echo '
+          <div class="modal_logout hidden">
+            <button class="btn--close-modal_logout">&times;</button>
+            <h2 class="modal__header_logout">Are you sure you want to log out?</h2>
+            <form class="modal__form_logout" method="post" action="login.php">
+                <button class="logoutBtn" type="submit" name="logout">Log Out</button>
+                <button type="button" class="btn_no">No</button>
+            </form>
+          </div>
+        <div class="overlay_logout hidden"></div>
+        ';
         }
       ?>
     </nav>
