@@ -38,9 +38,9 @@
     <div class="banner">
       <?php include "header.php" ?>
       <?php
-        if(isset($_SESSION['reserved']) && $_SESSION['reserved']) {
+        if((isset($_SESSION['reserved']) && $_SESSION['reserved'])) {
           echo '
-          <div class="modal">
+          <div class="modal_reservation">
             <button class="btn--close-modal">&times;</button>
             <h2 class="modal__header">Your reservation was submitted successfully!</h2>
             <i class="fa-solid fa-circle-check" style="color: #00ff88;font-size: 36px;"></i>
@@ -48,6 +48,19 @@
           <div class="overlay_modal"></div>
           ';
           $_SESSION['reserved'] = false;
+          $_SESSION['newsletter'] = false;
+        }
+        if(isset($_SESSION['newsletter']) && $_SESSION['newsletter']) {
+          echo '
+          <div class="modal_reservation">
+            <button class="btn--close-modal">&times;</button>
+            <h2 class="modal__header">Your subscription to the newsletter was submitted successfully!</h2>
+            <i class="fa-solid fa-circle-check" style="color: #00ff88;font-size: 36px;"></i>
+          </div>
+          <div class="overlay_modal"></div>
+          ';
+          $_SESSION['reserved'] = false;
+          $_SESSION['newsletter'] = false;
         }
       ?>
       <div class="search__holiday">
@@ -317,7 +330,7 @@
             <i class="fa-solid fa-envelope"></i>
             <input type="email" placeholder="Email..." name="subscribe_email" />
           </div>
-          <button type="submit" name="subscribe">SUBSCRIBE</button>
+          <button type="submit" name="newsletter">SUBSCRIBE</button>
         </form>
       </div>
     </section>

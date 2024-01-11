@@ -111,27 +111,6 @@ travelPlanningInfo.addEventListener("submit", (e) => {
   scroll(destHotel);
 });
 
-//Modal on successful reservation
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay_modal");
-const btnCloseModal = document.querySelector(".btn--close-modal");
-
-const toggleModal = function (e) {
-  e.preventDefault();
-  modal.classList.toggle("hidden");
-  overlay.classList.toggle("hidden");
-};
-
-btnCloseModal.addEventListener("click", toggleModal);
-overlay.addEventListener("click", toggleModal);
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") {
-    modal.classList.add("hidden");
-    overlay.classList.add("hidden");
-  }
-});
-
 //Footer links scroll into sections
 const canyon = document.querySelector(".canyon");
 const banner = document.querySelector(".search__holiday");
@@ -277,3 +256,40 @@ const prevSlide = function () {
 btnRight.addEventListener("click", nextSlide);
 
 btnLeft.addEventListener("click", prevSlide);
+
+//Newsletter Validation
+const newsLetterForm = document.querySelector(".newsletter__input");
+const newsLetterInput = document.querySelector(".inp input");
+
+newsLetterForm.addEventListener("submit", (e) => {
+  if (newsLetterInput.value == "" || !emailValid(newsLetterInput.value)) {
+    e.preventDefault();
+    newsLetterInput.focus();
+  }
+});
+
+const emailValid = (email) => {
+  const emailRegex = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/;
+  return emailRegex.test(email.toLowerCase());
+};
+
+//Modal on successful reservation
+const modal = document.querySelector(".modal_reservation");
+const overlay = document.querySelector(".overlay_modal");
+const btnCloseModal = document.querySelector(".btn--close-modal");
+
+const toggleModal = function (e) {
+  e.preventDefault();
+  modal.classList.toggle("hidden");
+  overlay.classList.toggle("hidden");
+};
+
+btnCloseModal.addEventListener("click", toggleModal);
+overlay.addEventListener("click", toggleModal);
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    modal.classList.add("hidden");
+    overlay.classList.add("hidden");
+  }
+});

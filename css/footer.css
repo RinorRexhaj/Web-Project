@@ -5,6 +5,12 @@ footer {
   background: rgb(54, 54, 54);
 }
 
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
 footer > *:not(hr) {
   display: flex;
   margin: auto;
@@ -109,8 +115,18 @@ footer > *:not(hr) {
   background-color: transparent;
 }
 
+.enter--email > button {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+}
+
 .enter--email i {
-  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  background: inherit;
+  color: #f2f2f2;
 }
 
 .enter--email > input::placeholder {

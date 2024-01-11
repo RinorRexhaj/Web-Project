@@ -47,7 +47,7 @@ header {
 }
 
 /* Modal for successful reservation */
-.modal {
+.modal_reservation {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,7 +64,6 @@ header {
   z-index: 1000;
   border-radius: 10px;
   transition: all 0.5s;
-  /* margin-top: 5px; */
 }
 
 .btn--close-modal {
@@ -532,7 +531,7 @@ main {
   opacity: 1;
 }
 
-._modal {
+.overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -549,11 +548,11 @@ main {
   gap: 50px;
 }
 
-.image__container:hover ._modal {
+.image__container:hover .overlay {
   opacity: 1;
 }
 
-._modal > .title {
+.overlay > .title {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -561,7 +560,7 @@ main {
   align-items: center;
 }
 
-._modal > .title > span {
+.overlay > .title > span {
   height: 1px;
   background: white;
   width: 150px;

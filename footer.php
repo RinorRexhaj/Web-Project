@@ -2,6 +2,7 @@
   $url =  $_SERVER['REQUEST_URI'];
   $current = basename($url, ".php");
 ?>
+<script defer src="./js/footer.js"></script>
 <footer>
     <div class="footer__content">
     <div class="company__name">
@@ -61,9 +62,9 @@
         <i class="fa-brands fa-twitter"></i>
         <i class="fa-brands fa-youtube"></i>
     </div>
-    <form class="enter--email">
-        <input type="email" placeholder="Get the best offers" />
-        <i class="fas fa-paper-plane"></i>
+    <form action="subscribe.php" method="post" class="enter--email">
+        <input type="email" name="subscribe_email" placeholder="Get the best offers" />
+        <button type="submit" name="newsletter"><i class="fas fa-paper-plane"></i></button>
     </form>
     </div>
     <hr />
