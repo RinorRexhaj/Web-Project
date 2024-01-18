@@ -1,5 +1,5 @@
 <?php
-include_once './dbConnection.php';
+include_once 'dbConnection.php';
 
 class UserRepo {
     private $connection;
@@ -48,7 +48,7 @@ class UserRepo {
         return $user;
     }
 
-    function updateUser( $id, $username, $fullname, $email, $password, $admin ) {
+    function updateUser($id, $username, $fullname, $email, $password, $admin) {
         $conn = $this->connection;
 
         $sql = 'UPDATE Users SET Username=?, FullName=?, Email=?, Password=?, Admin=? WHERE ID=?';
@@ -58,14 +58,14 @@ class UserRepo {
         $statement->execute( [ $username, $fullname, $email, $password, $admin, $id ] );
     }
 
-    function deleteUser( $id ) {
+    function deleteUser($id) {
         $conn = $this->connection;
 
         $sql = 'DELETE FROM Users WHERE id=?';
 
-        $statement = $conn->prepare( $sql );
+        $statement = $conn->prepare($sql);
 
-        $statement->execute( [ $id ] );
+        $statement->execute([$id]);
     }
 }
 ?>
