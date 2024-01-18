@@ -62,7 +62,7 @@
         <i class="fa-brands fa-twitter"></i>
         <i class="fa-brands fa-youtube"></i>
     </div>
-    <form action="subscribe.php" method="post" class="enter--email">
+    <form action="home.php" method="post" class="enter--email">
         <input type="email" name="subscribe_email" placeholder="Get the best offers" />
         <button type="submit" name="newsletter"><i class="fas fa-paper-plane"></i></button>
     </form>

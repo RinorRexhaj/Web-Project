@@ -1,7 +1,11 @@
 <?php
   session_start();
   include "subscribed_users.php";
-  // echo $_SESSION['username'].' '.$_SESSION['fullname'];
+
+  include_once "newsletterRepo.php";
+  $newsletterRepo = new NewsletterRepo();
+
+  // include_once "subscribed_users.php";
 
   if(isset($_POST['submit'])) {
     $_SESSION['destination'] = $_POST['destination'];
@@ -9,6 +13,14 @@
     $_SESSION['check_in'] = $_POST['d1'];
     $_SESSION['check_out'] = $_POST['d2'];
     $_SESSION['reserved'] = true;
+  }
+
+  if(isset($_POST['newsletter'])) {
+    $email = $_POST['subscribe_email'];    
+    $newsletterRepo->insertNewsletter($email);
+
+    $_SESSION['newsletter'] = true;
+
   }
 ?>
 
@@ -325,7 +337,7 @@
       <div class="newsletter__info">
         <h1>Subscribe to our Newsletter</h1>
         <p>Get to know the latest offers</p>
-        <form class="newsletter__input" method="post" action="subscribe.php">
+        <form class="newsletter__input" method="post" action="home.php">
           <div class="inp">
             <i class="fa-solid fa-envelope"></i>
             <input type="email" placeholder="Email..." name="subscribe_email" />
