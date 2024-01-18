@@ -41,6 +41,14 @@ $users = array (
     'password' => 'Pass1234',
     'admin' => false,
   ),
+  5 => 
+  array (
+    'username' => 'js',
+    'fullname' => 'vmdksmk',
+    'email' => 'mvkd@mv.vm',
+    'password' => 'mvsksk545665',
+    'admin' => false,
+  ),
 );
 
 ?>

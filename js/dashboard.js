@@ -10,7 +10,6 @@ const holidays_dash = document.querySelector(".holidays_dash");
 const newsletter_dash = document.querySelector(".newsletter_dash");
 const contact_dash = document.querySelector(".contact_dash");
 
-console.log(sideBtn);
 sideBtn.addEventListener("click", () => {
   sideBar.classList.toggle("active_side");
 });

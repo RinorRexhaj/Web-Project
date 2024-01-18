@@ -1,27 +1,31 @@
 <?php 
 //Login
-  //if(isset($_SESSION['logged']) && !$_SESSION['logged']) session_destroy();
 
   session_start();
-// session_destroy();
 
-  include "users.php";
+  include "userRepo.php";
+  include "user.php";
 
+  $loggedUser;
+  $regUser;
+  
   // $_SESSION['logged'] = false;
   if(isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $_SESSION['logged'] = false;
-
-    for($i = 0; $i < count($users); $i++) {
-      if($email == $users[$i]['email']) {
+    
+    $userRepo = new UserRepo();
+    $users = $userRepo->getUsers();
+    foreach($users as $user) {
+      if($email == $user['Email']) {
           $_SESSION['wrong_email'] = false;
-          if($password == $users[$i]['password']) {
-            $_SESSION['email'] = $email;                    
-            $_SESSION['password'] = $password;        
-            $_SESSION['username'] = $users[$i]['username'];
-            $_SESSION['fullname'] = $users[$i]['fullname'];
-            $_SESSION['admin'] = $users[$i]['admin'];
+          if($password == $user['Password']) {
+            $loggedUser = new User($user['ID'], $user['Username'], $user['FullName'], $user['Email'], $user['Password'], $user['Admin']);
+
+            $_SESSION['fullname'] = $loggedUser->getFullname();
+            $_SESSION['username'] = $loggedUser->getUsername();
+            $_SESSION['admin'] = $loggedUser->getAdmin();
             $_SESSION['logged'] = true;
             $_SESSION['wrong_password'] = false;
             header('Location: home.php');
@@ -35,6 +39,8 @@
 // Log Out
   if(isset($_POST['logout'])) {
     if(isset($_SESSION['logged']) && $_SESSION['logged']) {
+        if(isset($loggedUser)) $loggedUser->unset();
+        if(isset($regUser)) $regUser->unset();
         session_destroy();
         header('Location: login.php');
     }
@@ -43,6 +49,9 @@
 //Register
 
   if(isset($_POST['register'])) {
+    $userRepo = new UserRepo();
+    $users = $userRepo->getUsers();
+
     $username = $_POST['username'];
     $fullname = $_POST['fullname'];
     $reg_email = $_POST['reg_email'];
@@ -51,12 +60,12 @@
 
     $_SESSION['exists_username'] = false;
     $_SESSION['exists_email'] = false;
-    for($i = 0; $i < count($users); $i++) {
-      if($username == $users[$i]['username']) {
+    foreach($users as $user) {
+      if($username == $user['Username']) {
         $_SESSION['exists_username'] = true;
         break;
       } 
-      if($reg_email == $users[$i]['email']) {
+      if($reg_email == $user['Email']) {
           $_SESSION['exists_email'] = true;
           break;
       }
@@ -67,23 +76,11 @@
       header('Location: login.php');
     } else {
       //kur t regjistrohet new user
-      $newUser = [
-        "username" => $username,
-        "fullname" => $fullname,
-        "email" => $reg_email,
-        "password" => $reg_password,
-        "admin" => false
-    ];
+      $regUser = new User(null, $username, $fullname, $reg_email, $reg_password, false);
+      $userRepo->insertUser($regUser);
 
-    include "users.php";
-    $users[] = $newUser;  
-    $usersFile = fopen("users.php", "w");
-    fwrite($usersFile, "<?php\n\n\$users = " . var_export($users, true) . ";\n\n?>");
-    fclose($usersFile);
-
-      $_SESSION['email'] = $reg_email;                    
-      $_SESSION['username'] = $username;
       $_SESSION['fullname'] = $fullname;
+      $_SESSION['username'] = $username;
       $_SESSION['admin'] = false;
       $_SESSION['logged'] = true;
       $_SESSION['registered'] = true;
@@ -146,7 +143,7 @@
             <div class="error error-email">
                 <?php 
                   if(isset($_SESSION['wrong_email']) && $_SESSION['wrong_email']) {
-                    echo 'Email-i eshte gabim!';
+                    echo 'Wrong Email!';
                   }
                 ?>
             </div>
@@ -160,7 +157,7 @@
             <div class="error error-password">
               <?php
                   if(isset($_SESSION['wrong_password']) && $_SESSION['wrong_password']) {
-                    echo 'Password-i eshte gabim!';
+                    echo 'Wrong Password!';
                   }
               ?>
             </div>
@@ -201,7 +198,7 @@
             <div class="error error-perdoruesi">
               <?php
                 if(isset($_SESSION['exists_username']) && $_SESSION['exists_username']) {
-                  echo 'Username ekziston!';
+                  echo 'Username exists!';
                 }
               ?>
             </div>
@@ -211,7 +208,7 @@
             <div class="error error-emaili">
             <?php
                 if(isset($_SESSION['exists_email']) && $_SESSION['exists_email']) {
-                  echo 'Ekziston perdoruesi me kete email!';
+                  echo 'User with this email exists!';
                 }
               ?>
             </div>

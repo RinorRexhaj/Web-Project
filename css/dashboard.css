@@ -188,6 +188,30 @@ th {
   background-color: #f2f2f2;
 }
 
+.edit,
+.delete {
+  text-decoration: none;
+  outline: none;
+  padding: 7px 10px;
+  border-radius: 5px;
+  color: #f2f2f2;
+  transition: 0.2s all;
+}
+
+.edit {
+  background: #091cc5;
+}
+.edit:hover {
+  background: #000536;
+}
+
+.delete {
+  background: rgb(255, 97, 97);
+}
+.delete:hover {
+  background: red;
+}
+
 @media (max-width: 1100px) {
   .container {
     gap: 30px;
