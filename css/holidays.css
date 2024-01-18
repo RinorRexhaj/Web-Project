@@ -115,7 +115,7 @@ main {
   padding: 20px;
   overflow-x: scroll;
   overflow-y: hidden;
-  background: rgba(241, 241, 241, 0.3);
+  background: white;
 }
 
 /* Custom scrollbar styling */
@@ -140,24 +140,24 @@ main {
 
 .holiday {
   width: 300px;
-  height: 250px;
+  height: 300px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  border-radius: 15px;
 }
 
 .image-container {
-  width: 300px;
-  height: 200px;
+  width: 250px;
+  height: 175px;
   position: relative;
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: 15px 15px 0 0;
   /* border: 1px solid red; */
 }
 
 .image-container > img {
   width: 100%;
-  height: 100%;
+  height: 175px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   transition: transform 0.3s ease-in-out;
@@ -189,11 +189,30 @@ main {
 .description::-webkit-scrollbar {
   width: 5px;
 }
-
+.holiday > h2 {
+  padding-left: 10px;
+  font-size: 20px;
+  /* text-align: center; */
+}
+.location {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.price {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
 .place__details {
   display: flex;
-  justify-content: space-between;
-  /* padding: 5px 10px 0 10px; */
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  border: 1px solid rgb(194, 190, 190);
+  border-radius: 0 0 15px 15px;
+  padding: 25px 15px;
+  /* border: 1px solid red; */
 }
 
 .modal {
@@ -304,6 +323,9 @@ textarea {
     overflow-y: scroll;
     flex-wrap: wrap;
     justify-content: center;
+  }
+  .holiday {
+    width: 250px;
   }
 }
 

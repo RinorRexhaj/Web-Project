@@ -1,85 +1,82 @@
 <?php
     session_start();
     include "holidays_array.php";
+    include_once "holidayRepo.php";
+    
+    $holidayRepo = new HolidayRepo();
+    $holidays = $holidayRepo->getHolidays();
 
     class Holiday {
-        private $title;
-        private $img;
-        private $description;
-        private $location;
-        private $price;
-        private $user;
+      private $id;
+      private $title;
+      private $description;
+      private $location;
+      private $price;
+      private $image;
+      private $userId;
+      private $user;
 
-        public function __construct($title, $img, $description, $location, $price, $user) {
-            $this->title = $title;
-            $this->img = $img;
-            $this->description = $description;
-            $this->location = $location;
-            $this->price = $price;
-            $this->user = $user;
-        }
-
-        //Getters
-        public function getTitle() {
-          return $this->title;
-        }
-        public function getImg() {
-          return $this->img;
-        }
-        public function getDescription() {
-          return $this->description;
-        }
-        public function getLocation() {
-          return $this->location;
-        }
-        public function getPrice() {
-          return $this->price;
-        }
-        public function getUser() {
-          return $this->user;
-        }
-
-        //Setters
-        public function setTitle($title) {
+      public function __construct($id,$title,$description,$location,$price,$image,$userId,$user) {
+          $this->id = $id;
           $this->title = $title;
-        }
-        public function setImg($img) {
-          $this->img = $img;
-        }
-        public function setDescription($description) {
           $this->description = $description;
-        }
-        public function setLocation($location) {
           $this->location = $location;
-        }
-        public function setPrice($price) {
           $this->price = $price;
-        }
-        public function setUser($user) {
+          $this->image = $image;
+          $this->userId = $userId;
           $this->user = $user;
-        }
+      }
 
-        public function displayHoliday() {
-            echo '<div class="holiday">
-                    <div class="image-container">
-                      <img src="' . $this->img . '" alt="' . $this->title . '">
-                        <div class="description">Posted by: '.$this->user .'<br><br>'. $this->description . '</div>
-                        </div>
-                        <h2>' . $this->title . '</h2>
-                        <div class="place__details">
-                      <p>Location: ' . $this->location . '</p>
+      //Getters
+      public function getId() {
+          return $this->id;
+        }
+      public function getTitle() {
+        return $this->title;
+      }
+      public function getDescription() {
+        return $this->description;
+      }
+      public function getLocation() {
+        return $this->location;
+      }
+      public function getPrice() {
+        return $this->price;
+      }
+      public function getImage() {
+          return $this->image;
+      }
+      public function getUserId() {
+        return $this->userId;
+      }
+      public function getUser() {
+        return $this->user;
+      }
+
+      public function displayHoliday() {
+          echo '<div class="holiday">
+                  <div class="image-container">
+                    <img src="' . $this->image . '" alt="' . $this->title . '">
+                    <div class="description">Posted by: '.$this->id .'<br><br>'. $this->description . '</div>
+                  </div>
+                  <div class="place__details">
+                    <h2>' . $this->title . '</h2>
+                    <div class="location">
+                      <i class="fa-solid fa-location-dot"></i>
+                      <p>Location: ' . $this->location . '</p> 
+                    </div>
+                    <div class="price">
+                      <i class="fa-solid fa-magnifying-glass-dollar"></i>
                       <p>Price: ' . $this->price . '$' . '</p>
                     </div>
-                  </div>';
-        }
-    }
+                  </div>
+                </div>';
+      }
+  }
 
-    $holidays;
-
-    foreach($holidays_arr as $holiday) {
-      $h = new Holiday($holiday['title'], $holiday['img'], $holiday['description'], $holiday['location'], $holiday['price'], $holiday['username']);
-      $holidays[] = $h;
-    }
+    // foreach($holidays as $holiday) {
+    //   $h = new Holiday($holiday['ID'],$holiday['Title'], $holiday['Description'], $holiday['Location'], $holiday['Price'],$holiday['Image'],$holiday['User_ID'], $holiday['username']);
+    // }
 
     if (isset($_POST['add_tour'])) {
       $current_user = $_SESSION['username'];
@@ -89,12 +86,9 @@
           'description' => $_POST['description'],
           'location' => $_POST['location'],
           'price' => $_POST['price'],
-          'img' => $_POST['img'],
+          'image' => $_POST['image'],
           'username' => $current_user,
       ];
-
-      $holidays_arr[] = $newTour;
-      file_put_contents('holidays_array.php', '<?php $holidays_arr = ' . var_export($holidays_arr, true) . '; ?>');
   }
 
   $_SESSION['picked_holidays'] = 'this_week';
@@ -169,6 +163,7 @@
         <?php
           if($_SESSION['picked_holidays'] == 'this_week') {
             foreach ($holidays as $holiday) {
+              $holiday = new Holiday($holiday['ID'],$holiday['Title'], $holiday['Description'], $holiday['Location'], $holiday['Price'],$holiday['Image'],$holiday['User_ID'], $holiday['username']);
               $holiday->displayHoliday();
             }
           }
@@ -194,7 +189,7 @@
                     <textarea name="description" placeholder="Description" required></textarea>
                     <input type="text" name="location" placeholder="Location" required>
                     <input type="number" name="price" placeholder="Price" required>
-                    <input type="file" name="img" accept="image/*" required>
+                    <input type="file" name="image" accept="image/*" required>
                     <button class="btn" type="submit" name="add_tour">Add Tour</button>
                 </form>
                 ';

@@ -1,74 +1,99 @@
 <?php $holidays_arr = array (
   0 => 
   array (
+    'id' => 0,
     'title' => 'Tirana Tour',
     'description' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit repudiandae minus.',
     'location' => 'Albania',
     'price' => '125',
-    'img' => './img/bb.jpg',
+    'image' => './img/bb.jpg',
+    'userId' => 2,
     'username' => 'Orgesi',
   ),
   1 => 
   array (
+    'id' => 1,
     'title' => 'Bora Bora',
     'description' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit repudiandae minus.',
     'location' => 'French Polynesia',
     'price' => '900',
-    'img' => './img/borabora.jpg',
+    'image' => './img/borabora.jpg',
+    'userId' => 3,
     'username' => 'Dreni',
   ),
   2 => 
   array (
+    'id' => 2,
     'title' => 'Dubai Masterpiece',
     'description' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit repudiandae minus.',
     'location' => 'UAE',
     'price' => '500',
-    'img' => './img/dubai.jpg',
+    'image' => './img/dubai.jpg',
+    'userId' => 3,
     'username' => 'Dreni',
   ),
   3 => 
   array (
+    'id' => 3,
     'title' => 'Paris Adventure',
     'description' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit repudiandae minus.',
     'location' => 'France',
     'price' => '350',
-    'img' => './img/paris.jpg',
+    'image' => './img/paris.jpg',
+    'userId' => 4,
     'username' => 'Username101',
   ),
   4 => 
   array (
+    'id' => 4,
     'title' => 'Paris',
-    'description' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a',
+    'description' => 'lorem ipsum minus',
     'location' => 'France',
     'price' => '450',
-    'img' => 'boat.webp',
+    'image' => 'boat.webp',
+    'userId' => 5,
     'username' => 'Edioni',
   ),
   5 => 
   array (
+    'id' => 5,
     'title' => 'mfkmk',
     'description' => 'mbfkm',
     'location' => 'mbfkd',
     'price' => '855',
-    'img' => '-6ga42g.jpg',
+    'image' => '-6ga42g.jpg',
+    'userId' => 1,
     'username' => 'Rinori',
   ),
   6 => 
   array (
+    'id' => 6,
     'title' => 'vmkdsmkvmkds',
     'description' => 'mbkdsmsk',
     'location' => 'vmdsk',
     'price' => '855',
-    'img' => '7545a59.jpg',
+    'image' => '7545a59.jpg',
+    'userId' => 1,
     'username' => 'Rinori',
   ),
   7 => 
   array (
+    'id' => 7,
     'title' => 'mvfkmk',
     'description' => 'mfkbmkd',
     'location' => 'fmbkdmfk73',
     'price' => '848',
-    'img' => '-6ga42g.jpg',
+    'image' => '-6ga42g.jpg',
+    'userId' => 1,
+    'username' => 'Rinori',
+  ),
+  8 => 
+  array (
+    'title' => 'sdf',
+    'description' => 'sfsdf',
+    'location' => 'sdfdsff',
+    'price' => '123',
+    'image' => NULL,
     'username' => 'Rinori',
   ),
 ); ?>
