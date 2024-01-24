@@ -76,6 +76,22 @@ header {
   background: none;
 }
 
+.tour_login {
+  text-decoration: none;
+  background: blue;
+  border-radius: 7px;
+  padding: 10px 25px;
+  color: white;
+  font-weight: 700;
+  outline: 1px solid blue;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background: #f3f3f3;
+  color: blue;
+}
+
 .overlay_modal {
   position: fixed;
   top: 0;

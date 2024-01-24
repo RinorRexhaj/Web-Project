@@ -2,7 +2,8 @@
   session_start();
 
   if (!isset($_SESSION['admin']) || !$_SESSION['admin']) {
-    echo '<h1>Not Authorized</h1>';
+    echo '<h1 style="color: #f2f2f2;">Not Authorized</h1>
+    <a href="home.php" style="text-decoration: none; color: #f2f2f2; font-size: 28px;">&larr;</a>';
     
   } 
 
@@ -15,10 +16,13 @@
   $newsletterRepo = new NewsletterRepo();
   $newsletters = $newsletterRepo->getNewsletters();
 
-  $holidays_arr = [];
-
-  $contact_messages = [];
-
+  include_once "holidayRepo.php";
+  $holidayRepo = new HolidayRepo();
+  $holidays = $holidayRepo->getHolidays();
+  
+  include_once "reservationRepo.php";
+  $reservationRepo = new ReservationRepo();
+  $reservations = $reservationRepo->getReservations();
   
 ?>
 
@@ -46,6 +50,7 @@
   <title>Dashboard</title>
 </head>
 <body>
+  <?php if (!isset($_SESSION['admin']) || !$_SESSION['admin']) return; ?>
   <div class="banner">
     <?php include "header.php"; ?>
   </div>
@@ -61,6 +66,12 @@
               <i class="fa-user fa-solid"></i>
             </span>
             <h3>Users</h3>
+          </button>
+          <button type="submit" class="table reservationsbtn">
+            <span class="indc">
+            <i class="fa-solid fa-umbrella-beach"></i>
+            </span>
+            <h3>Reservs</h3>
           </button>
           <button type="submit" class="table holidaysbtn">
             <span class="indc">
@@ -116,41 +127,86 @@
             ?>
           </tbody>
         </table>
+        </div>
       </div>
 
-      </div>
-      <div class="dashboard holidays_dash hidden">
-        <h1>Added Tours: <?php echo count($holidays_arr); ?></h1>
+      <div class="dashboard reservations_dash hidden">
+        <h1>Reservations: <?php echo count($reservations); ?></h1>
         <div class="table-container">
         <table>
           <thead class="fixed">
             <tr>
-              <th>Username</th>
+              <th>ID</th>
+              <th>Destination</th>
+              <th>From</th>
+              <th>Check In</th>
+              <th>Check Out</th>
+              <th>User</th>
+              <th colspan=2>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+              foreach ($reservations as $reservation) {
+                $reservationName = ($userRepo->getUserbyId($reservation['UserID']))['Username'];
+                echo "
+                <tr>
+                  <td>{$reservation['ID']}</td>
+                  <td>{$reservation['Destination']}</td>
+                  <td>{$reservation['FromRs']}</td>
+                  <td>{$reservation['CheckIn']}</td>
+                  <td>{$reservation['CheckOut']}</td>
+                  <td>{$reservationName}</td>
+                  <td><a href='editReservation.php?id={$reservation['ID']}' class='edit'>EDIT</a></td>
+                  <td><a href='deleteReservation.php?id={$reservation['ID']}' class='delete'>DELETE</a></td>
+                </tr>";
+              }
+            ?>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <div class="dashboard holidays_dash hidden">
+        <h1>Added Tours: <?php echo count($holidays); ?></h1>
+        <div class="table-container">
+        <table>
+          <thead class="fixed">
+            <tr>
+              <th>ID</th>
               <th>Title</th>
               <th style="width:250px;">Description</th>
               <th>Location</th>
               <th>Price</th>
               <th>Image</th>
+              <th>User</th>
+              <th colspan=2>Actions</th>
             </tr>
           </thead>
           <tbody>
             <?php
-              foreach ($holidays_arr as $holiday) {
-                echo "<tr>";
-                echo "<td>{$holiday['username']}</td>";
-                echo "<td>{$holiday['title']}</td>";
-                echo "<td>{$holiday['description']}</td>";
-                echo "<td>{$holiday['location']}</td>";
-                echo "<td>{$holiday['price']}</td>";
-                echo "<td>{$holiday['img']}</td>";
-                echo "</tr>";
+              foreach ($holidays as $holiday) {
+                $userRepo = new UserRepo();
+                $hUsername = ($userRepo->getUserbyId($holiday['User_ID']))['Username'];
+                echo "
+                <tr>
+                  <td>{$holiday['ID']}</td>
+                  <td>{$holiday['Title']}</td>
+                  <td>{$holiday['Description']}</td>
+                  <td>{$holiday['Location']}</td>
+                  <td>{$holiday['Price']}</td>
+                  <td>{$holiday['Image']}</td>
+                  <td>{$hUsername}</td>
+                  <td><a href='editHoliday.php?id={$holiday['ID']}' class='edit'>EDIT</a></td>
+                  <td><a href='deleteHoliday.php?id={$holiday['ID']}' class='delete'>DELETE</a></td>
+                </tr>";
               }
             ?>
           </tbody>
         </table>
+        </div>
       </div>
 
-      </div>
       <div class="dashboard newsletter_dash hidden">
         <h1>Newsletter Subscribers: <?php echo count($newsletters); ?></h1>
         <div class="table-container">
@@ -172,9 +228,9 @@
             ?>
           </tbody>
         </table>
+        </div>
       </div>
 
-      </div>
       <div class="dashboard contact_dash hidden">
         <h1>Users Messages: <?php echo count($contact_messages); ?></h1>
         <div class="table-container">
@@ -201,9 +257,8 @@
               ?>
           </tbody>
         </table>
-      </div>
+        </div>
+       </div>
 
-      </div>
-    </div>
 </body>
 </html>

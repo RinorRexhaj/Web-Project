@@ -1,94 +1,64 @@
 <?php
-    session_start();
-    include "holidays_array.php";
-    include_once "holidayRepo.php";
-    
-    $holidayRepo = new HolidayRepo();
-    $holidays = $holidayRepo->getHolidays();
 
-    class Holiday {
-      private $id;
-      private $title;
-      private $description;
-      private $location;
-      private $price;
-      private $image;
-      private $userId;
-      private $user;
+  session_start();
 
-      public function __construct($id,$title,$description,$location,$price,$image,$userId,$user) {
-          $this->id = $id;
-          $this->title = $title;
-          $this->description = $description;
-          $this->location = $location;
-          $this->price = $price;
-          $this->image = $image;
-          $this->userId = $userId;
-          $this->user = $user;
-      }
+  // include "holidays_array.php";
+  include_once "holidayRepo.php";
+  include_once "userRepo.php";
+  include_once "holiday.php";
 
-      //Getters
-      public function getId() {
-          return $this->id;
-        }
-      public function getTitle() {
-        return $this->title;
-      }
-      public function getDescription() {
-        return $this->description;
-      }
-      public function getLocation() {
-        return $this->location;
-      }
-      public function getPrice() {
-        return $this->price;
-      }
-      public function getImage() {
-          return $this->image;
-      }
-      public function getUserId() {
-        return $this->userId;
-      }
-      public function getUser() {
-        return $this->user;
-      }
-
-      public function displayHoliday() {
-          echo '<div class="holiday">
-                  <div class="image-container">
-                    <img src="' . $this->image . '" alt="' . $this->title . '">
-                    <div class="description">Posted by: '.$this->id .'<br><br>'. $this->description . '</div>
-                  </div>
-                  <div class="place__details">
-                    <h2>' . $this->title . '</h2>
-                    <div class="location">
-                      <i class="fa-solid fa-location-dot"></i>
-                      <p>Location: ' . $this->location . '</p> 
-                    </div>
-                    <div class="price">
-                      <i class="fa-solid fa-magnifying-glass-dollar"></i>
-                      <p>Price: ' . $this->price . '$' . '</p>
-                    </div>
-                  </div>
-                </div>';
-      }
+  $holidayRepo = new HolidayRepo();
+  $holidays = $holidayRepo->getHolidays();
+  $your_holidays = [];
+  if(isset($_SESSION['userID']))
+    $your_holidays = $holidayRepo->getYourHolidays($_SESSION['userID']);
+  
+  function displayHoliday($h) {
+    $userRepo = new UserRepo();
+    $hUsername = ($userRepo->getUserbyId($h->getUserId()))['Username'];
+    $edited = "";
+    if($h->getEditedBy() != null) {
+      $edited = "<br>Modified by: ".($userRepo->getUserbyId($h->getEditedBy()))['Username']."<br>";
+    } 
+    echo '
+    <div class="holiday">
+      <div class="image-container">
+        <img src="uploads/' . $h->getImage() . '" alt="' . $h->getTitle() . '">
+          <div class="description">
+          <form action="holidays.php" method="post">
+          <button class="pick" name="picked_holiday" type="submit">PICK THIS</button>
+          <input name="picked_location" value="'.$h->getLocation().'" class="hidden">
+          </form>
+          <br>
+          Posted by: '.$hUsername .'<br>'.$edited.'<br>
+          '.$h->getDescription() . '</div>
+          </div>
+          <div class="place__details">
+          <h2>' . $h->getTitle() . '</h2>
+        <div class="location">
+          <i class="fa-solid fa-location-dot"></i>
+          <p>Location: ' . $h->getLocation() . '</p>
+        </div>
+        <div class="price">
+          <i class="fa-solid fa-magnifying-glass-dollar"></i>
+          <p>Price: ' . $h->getPrice() . '$' . '</p>
+        </div>
+      </div>
+    </div>';
   }
 
-    // foreach($holidays as $holiday) {
-    //   $h = new Holiday($holiday['ID'],$holiday['Title'], $holiday['Description'], $holiday['Location'], $holiday['Price'],$holiday['Image'],$holiday['User_ID'], $holiday['username']);
-    // }
-
-    if (isset($_POST['add_tour'])) {
-      $current_user = $_SESSION['username'];
+  if (isset($_POST['add_tour'])) {
+      $current_user = $_SESSION['userID'];
       
-      $newTour = [
-          'title' => $_POST['title'],
-          'description' => $_POST['description'],
-          'location' => $_POST['location'],
-          'price' => $_POST['price'],
-          'image' => $_POST['image'],
-          'username' => $current_user,
-      ];
+      $target = "uploads/".basename($_FILES['image']['name']);
+      $image = $_FILES['image']['name'];
+      
+      $newHoliday = new Holiday(null, $_POST['title'], $_POST['description'], $_POST['location'], $_POST['price'], $image, $current_user);
+      
+      move_uploaded_file($_FILES['image']['tmp_name'], $target);
+
+      $holidayRepo->insertHoliday($newHoliday);
+      header('Location: holidays.php');
   }
 
   $_SESSION['picked_holidays'] = 'this_week';
@@ -109,12 +79,11 @@
     unset($_POST['all_time']);
   }
 
-  $your_holidays= [];
-
-  foreach($holidays as $holiday) {
-    if(isset($_SESSION['username']) && ($_SESSION['username'] == $holiday->getUser()))
-      $your_holidays[] = $holiday;
+  if(isset($_POST['picked_holiday'])) {
+    $_SESSION['picked_holiday'] = $_POST['picked_location'];
+    header('Location: home.php');
   }
+
 ?>
 
 <!DOCTYPE html>
@@ -163,16 +132,24 @@
         <?php
           if($_SESSION['picked_holidays'] == 'this_week') {
             foreach ($holidays as $holiday) {
-              $holiday = new Holiday($holiday['ID'],$holiday['Title'], $holiday['Description'], $holiday['Location'], $holiday['Price'],$holiday['Image'],$holiday['User_ID'], $holiday['username']);
-              $holiday->displayHoliday();
+              if(isset($_SESSION['admin']) && $_SESSION['admin']) {
+                echo "<div class='your_holiday'><div class='action_btns'><a href='editHoliday.php?id={$holiday['ID']}' class='edit'>EDIT</a><a href='deleteHoliday.php?id={$holiday['ID']}' class='delete'>DELETE</a></div>";
+              }
+              $holiday = new Holiday($holiday['ID'],$holiday['Title'], $holiday['Description'], $holiday['Location'], $holiday['Price'],$holiday['Image'],$holiday['User_ID'], $holiday['EditedBy']);
+              displayHoliday($holiday);
+              if(isset($_SESSION['admin']) && $_SESSION['admin']) echo "</div>";
             }
           }
           else if($_SESSION['picked_holidays'] == 'your_holidays') {
             if(count($your_holidays) == 0) {
               echo "<h1>You haven't added any holidays...<h1>";
+              return;
             }
             foreach ($your_holidays as $holiday) {
-              $holiday->displayHoliday();
+              echo "<div class='your_holiday'><div class='action_btns'><a href='editHoliday.php?id={$holiday['ID']}' class='edit'>EDIT</a><a href='deleteHoliday.php?id={$holiday['ID']}' class='delete'>DELETE</a></div>";
+              $holiday = new Holiday($holiday['ID'],$holiday['Title'], $holiday['Description'], $holiday['Location'], $holiday['Price'], $holiday['Image'],$holiday['User_ID'], $holiday['EditedBy']);
+              displayHoliday($holiday);
+              echo "</div>";
             }
           }
           
@@ -184,7 +161,7 @@
               if(isset($_SESSION['logged']) &&$_SESSION['logged']) {
                 echo '
                 <h2 class="modal__header">Where you want to go next?</h2>
-                <form class="modal__form" method="post" action="holidays.php">
+                <form class="modal__form" method="post" action="holidays.php" enctype="multipart/form-data">
                     <input type="text" name="title" placeholder="Title" required>
                     <textarea name="description" placeholder="Description" required></textarea>
                     <input type="text" name="location" placeholder="Location" required>

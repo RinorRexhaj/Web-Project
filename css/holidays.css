@@ -6,6 +6,8 @@
 }
 
 body {
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,6 +75,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 40px;
 }
 
 .this_week {
@@ -112,7 +115,7 @@ main {
   gap: 30px;
   max-width: 1100px;
   /* width: 350px; */
-  padding: 20px;
+  padding: 30px;
   overflow-x: scroll;
   overflow-y: hidden;
   background: white;
@@ -147,7 +150,7 @@ main {
 }
 
 .image-container {
-  width: 250px;
+  width: 300px;
   height: 175px;
   position: relative;
   overflow: hidden;
@@ -169,6 +172,8 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
   background: rgba(0, 0, 0, 0.7);
   padding: 10px;
@@ -180,6 +185,21 @@ main {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   cursor: default;
+}
+
+.pick {
+  padding: 10px;
+  background: blue;
+  border-radius: 7px;
+  color: white;
+  font-weight: 700;
+  outline: 1px solid blue;
+  transition: all 0.2s;
+}
+
+.pick:hover {
+  background: #f3f3f3;
+  color: blue;
 }
 
 .image-container:hover .description {
@@ -300,6 +320,43 @@ textarea {
   opacity: 0;
 }
 
+.your_holiday {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.action_btns{
+  display: flex;
+  gap: 10px;
+}
+
+.edit,
+.delete {
+  text-decoration: none;
+  outline: none;
+  padding: 7px 10px;
+  border-radius: 5px;
+  color: #f2f2f2;
+  transition: 0.2s all;
+}
+
+.edit {
+  background: #091cc5;
+}
+.edit:hover {
+  background: #000536;
+}
+
+.delete {
+  background: rgb(255, 97, 97);
+}
+.delete:hover {
+  background: red;
+}
+
+
 /* Responsive Design */
 @media (max-width: 1100px) {
   header {
@@ -324,7 +381,7 @@ textarea {
     flex-wrap: wrap;
     justify-content: center;
   }
-  .holiday {
+  .holiday, .image-container {
     width: 250px;
   }
 }
@@ -352,6 +409,10 @@ textarea {
 @media (max-width: 560px) {
   body > * {
     width: calc(100% - 20px);
+  }
+
+  .holiday, .image-container {
+    width: 250px;
   }
 
   .modal {

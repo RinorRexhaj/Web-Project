@@ -8,6 +8,8 @@
 
   $loggedUser;
   $regUser;
+
+  if(isset($_SESSION['userID'])) echo $_SESSION['userID'];
   
   // $_SESSION['logged'] = false;
   if(isset($_POST['submit'])) {
@@ -23,6 +25,7 @@
           if($password == $user['Password']) {
             $loggedUser = new User($user['ID'], $user['Username'], $user['FullName'], $user['Email'], $user['Password'], $user['Admin']);
 
+            $_SESSION['userID'] = $user['ID'];
             $_SESSION['fullname'] = $loggedUser->getFullname();
             $_SESSION['username'] = $loggedUser->getUsername();
             $_SESSION['admin'] = $loggedUser->getAdmin();
@@ -66,8 +69,8 @@
         break;
       } 
       if($reg_email == $user['Email']) {
-          $_SESSION['exists_email'] = true;
-          break;
+        $_SESSION['exists_email'] = true;
+        break;
       }
     }
 
@@ -78,6 +81,8 @@
       //kur t regjistrohet new user
       $regUser = new User(null, $username, $fullname, $reg_email, $reg_password, false);
       $userRepo->insertUser($regUser);
+
+      $_SESSION['userID'] = ($userRepo->getUserByUsername($username))['ID'];
 
       $_SESSION['fullname'] = $fullname;
       $_SESSION['username'] = $username;
@@ -181,11 +186,17 @@
           </p>
           <hr />
           <div class="sign__with--other">
-            <p class="hide">Or sign in with</p>
-            <div>
-              <i class="fa-brands fa-google hide"></i>
-              <i class="fa-brands fa-twitter hide"></i>
-            </div>
+            <?php
+              if(!isset($_SESSION['logged']) || !$_SESSION['logged']) {
+                echo '<p class="hide">Or sign in with</p>
+                <div>
+                  <i class="fa-brands fa-google hide"></i>
+                  <i class="fa-brands fa-twitter hide"></i>
+                </div>';
+              } 
+              else if($_SESSION['logged'])      
+                echo '';
+            ?>
           </div>
         </div>  
         <div class="login__form <?php

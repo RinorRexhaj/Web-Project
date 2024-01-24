@@ -2,11 +2,14 @@ const table = document.querySelectorAll(".table");
 const sideBar = document.querySelector(".sidebar");
 const sideBtn = document.querySelector(".sidebar button");
 const usersbtn = document.querySelector(".usersbtn");
+const reservationsbtn = document.querySelector(".reservationsbtn");
 const holidaysbtn = document.querySelector(".holidaysbtn");
 const newsletterbtn = document.querySelector(".newsletterbtn");
 const contactbtn = document.querySelector(".contactbtn");
 const users_dash = document.querySelector(".users_dash");
 const holidays_dash = document.querySelector(".holidays_dash");
+const reservations_dash = document.querySelector(".reservations_dash");
+console.log(reservations_dash);
 const newsletter_dash = document.querySelector(".newsletter_dash");
 const contact_dash = document.querySelector(".contact_dash");
 
@@ -29,6 +32,20 @@ usersbtn.addEventListener("click", function (e) {
     return;
   } else {
     users_dash.classList.remove("hidden");
+    reservations_dash.classList.add("hidden");
+    holidays_dash.classList.add("hidden");
+    newsletter_dash.classList.add("hidden");
+    contact_dash.classList.add("hidden");
+  }
+});
+
+reservationsbtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (!reservations_dash.classList.contains("hidden")) {
+    return;
+  } else {
+    users_dash.classList.add("hidden");
+    reservations_dash.classList.remove("hidden");
     holidays_dash.classList.add("hidden");
     newsletter_dash.classList.add("hidden");
     contact_dash.classList.add("hidden");
@@ -41,6 +58,7 @@ holidaysbtn.addEventListener("click", function (e) {
     return;
   } else {
     users_dash.classList.add("hidden");
+    reservations_dash.classList.add("hidden");
     holidays_dash.classList.remove("hidden");
     newsletter_dash.classList.add("hidden");
     contact_dash.classList.add("hidden");
@@ -53,6 +71,7 @@ newsletterbtn.addEventListener("click", function (e) {
     return;
   } else {
     users_dash.classList.add("hidden");
+    reservations_dash.classList.add("hidden");
     holidays_dash.classList.add("hidden");
     newsletter_dash.classList.remove("hidden");
     contact_dash.classList.add("hidden");
@@ -65,6 +84,7 @@ contactbtn.addEventListener("click", function (e) {
     return;
   } else {
     users_dash.classList.add("hidden");
+    reservations_dash.classList.add("hidden");
     holidays_dash.classList.add("hidden");
     newsletter_dash.classList.add("hidden");
     contact_dash.classList.remove("hidden");

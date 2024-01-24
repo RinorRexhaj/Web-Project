@@ -1,26 +1,44 @@
 <?php
   session_start();
-  include "subscribed_users.php";
+
+  // if(isset($_SESSION['userID'])) echo $_SESSION['userID'];
 
   include_once "newsletterRepo.php";
   $newsletterRepo = new NewsletterRepo();
 
-  // include_once "subscribed_users.php";
+  include_once 'reservationRepo.php';
+  include_once 'reservation.php';
+  $reservationRepo = new ReservationRepo();
 
-  if(isset($_POST['submit'])) {
-    $_SESSION['destination'] = $_POST['destination'];
-    $_SESSION['from'] = $_POST['from'];
-    $_SESSION['check_in'] = $_POST['d1'];
-    $_SESSION['check_out'] = $_POST['d2'];
+
+  if(isset($_POST['submit_reservation'])) {
+    if(isset($_SESSION['userID'])) {
+      $newReservation = new Reservation(null, $_POST['destination'], $_POST['from'], $_POST['checkIn'], $_POST['checkOut'], $_SESSION['userID']);
+  
+      $reservationRepo->insertReservation($newReservation);
+
+      unset($_SESSION['picked_holiday']);
+    }
+
     $_SESSION['reserved'] = true;
   }
 
+  if(isset($_SESSION['newsletter'])) unset($_SESSION['newsletter']);
+
   if(isset($_POST['newsletter'])) {
-    $email = $_POST['subscribe_email'];    
-    $newsletterRepo->insertNewsletter($email);
 
-    $_SESSION['newsletter'] = true;
+    $email = $_POST['subscribe_email'];  
 
+    $nletter = $newsletterRepo->getNewsletterById($email);
+    
+    if($nletter != false && $email == $nletter['Email']) {
+      $_SESSION['newsletter'] = false;
+    }
+    else {
+      $newsletterRepo->insertNewsletter($email);
+      $_SESSION['newsletter'] = true;  
+    }
+   
   }
 ?>
 
@@ -50,6 +68,17 @@
     <div class="banner">
       <?php include "header.php" ?>
       <?php
+        if((isset($_SESSION['reserved']) && $_SESSION['reserved']) && (!isset($_SESSION['logged']) || !$_SESSION['logged'])) {
+          echo '
+          <div class="modal_reservation">
+            <button class="btn--close-modal">&times;</button>
+            <h2 class="modal__header">You need to be logged in to make a reservation!</h2>
+            <a href="login.php" class="tour_login">Log In</a>
+          </div>
+          <div class="overlay_modal"></div>
+          ';
+          $_SESSION['reserved'] = false;
+        }
         if((isset($_SESSION['reserved']) && $_SESSION['reserved'])) {
           echo '
           <div class="modal_reservation">
@@ -60,7 +89,6 @@
           <div class="overlay_modal"></div>
           ';
           $_SESSION['reserved'] = false;
-          $_SESSION['newsletter'] = false;
         }
         if(isset($_SESSION['newsletter']) && $_SESSION['newsletter']) {
           echo '
@@ -72,7 +100,16 @@
           <div class="overlay_modal"></div>
           ';
           $_SESSION['reserved'] = false;
-          $_SESSION['newsletter'] = false;
+        }
+        if(isset($_SESSION['newsletter']) &&  !$_SESSION['newsletter']) {
+          echo '
+          <div class="modal_reservation">
+            <button class="btn--close-modal">&times;</button>
+            <h2 class="modal__header">You are already subscribed to our newsletter!</h2>
+          </div>
+          <div class="overlay_modal"></div>
+          ';
+          $_SESSION['reserved'] = false;
         }
       ?>
       <div class="search__holiday">
@@ -83,13 +120,14 @@
         <form action="home.php" method="post" class="search__holiday--inputs">
           <div class="search">
             <i class="fa-solid fa-earth-americas fa-xl"></i>
-            <input type="search" name="destination" placeholder="Your Destination or Hotel" />
+            <input type="search" name="destination" placeholder="Your Destination or Hotel" value="<?php
+                if(isset($_SESSION['picked_holiday'])) echo $_SESSION['picked_holiday'] ?>"/>
           </div>
           <div class="date">
             <i class="fa-solid fa-calendar fa-xl"></i>
             <input
               type="text"
-              name="d1"
+              name="checkIn"
               placeholder="Check In"
               onfocus="(this.type='date')"
               onblur="(this.type='text')"
@@ -97,7 +135,7 @@
             -
             <input
               type="text"
-              name="d2"
+              name="checkOut"
               placeholder="Check Out"
               onfocus="(this.type='date')"
               onblur="(this.type='text')"
@@ -105,7 +143,7 @@
           </div>
           <input type="text" name="from" class="invisible">
           <div class="only__for--btnColor">
-            <button type="submit" name="submit" class="search__holiday--button">
+            <button type="submit" name="submit_reservation" class="search__holiday--button">
               BOOK MY HOLIDAY
             </button>
         </form>
@@ -113,16 +151,38 @@
         <div class="bora__bora">
           <p>
             <?php
-              if(isset($_SESSION['destination']))
-                echo $_SESSION['from'].' <i class="fa-solid fa-arrow-right"></i> '.$_SESSION['destination'];
+              if(isset($_SESSION['userID']))
+              {
+                $reservationRepo = new ReservationRepo(); 
+                $latestReservation = $reservationRepo->getLatestReservation($_SESSION['userID']);
+
+                if($latestReservation == null) echo 'Bora Bora';
+                else {
+                $latestRes = new Reservation($latestReservation['ID'], $latestReservation['Destination'], $latestReservation['FromRs'], $latestReservation['CheckIn'], $latestReservation['CheckOut'], $latestReservation['UserID']);
+
+                echo $latestRes->getFrom().' &rarr; '.$latestRes->getDestination();
+                }
+              }
               else echo 'Bora Bora';
             ?>
           </p>
           <div class="search__borabora">
             <p>
               <?php
-                if(isset($_SESSION['destination']))
-                  echo 'Your latest trip from '. date_format(date_create($_SESSION['check_in']), "d/m/Y");
+                if(isset($_SESSION['userID'])) {
+                  $reservationRepo = new ReservationRepo(); 
+                  $latestReservation = $reservationRepo->getLatestReservation($_SESSION['userID']);
+
+                  if($latestReservation == null) echo 'Bora Bora';
+                  else {
+                  $latestRes = new Reservation($latestReservation['ID'], $latestReservation['Destination'], $latestReservation['FromRs'], $latestReservation['CheckIn'], $latestReservation['CheckOut'], $latestReservation['UserID']);
+
+                  $timestamp = date_create($latestRes->getCheckIn());
+                  $date = date_format($timestamp, 'd/m/Y');
+
+                  echo 'Your latest trip from '. $date;
+                  }
+                }
                 else echo 'MATIRA BEACH';
               ?>
             </p>
@@ -148,12 +208,13 @@
             <button>CRUISE</button>
             <button>TOURS</button>
           </div>
-          <form class="travel__planning--informations">
+          <form action="home.php" method="post" class="travel__planning--informations">
             <div class="where_to">
               <p>Where to?</p>
               <div>
                 <i class="fa-solid fa-globe"></i>
-                <input type="text" placeholder="Your destination..." />
+                <input type="text" placeholder="Your destination..." value="<?php
+                if(isset($_SESSION['picked_holiday'])) echo $_SESSION['picked_holiday'] ?>"/>
               </div>
             </div>
             <div class="flying_from">

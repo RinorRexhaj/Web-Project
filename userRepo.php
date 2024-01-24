@@ -37,12 +37,23 @@ class UserRepo {
         return $users;
     }
 
-    function getUserById( $id ) {
+    function getUserById($id) {
         $conn = $this->connection;
 
         $sql = "SELECT * FROM Users WHERE ID='$id'";
 
-        $statement = $conn->query( $sql );
+        $statement = $conn->query($sql);
+        $user = $statement->fetch();
+
+        return $user;
+    }
+
+    function getUserByUsername($username) {
+        $conn = $this->connection;
+
+        $sql = "SELECT * FROM Users WHERE Username='$username'";
+
+        $statement = $conn->query($sql);
         $user = $statement->fetch();
 
         return $user;
@@ -66,6 +77,20 @@ class UserRepo {
         $statement = $conn->prepare($sql);
 
         $statement->execute([$id]);
+    }
+
+    function getLastRegistered() {
+        $conn = $this->connection;
+
+        $sql = 'SELECT id FROM Users
+                ORDER BY id DESC
+                LIMIT 1';
+
+        $statement = $conn->prepare($sql);
+
+        $lastId = $statement->execute();
+
+        return $lastId;
     }
 }
 ?>

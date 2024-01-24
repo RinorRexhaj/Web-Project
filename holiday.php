@@ -1,8 +1,6 @@
 <?php
-//include 'userRepo.php';
-//$userRepo = new userRepo();
 
-class Holiday {
+  class Holiday {
         private $id;
         private $title;
         private $description;
@@ -10,8 +8,9 @@ class Holiday {
         private $price;
         private $image;
         private $userId;
+        private $editedBy;
 
-        public function __construct($id,$title,$description,$location,$price,$image,$userId) {
+        public function __construct($id,$title,$description,$location,$price,$image,$userId, $editedBy) {
             $this->id = $id;
             $this->title = $title;
             $this->description = $description;
@@ -19,6 +18,7 @@ class Holiday {
             $this->price = $price;
             $this->image = $image;
             $this->userId = $userId;
+            $this->editedBy = $editedBy;
         }
 
         //Getters
@@ -43,19 +43,8 @@ class Holiday {
         public function getUserId() {
           return $this->userId;
         }
-
-        public function displayHoliday() {
-            echo '<div class="holiday">
-                    <div class="image-container">
-                      <img src="' . $this->img . '" alt="' . $this->title . '">
-                        <div class="description">Posted by: '.$this->id .'<br><br>'. $this->description . '</div>
-                        </div>
-                        <h2>' . $this->title . '</h2>
-                        <div class="place__details">
-                      <p>Location: ' . $this->location . '</p>
-                      <p>Price: ' . $this->price . '$' . '</p>
-                    </div>
-                  </div>';
+        public function getEditedBy() {
+          return $this->editedBy;
         }
     }
 ?>

@@ -5,8 +5,8 @@ const holidayForm = document.querySelector(".search__holiday--inputs");
 const destHotel = document.querySelector(
   ".search__holiday--inputs .search input"
 );
-const checkIn = document.querySelector(".date input[name='d1']");
-const checkOut = document.querySelector(".date input[name='d2']");
+const checkIn = document.querySelector(".date input[name='checkIn']");
+const checkOut = document.querySelector(".date input[name='checkOut']");
 const from = document.querySelector(".search__holiday--inputs .invisible");
 const sHBtn = document.querySelector(".search__holiday--button");
 
@@ -130,6 +130,7 @@ const deals = document.querySelector(".deals");
 const getThere = document.querySelector(".get-there");
 const seeDeals = document.querySelectorAll(".see__deals");
 const pick = document.querySelectorAll(".pick");
+const locationSlider = document.querySelectorAll('.title h2');
 const viewMore = document.querySelector(".view__more");
 const searchHoliday = document.querySelector(".search_holiday");
 
@@ -167,8 +168,16 @@ viewMore.addEventListener("click", () => {
   scroll(travelDeals);
 });
 
-pick.forEach((p) => {
+pick.forEach((p, i) => {
   p.addEventListener("click", () => {
+    let locationArr = locationSlider[i].innerText.split(' ')
+    for(let i = 0; i<locationArr.length; i++) {
+      locationArr[i] = locationArr[i].charAt(0) + locationArr[i].slice(1).toLowerCase();
+      console.log(locationArr[i]);
+    }
+    let location = locationArr.join(' ')
+    whereTo.value = location;
+    completeOther(whereTo, destHotel)
     scroll(travelPlanning);
   });
 });

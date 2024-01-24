@@ -105,7 +105,7 @@ textarea {
 
 .admin {
   padding-bottom: 25px;
-  display: flex;
+  display: flex;    
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -116,4 +116,15 @@ textarea {
   width: 100px;
   display: flex;
   gap: 10px;
+}
+
+@media (max-width: 560px) {
+  .modal {
+    max-width: 320px;
+    padding: 20px 40px;
+  }
+
+  .modal__header {
+    font-size: 22px;
+  }
 }

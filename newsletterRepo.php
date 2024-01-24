@@ -34,7 +34,7 @@
         function getNewsletterById($email) {
             $conn = $this->connection;
 
-            $sql = "SELECT * FROM Newsletters WHERE Email='$email'";
+            $sql = "SELECT * FROM Newsletter WHERE Email='$email'";
 
             $statement = $conn->query( $sql );
             $newsletter = $statement->fetch();
