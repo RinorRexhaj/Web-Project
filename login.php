@@ -9,7 +9,7 @@
   $loggedUser;
   $regUser;
 
-  if(isset($_SESSION['userID'])) echo $_SESSION['userID'];
+  //if(isset($_SESSION['userID'])) echo $_SESSION['userID'];
   
   // $_SESSION['logged'] = false;
   if(isset($_POST['submit'])) {

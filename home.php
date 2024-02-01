@@ -65,6 +65,21 @@
     <title>Holiday Website - Home</title>
   </head>
   <body>
+    <?php  
+      $variable = "Giraffe";
+      //$arr = array("one","two","three");
+      //$arr = array("Jim"=>"A+","Pam"=>"B");
+      //echo $variable;
+      //echo "<br>";
+      //echo sizeof($arr);
+      //echo $arr["Jim"];
+      function cube($num) {
+        return pow($num,3);
+      }
+      $cubeResult = cube(5);
+      //echo $cubeResult;
+    ?>
+  
     <div class="banner">
       <?php include "header.php" ?>
       <?php
