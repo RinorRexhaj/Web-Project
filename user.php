@@ -6,14 +6,16 @@
         private $fullname;
         private $email;
         private $password;
+        private $profile;
         private $admin;
 
-        public function __construct($id, $username, $fullname, $email, $password, $admin) {
+        public function __construct($id, $username, $fullname, $email, $password, $profile,$admin) {
             $this->id = $id;
             $this->username = $username;
             $this->fullname = $fullname;
             $this->email = $email;
             $this->password = $password;
+            $this->profile = $profile;
             $this->admin = $admin;
         }
 
@@ -31,6 +33,9 @@
         }
         public function getPassword() {
             return $this->password;
+        }
+        public function getProfile() {
+            return $this->profile;
         }
         public function getAdmin() {
             return $this->admin;

@@ -16,18 +16,22 @@
     <nav>
       <a href="./home.php" class="links <?php if($current == 'home') echo 'current' ?>"><p>Home</p></a>
       <a href="./holidays.php" class="links <?php if($current == 'holidays') echo 'current' ?>"><p>Holidays</p></a>
-      <a href="./about.php" class="links <?php if($current == 'about') echo 'current' ?>">About Us</a>
-      <a href="./login.php" class="links <?php if($current == 'login') echo 'current' ?>">Login</a>
-      <a href="./contact.php" class="links <?php if($current == 'contact') echo 'current' ?>">Contact Us</a>
+      <a href="./about.php" class="links <?php if($current == 'about') echo 'current' ?>"><p>About Us</p></a>
+      <a href="./login.php" class="links <?php if($current == 'login') echo 'current' ?>"><p>Login</p></a>
+      <a href="./contact.php" class="links <?php if($current == 'contact') echo 'current' ?>"><p>Contact Us</p></a>
       <?php 
         if(isset($_SESSION['username']) && isset($_SESSION['admin'])) {
           $username = $_SESSION['username'];
           $isAdmin = $_SESSION['admin'];
-
+          if(isset($_SESSION['profile']))
+            $profile = $_SESSION['profile'];
+          else $profile = '';
+          $image = '<i class="fa-solid fa-user"></i>';
+          if($profile != '') $image = '<img src="profiles/'.$profile.'">';
           echo '
           <div class="user__login">
             <div class="user">
-              <i class="fa-solid fa-user"></i>
+            '.$image.'
             </div>
             <div class="user_info">
               <p class="username">'.$username.'</p>

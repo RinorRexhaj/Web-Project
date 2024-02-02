@@ -17,13 +17,14 @@ class UserRepo {
         $fullname = $user->getFullname();
         $email = $user->getEmail();
         $password = $user->getPassword();
+        $profile = $user->getProfile();
         $admin = $user->getAdmin();
 
-        $sql = 'INSERT INTO Users (ID,Username,FullName,Email,Password,Admin) VALUES (?,?,?,?,?,?)';
+        $sql = 'INSERT INTO Users (ID,Username,FullName,Email,Password,Profile,Admin) VALUES (?,?,?,?,?,?,?)';
 
         $statement = $conn->prepare( $sql );
 
-        $statement->execute( [ $id, $username, $fullname, $email, $password, $admin ] );
+        $statement->execute( [ $id, $username, $fullname, $email, $password, $profile, $admin ] );
     }
 
     function getUsers() {
@@ -59,14 +60,14 @@ class UserRepo {
         return $user;
     }
 
-    function updateUser($id, $username, $fullname, $email, $password, $admin) {
+    function updateUser($id, $username, $fullname, $email, $password, $profile, $admin) {
         $conn = $this->connection;
 
-        $sql = 'UPDATE Users SET Username=?, FullName=?, Email=?, Password=?, Admin=? WHERE ID=?';
+        $sql = 'UPDATE Users SET Username=?, FullName=?, Email=?, Password=?, Profile=?, Admin=? WHERE ID=?';
 
         $statement = $conn->prepare( $sql );
 
-        $statement->execute( [ $username, $fullname, $email, $password, $admin, $id ] );
+        $statement->execute( [ $username, $fullname, $email, $password, $profile, $admin, $id ] );
     }
 
     function deleteUser($id) {

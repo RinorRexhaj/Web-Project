@@ -23,11 +23,12 @@
       if($email == $user['Email']) {
           $_SESSION['wrong_email'] = false;
           if($password == $user['Password']) {
-            $loggedUser = new User($user['ID'], $user['Username'], $user['FullName'], $user['Email'], $user['Password'], $user['Admin']);
+            $loggedUser = new User($user['ID'], $user['Username'], $user['FullName'], $user['Email'], $user['Password'], $user['Profile'], $user['Admin']);
 
             $_SESSION['userID'] = $user['ID'];
             $_SESSION['fullname'] = $loggedUser->getFullname();
             $_SESSION['username'] = $loggedUser->getUsername();
+            $_SESSION['profile'] = $loggedUser->getProfile();
             $_SESSION['admin'] = $loggedUser->getAdmin();
             $_SESSION['logged'] = true;
             $_SESSION['wrong_password'] = false;
@@ -79,7 +80,7 @@
       header('Location: login.php');
     } else {
       //kur t regjistrohet new user
-      $regUser = new User(null, $username, $fullname, $reg_email, $reg_password, false);
+      $regUser = new User(null, $username, $fullname, $reg_email, $reg_password, null, false);
       $userRepo->insertUser($regUser);
 
       $_SESSION['userID'] = ($userRepo->getUserByUsername($username))['ID'];

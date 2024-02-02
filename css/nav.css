@@ -81,15 +81,22 @@ nav {
 .user {
   width: 40px;
   height: 40px;
+  overflow: hidden;
   display: flex;
   cursor: pointer;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   font-weight: 600;
+  outline: 2px solid white;
   background-color: white;
   color: #00a6ff;
   transition: 0.2s all;
+}
+
+.user > img {
+  width: 40px;
+  height: 40px;
 }
 
 .user:hover {
@@ -106,6 +113,7 @@ nav {
   padding: 20px;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.8);
+  text-align: center;
   opacity: 0;
   visibility: hidden;
   transition: 0.3s all;
