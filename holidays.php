@@ -61,22 +61,15 @@
       header('Location: holidays.php');
   }
 
-  $_SESSION['picked_holidays'] = 'this_week';
+  $_SESSION['picked_holidays'] = 'favorites';
 
-  if(isset($_POST['this_week'])) {
-    $_SESSION['picked_holidays'] = 'this_week';
-    unset($_POST['all_time']);
+  if(isset($_POST['favorites'])) {
+    $_SESSION['picked_holidays'] = 'favorites';
     unset($_POST['your_holidays']);
   } 
-  else if(isset($_POST['all_time'])) {
-    $_SESSION['picked_holidays'] = 'all_time';
-    unset($_POST['this_week']);
-    unset($_POST['your_holidays']);    
-  }
   else if(isset($_POST['your_holidays'])) {
     $_SESSION['picked_holidays'] = 'your_holidays';
-    unset($_POST['this_week']);
-    unset($_POST['all_time']);
+    unset($_POST['favorites']);
   }
 
   if(isset($_POST['picked_holiday'])) {
@@ -92,6 +85,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Holiday Website - Holidays</title>
+    <link rel="icon" type="image/x-icon" href="img/beach (1).ico">
     <link rel="stylesheet" href="./css/holidays.css">
     <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/footer.css">
@@ -111,16 +105,15 @@
 <body>
     <?php include "header.php"; ?>
     <form action="holidays.php" method="post" class="pick_holidays">
-      <button type="submit" name="this_week" class="<?php if($_SESSION['picked_holidays'] == 'this_week') echo 'picked'; ?>">This Week</button>
-      <button type="submit" name="all_time" class="<?php if($_SESSION['picked_holidays'] == 'all_time') echo 'picked'; ?>">All Time</button>
+      <button type="submit" name="favorites" class="<?php if($_SESSION['picked_holidays'] == 'favorites') echo 'picked'; ?>">Favorites</button>
       <button type="submit" name="your_holidays" class="<?php if($_SESSION['picked_holidays'] == 'your_holidays') echo 'picked'; ?>">Your Holidays</button>
     </form>
     <main>
         <div class="this_week">
             <h1>
               <?php
-                if($_SESSION['picked_holidays'] == 'this_week')
-                  echo "This Week's Destinations";
+                if($_SESSION['picked_holidays'] == 'favorites')
+                  echo "Favorite Destinations";
                 else if($_SESSION['picked_holidays'] == 'all_time') 
                   echo "All Time Favorites";
                 else echo 'Your Holidays';
@@ -130,7 +123,7 @@
         </div>     
         <div class="holiday__container">
         <?php
-          if($_SESSION['picked_holidays'] == 'this_week') {
+          if($_SESSION['picked_holidays'] == 'favorites') {
             foreach ($holidays as $holiday) {
               if(isset($_SESSION['admin']) && $_SESSION['admin']) {
                 echo "<div class='your_holiday'><div class='action_btns'><a href='editHoliday.php?id={$holiday['ID']}' class='edit'>EDIT</a><a href='deleteHoliday.php?id={$holiday['ID']}' class='delete'>DELETE</a></div>";

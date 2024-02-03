@@ -36,7 +36,7 @@
     href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap'
     rel = 'stylesheet'
     />
-    <title>Edit</title>
+    <title>Edit User</title>
 </head>
 <body>
     <?php if (!isset($_SESSION['admin']) || !$_SESSION['admin']) return; ?>

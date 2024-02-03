@@ -54,7 +54,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="./js/profile.js" defer></script>
-    <title>Profile</title>
+    <title>Holiday Website - Profile</title>
+    <link rel="icon" type="image/x-icon" href="img/beach (1).ico">
 </head>
 <body>
     <?php if (!isset($_SESSION['userID'])) return; ?>
@@ -62,9 +63,11 @@
         <?php include "header.php"; ?>
         <form action="profile.php" method="POST" class="profile__container" enctype="multipart/form-data">
           <div class="left-container">
-            <img src="<?php if(isset($user)) echo './profiles/'.$user->getProfile(); ?>" alt="Profile Image" class="profile">
-            <input type="file" name="image" id="profile" accept="image/*">
-            <label for="profile" class="add_profile"><i class="fa-solid fa-plus"></i></label>
+            <div class="profile_img">
+              <img src="<?php if(isset($user)) echo './profiles/'.$user->getProfile(); ?>" alt="Profile Image" class="profile">
+              <input type="file" name="image" id="profile" accept="image/*">
+              <label for="profile" class="add_profile"><i class="fa-solid fa-plus"></i></label>
+            </div>
             <h2 style="color:white; text-align:center;"><?php echo $user->getFullname(); ?></h2>
             <p class="gradienttext">Travel Enthusiast</p>
           </div>
@@ -72,22 +75,22 @@
             <h3 class="gradienttext">Profile Details</h3>
             <table>
                 <tr>
-                    <td>Username :</td>
+                    <td>Username:</td>
                     <td><input type="text" name="username" value="<?php
                     echo $user->getUsername(); ?>" required></td>
                   </tr>
               <tr>
-                <td>Fullname :</td>
+                <td>Fullname:</td>
                 <td><input type="text" name="fullname" value="<?php
                     echo $user->getFullname(); ?>" required></td>
               </tr>
               <tr>
-                <td>Email :</td>
+                <td>Email:</td>
                 <td><input type="text" name="email" value="<?php
                     echo $user->getEmail(); ?>" required></td>
               </tr>
               <tr>
-                <td>Password :</td>
+                <td>Password:</td>
                 <td><input type="text" name="password" value="<?php
                     echo $user->getPassword(); ?>" required></td>
               </tr>

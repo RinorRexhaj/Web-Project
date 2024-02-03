@@ -63,23 +63,9 @@
     <script defer src="./js/home.js"></script>
     <script defer src="./js/preventRefresh.js"></script>
     <title>Holiday Website - Home</title>
+    <link rel="icon" type="image/x-icon" href="img/beach (1).ico">
   </head>
   <body>
-    <?php  
-      $variable = "Giraffe";
-      //$arr = array("one","two","three");
-      //$arr = array("Jim"=>"A+","Pam"=>"B");
-      //echo $variable;
-      //echo "<br>";
-      //echo sizeof($arr);
-      //echo $arr["Jim"];
-      function cube($num) {
-        return pow($num,3);
-      }
-      $cubeResult = cube(5);
-      //echo $cubeResult;
-    ?>
-  
     <div class="banner">
       <?php include "header.php" ?>
       <?php

@@ -114,6 +114,7 @@ main {
   align-items: center;
   gap: 30px;
   max-width: 1100px;
+  min-height: 375px;
   /* width: 350px; */
   padding: 30px;
   overflow-x: scroll;

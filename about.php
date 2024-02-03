@@ -22,6 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="./js/about.js"></script>
     <title>Holiday Website - About</title>
+    <link rel="icon" type="image/x-icon" href="img/beach (1).ico">
   </head>
   <body>
     <div class="banner">

@@ -22,6 +22,10 @@
   include_once "reservationRepo.php";
   $reservationRepo = new ReservationRepo();
   $reservations = $reservationRepo->getReservations();
+
+  include_once "contactRepo.php";
+  $contactRepo = new ContactRepo();
+  $contacts = $contactRepo->getContacts();
   
 ?>
 
@@ -46,7 +50,8 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-  <title>Dashboard</title>
+  <title>Holiday Website - Dashboard</title>
+  <link rel="icon" type="image/x-icon" href="img/beach (1).ico">
 </head>
 <body>
   <?php if (!isset($_SESSION['admin']) || !$_SESSION['admin']) return; ?>
@@ -231,27 +236,25 @@
       </div>
 
       <div class="dashboard contact_dash hidden">
-        <h1>Users Messages: <?php echo count($contact_messages); ?></h1>
+        <h1>Users Messages: <?php echo count($contacts); ?></h1>
         <div class="table-container">
         <table>
           <thead class="fixed">
             <tr>
-              <th>Username</th>
-              <th>Full Name</th>
-              <th>Email</th>
               <th>Message</th>
+              <th>User</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             <?php
-              $contact_messages = file_exists('contact_array.php') ? include 'contact_array.php' : [];
-              foreach ($contact_messages as $message) {
+              foreach ($contacts as $message) {
+                $contactName = ($userRepo->getUserbyId($message['User']))['Username'];
                 echo "<tr>
-                      <td>{$message['username']}</td>
-                      <td>{$message['fullname']}</td>
-                      <td>{$message['email']}</td>
-                      <td>{$message['message']}</td>
-                      </tr>";
+                  <td>{$message['Message']}</td>
+                  <td>{$contactName}</td>
+                  <td><a href='deleteContact.php?id={$message['ID']}' class='delete'>DELETE</a></td>
+                </tr>";
                 }
               ?>
           </tbody>
