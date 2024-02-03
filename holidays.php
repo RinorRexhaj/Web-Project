@@ -53,7 +53,7 @@
       $target = "uploads/".basename($_FILES['image']['name']);
       $image = $_FILES['image']['name'];
       
-      $newHoliday = new Holiday(null, $_POST['title'], $_POST['description'], $_POST['location'], $_POST['price'], $image, $current_user);
+      $newHoliday = new Holiday(null, $_POST['title'], $_POST['description'], $_POST['location'], $_POST['price'], $image, $current_user, null);
       
       move_uploaded_file($_FILES['image']['tmp_name'], $target);
 

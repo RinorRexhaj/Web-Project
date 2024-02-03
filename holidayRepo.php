@@ -20,11 +20,11 @@
             $image = $holiday->getImage();
             $userId = $holiday->getUserId();
 
-            $sql = "INSERT INTO holidays (id,title,description,location,price,image,user_id. editedby) VALUES (?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO holidays (id,title,description,location,price,image,user_id, editedby) VALUES (?,?,?,?,?,?,?,?)";
 
             $statement = $conn->prepare($sql);
 
-            $statement->execute([$id,$title,$description,$location,$price,$image,$userId,$editedBy]);
+            $statement->execute([$id,$title,$description,$location,$price,$image,$userId, $editedBy]);
 
         }
 
@@ -82,6 +82,19 @@
 
             return $holidays;
         }  
+
+        function getRandomHolidays() {
+            $conn = $this->connection;
+
+            $sql = "SELECT * FROM Holidays  
+            ORDER BY RAND ( )  
+            LIMIT 3";
+
+            $statement = $conn->query($sql);
+            $randomH = $statement->fetchAll();
+
+            return $randomH;
+        }
     }
 
 ?>

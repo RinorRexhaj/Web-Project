@@ -129,8 +129,8 @@ const news = document.querySelector(".news");
 const deals = document.querySelector(".deals");
 const getThere = document.querySelector(".get-there");
 const seeDeals = document.querySelectorAll(".see__deals");
-const pick = document.querySelectorAll(".pick");
-const locationSlider = document.querySelectorAll('.title h2');
+const pick = document.querySelectorAll(".pick__deals .pick");
+const locationSlider = document.querySelectorAll(".title h2");
 const viewMore = document.querySelector(".view__more");
 const searchHoliday = document.querySelector(".search_holiday");
 
@@ -170,14 +170,15 @@ viewMore.addEventListener("click", () => {
 
 pick.forEach((p, i) => {
   p.addEventListener("click", () => {
-    let locationArr = locationSlider[i].innerText.split(' ')
-    for(let i = 0; i<locationArr.length; i++) {
-      locationArr[i] = locationArr[i].charAt(0) + locationArr[i].slice(1).toLowerCase();
+    let locationArr = locationSlider[i].innerText.split(" ");
+    for (let i = 0; i < locationArr.length; i++) {
+      locationArr[i] =
+        locationArr[i].charAt(0) + locationArr[i].slice(1).toLowerCase();
       console.log(locationArr[i]);
     }
-    let location = locationArr.join(' ')
+    let location = locationArr.join(" ");
     whereTo.value = location;
-    completeOther(whereTo, destHotel)
+    completeOther(whereTo, destHotel);
     scroll(travelPlanning);
   });
 });
@@ -281,6 +282,18 @@ const emailValid = (email) => {
   const emailRegex = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/;
   return emailRegex.test(email.toLowerCase());
 };
+
+//Pick Holiday from Travel Deals
+const pickBtn = document.querySelectorAll(".canyon .pick");
+const dealLocations = document.querySelectorAll(".canyon .canyon_title");
+pickBtn.forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    console.log(dealLocations[index].innerHTML);
+    destHotel.value = dealLocations[index].innerHTML;
+    completeOther(destHotel, whereTo);
+    scroll(destHotel);
+  });
+});
 
 //Modal on successful reservation
 const modal = document.querySelector(".modal_reservation");

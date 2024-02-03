@@ -2,8 +2,9 @@
   session_start();
 
     if (!isset($_SESSION['userID'])) {
-        echo '<h1 style="color: #f2f2f2;">Not Logged In</h1>
-        <a href="login.php" style="text-decoration: none; color: #f2f2f2; font-size: 28px;">Log In</a>';
+        echo '<h1 style="color: #a2a2a2;">Not Logged In</h1>
+        <a href="login.php" style="text-decoration: none; color: #a1a1a1; font-size: 28px;">Log In</a>';
+        return;
     } 
 
     include_once 'userRepo.php';

@@ -10,6 +10,8 @@
   include_once 'reservation.php';
   $reservationRepo = new ReservationRepo();
 
+  include_once 'holidayRepo.php';
+  include_once 'holiday.php';
 
   if(isset($_POST['submit_reservation'])) {
     if(isset($_SESSION['userID'])) {
@@ -411,40 +413,46 @@
     <section class="travel__deals">
       <div class="october__deals">
         <h2>BEST TRAVEL DEALS</h2>
-        <p>OCT 12 - OCT 20</p>
+        <p><?php 
+          $month = date("F", time());
+          $day = date("d", time());
+
+          $date = date("Y/m/d", time());
+          $month2 = date("F", strtotime($date. ' + 7 days'));
+          $day2 = date("d", strtotime($date. ' + 7 days'));
+
+          $month = strtoupper(substr($month, 0, 3));
+          $month2 = strtoupper(substr($month2, 0, 3));
+          echo $month.'  '.$day.'  -  '.$month2.'  '.$day2;
+        ?></p>
       </div>
       <div class="canyon__deals">
-        <div class="canyon">
-          <p>Pick this Destination</p>
-          <img src="./img/p1.jpeg" alt="" />
-          <div class="canyon--text">
-            <h4>8-Day Guided Canyon, Bryce Tour</h4>
-            <div class="price">
-              <p>ACTIVE, ADVENTUROUS</p>
-              <h4>$ 2,399</h4>
+        <?php 
+          $holidayRepo = new HolidayRepo();
+          $randomHolidays = $holidayRepo->getRandomHolidays();
+
+          $categoryArray = ["ADVENTURE", "TOUR", "GUIDE", "TOURISM", "EXPLORATION"];
+
+          foreach($randomHolidays as $randomH) {
+            $randomHoliday = new Holiday($randomH['ID'], $randomH['Title'], $randomH['Description'], $randomH['Location'], $randomH['Price'], $randomH['Image'], $randomH['User_ID'], $randomH['EditedBy']);
+            echo '
+            <div class="canyon">
+            <div class="description">
+              <button class="pick" name="picked_holiday">PICK THIS</button>
+            </div>
+            <p class="canyon_title hidden">'.$randomHoliday->getLocation().'</p>
+            <img src="./img/'.$randomHoliday->getImage().'" alt="" />
+            <div class="canyon--text">
+              <h4>'.$randomHoliday->getTitle().'</h4>
+              <div class="price">
+                <p>'.$categoryArray[rand(0,4)].'</p>
+                <h4>$ '.$randomHoliday->getPrice().'</h4>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="canyon">
-          <img src="./img/p2.jpeg" alt="" />
-          <div class="canyon--text">
-            <h4>3-Day Guided Tour</h4>
-            <div class="price">
-              <p>ACTIVE, TOUR</p>
-              <h4>$ 2,099</h4>
-            </div>
-          </div>
-        </div>
-        <div class="canyon">
-          <img src="./img/p3.jpeg" alt="" />
-          <div class="canyon--text">
-            <h4>5-Day Venice Tour</h4>
-            <div class="price">
-              <p>TOUR, ADVENTUROUS</p>
-              <h4>$ 1,799</h4>
-            </div>
-          </div>
-        </div>
+            ';
+          }
+        ?>
       </div>
     </section>
     <?php include 'footer.php'; ?>
