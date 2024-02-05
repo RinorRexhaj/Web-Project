@@ -418,12 +418,12 @@
           $day = date("d", time());
 
           $date = date("Y/m/d", time());
-          $month2 = date("F", strtotime($date. ' + 7 days'));
-          $day2 = date("d", strtotime($date. ' + 7 days'));
+          $month2 = date("F", strtotime($date. ' - 7 days'));
+          $day2 = date("d", strtotime($date. ' - 7 days'));
 
           $month = strtoupper(substr($month, 0, 3));
           $month2 = strtoupper(substr($month2, 0, 3));
-          echo $month.'  '.$day.'  -  '.$month2.'  '.$day2;
+          echo $month2.'  '.$day2.'  -  '.$month.'  '.$day;
         ?></p>
       </div>
       <div class="canyon__deals">

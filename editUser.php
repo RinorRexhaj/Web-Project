@@ -75,7 +75,7 @@ if(isset($_POST['edit'])){
     $password = $_POST['password'];
     $admin = $_POST['admin'];
 
-    $userRepo->updateUser($userId,$username,$fullname,$email,$password,$admin);
+    $userRepo->updateUser($userId,$username,$fullname,$email,$password,$user['Profile'],$admin);
 
     header("Location: dashboard.php");
 }

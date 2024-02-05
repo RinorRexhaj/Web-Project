@@ -13,7 +13,7 @@ body {
   gap: 10px;
   /* justify-content: center; */
   align-items: center;
-  background: url('../img/dashboard2.jpg') no-repeat center left/cover;
+  background: url('../img/dashboard1.jpg') no-repeat center bottom/cover;
 }
 
 button {
@@ -46,6 +46,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.links {
+  background: rgba(17, 6, 132, 0.5);
 }
 
 /* Modal */

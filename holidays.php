@@ -2,7 +2,6 @@
 
   session_start();
 
-  // include "holidays_array.php";
   include_once "holidayRepo.php";
   include_once "userRepo.php";
   include_once "holiday.php";
@@ -136,7 +135,6 @@
           else if($_SESSION['picked_holidays'] == 'your_holidays') {
             if(count($your_holidays) == 0) {
               echo "<h1>You haven't added any holidays...<h1>";
-              return;
             }
             foreach ($your_holidays as $holiday) {
               echo "<div class='your_holiday'><div class='action_btns'><a href='editHoliday.php?id={$holiday['ID']}' class='edit'>EDIT</a><a href='deleteHoliday.php?id={$holiday['ID']}' class='delete'>DELETE</a></div>";
@@ -151,7 +149,7 @@
         <div class="modal hidden">
             <button class="btn--close-modal">&times;</button>
             <?php
-              if(isset($_SESSION['logged']) &&$_SESSION['logged']) {
+              if(isset($_SESSION['logged']) && $_SESSION['logged']) {
                 echo '
                 <h2 class="modal__header">Where you want to go next?</h2>
                 <form class="modal__form" method="post" action="holidays.php" enctype="multipart/form-data">
